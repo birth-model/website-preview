@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Birth Model — Healthcare AI Startup for Labor & Delivery</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Birth Model was founded by Dr. Anish Shah, a board-certified OB-GYN who delivered 4,000+ babies. Learn about our mission to make every birth safer through AI-powered predictive intelligence. Techstars-backed, SOC 2 certified.">
+  <meta name="keywords" content="Birth Model company, Dr Anish Shah OB-GYN, healthcare AI startup, Techstars healthcare, maternal health technology company, labor delivery AI founder, OB-GYN entrepreneur, Baltimore health tech">
+  <meta name="author" content="Birth Model, Inc.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://birthmodel.com/company.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://birthmodel.com/company.html">
+  <meta property="og:title" content="About Birth Model — Healthcare AI Startup for Labor & Delivery">
+  <meta property="og:description" content="Founded by Dr. Anish Shah, a board-certified OB-GYN. Learn about our mission to make every birth safer through AI-powered predictive intelligence.">
+  <meta property="og:image" content="https://birthmodel.com/og-image.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Birth Model — Healthcare AI Startup">
+  <meta name="twitter:description" content="Founded by Dr. Anish Shah, a board-certified OB-GYN with 4,000+ deliveries. Techstars-backed.">
+  
+  <!-- Person Schema for Founder -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dr. Anish Shah",
+    "jobTitle": "CEO & Founder",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Birth Model"
+    },
+    "description": "Board-certified OB-GYN who has delivered over 4,000 babies. Computer science and mathematics background from Cornell University.",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Cornell University"
+    },
+    "knowsAbout": ["Obstetrics", "Gynecology", "Healthcare AI", "Machine Learning"]
+  }
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bm-black: #1b1b1b;
+      --bm-white: #ffffff;
+      --bm-gray: #6c757d;
+      --bm-teal: #abdfe2;
+      --bm-coral: #ff7660;
+      --bm-coral-light: #ffebe7;
+      --bm-dark-teal: #1e3d3c;
+      --bm-light-gray: #f8fafa;
+      --bm-warm-gray: #f4f2f1;
+      --bm-cream: #faf9f7;
+      --bm-teal-light: #e8f6f7;
+      --bm-border: #e8e6e4;
+    }
+    
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: 'Lato', sans-serif; 
+      background: var(--bm-cream); 
+      color: var(--bm-black);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1; transform: none; transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    /* Page Header */
+    .page-header {
+      padding: 160px 40px 80px;
+      background: linear-gradient(170deg, var(--bm-cream) 0%, var(--bm-teal-light) 100%);
+      text-align: center;
+    }
+    .page-header-label {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--bm-coral);
+      margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin-bottom: 16px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .page-header p {
+      font-size: 17px;
+      color: var(--bm-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Story Section */
+    .story-section {
+      padding: 80px 40px;
+      background: white;
+    }
+    .story-inner { max-width: 1000px; margin: 0 auto; }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .story-image {
+      background: linear-gradient(135deg, var(--bm-teal-light), var(--bm-coral-light));
+      border-radius: 24px;
+      height: 450px;
+      width: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(30, 61, 60, 0.15);
+    }
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .story-content {}
+    .story-label {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--bm-coral);
+      margin-bottom: 14px;
+    }
+    .story-content h2 {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin-bottom: 20px;
+    }
+    .story-quote {
+      font-size: 16px;
+      color: var(--bm-gray);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+      padding-left: 20px;
+      border-left: 3px solid var(--bm-coral);
+    }
+    .story-attribution {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+    }
+    .btn {
+      display: inline-flex;
+      padding: 14px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      margin-top: 24px;
+    }
+    .btn-primary { background: var(--bm-coral); color: white; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 118, 96, 0.4); }
+    
+    /* Team Section */
+    .team-section {
+      padding: 80px 40px;
+      background: var(--bm-warm-gray);
+    }
+    .team-inner { max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-header h2 { font-size: 32px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 12px; }
+    .section-header p { font-size: 16px; color: var(--bm-gray); }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .team-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+    }
+    .team-card:hover { transform: translateY(-6px); border-color: var(--bm-teal); }
+    .team-avatar {
+      width: 90px;
+      height: 90px;
+      background: var(--bm-teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin: 0 auto 18px;
+    }
+    .team-name { font-size: 16px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 4px; }
+    .team-role { font-size: 13px; font-weight: 700; color: var(--bm-coral); margin-bottom: 10px; }
+    .team-bio { font-size: 12px; color: var(--bm-gray); line-height: 1.6; }
+    
+    /* Advisors */
+    .advisors-header { text-align: center; margin: 20px 0 30px; }
+    .advisors-header h3 { font-size: 22px; font-weight: 900; color: var(--bm-dark-teal); }
+    .advisors-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .advisor-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .advisor-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(30, 61, 60, 0.08); }
+    .advisor-name { font-size: 14px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 4px; }
+    .advisor-role { font-size: 11px; color: var(--bm-coral); font-weight: 600; line-height: 1.5; }
+    .advisor-background { font-size: 10px; color: var(--bm-gray); font-weight: 400; margin-top: 4px; font-style: italic; }
+    
+    /* Partners Section */
+    .partners-section {
+      padding: 60px 40px;
+      background: white;
+    }
+    .partners-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .partners-inner h3 { font-size: 18px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 30px; }
+    .partners-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+    }
+    .partner-logo {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+    .partner-logo:hover { opacity: 1; transform: scale(1.08); }
+    
+    /* Patents Section */
+    .patents-section {
+      padding: 60px 40px;
+      background: var(--bm-light-gray);
+    }
+    .patents-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .patents-inner h3 { font-size: 20px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 16px; }
+    .patents-inner p { font-size: 14px; color: var(--bm-gray); line-height: 1.7; margin-bottom: 30px; }
+    .patents-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .patent-item {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      border: 2px solid var(--bm-border);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+    .patent-item:hover {
+      border-color: var(--bm-teal);
+      background: var(--bm-dark-teal);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(30, 61, 60, 0.15);
+    }
+    .patent-item:hover .patent-label { color: rgba(255,255,255,0.7); }
+    .patent-item:hover .patent-number { color: white; }
+    .patent-label { font-size: 10px; font-weight: 700; color: var(--bm-gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; transition: color 0.3s; }
+    .patent-number { font-size: 14px; font-weight: 900; color: var(--bm-dark-teal); transition: color 0.3s; }
+    
+    /* CTA */
+    .cta-section {
+      padding: 100px 40px;
+      background: linear-gradient(135deg, #4a8f8c 0%, #3d7a77 50%, #2d5a58 100%);
+      text-align: center;
+    }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-section h2 { font-size: 36px; font-weight: 900; color: white; margin-bottom: 16px; }
+    .cta-section h2 span { color: var(--bm-teal); }
+    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 30px; }
+    
+        /* Footer */
+    .footer {
+      background: #1e3d3c;
+      padding: 70px 40px 30px;
+      color: white;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    .footer-brand {}
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-brand-logo img {
+      height: 32px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+        .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .footer-social-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bm-dark-teal);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-social-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+    }
+    .footer-social-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #abdfe2;
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
+    }
+    .footer-col a:hover {
+      color: white;
+      padding-left: 4px;
+    }
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-legal a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: white; text-decoration: underline; }
+    .footer-badges {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      transition: all 0.2s ease;
+    }
+    .footer-badge:hover {
+      background: rgba(255,255,255,0.12);
+    }
+    .footer-badge .check {
+      color: #4ade80;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .story-image { width: 100%; max-width: 400px; height: 400px; margin: 0 auto; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .patents-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .team-grid { grid-template-columns: 1fr; }
+      .patents-grid { grid-template-columns: 1fr 1fr; }
+      .story-image { width: 100%; max-width: 320px; height: 320px; }
+      .partners-logos { gap: 40px; }
+      .partner-logo { height: 32px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-badges { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Birth_Model_Logo.png" alt="Birth Model" style="height: 30px;">
+      </a>
+      <div class="nav-links">
+        <a href="solutions-hospitals.html" class="nav-link">For Hospitals</a>
+        <a href="solutions-clinicians.html" class="nav-link">For Clinicians</a>
+        <a href="company.html" class="nav-link active">Company</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="blogs.html" class="nav-dropdown-item">Blog</a>
+            <a href="videos.html" class="nav-dropdown-item">Videos</a>
+            <a href="roi-calculator.html" class="nav-dropdown-item">ROI Calculator</a>
+            <a href="implementation.html" class="nav-dropdown-item">Implementation</a>
+            <a href="careers.html" class="nav-dropdown-item">Careers</a>
+          </div>
+        </div>
+        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="demo.html" class="nav-cta">Schedule Demo</a>
+      </div>
+      <div class="nav-hamburger" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="solutions-hospitals.html">For Hospitals</a>
+    <a href="solutions-clinicians.html">For Clinicians</a>
+    <a href="company.html">Company</a>
+    <a href="blogs.html">Blog</a>
+    <a href="videos.html">Videos</a>
+    <a href="roi-calculator.html">ROI Calculator</a>
+    <a href="implementation.html">Mobile Implementation</a>
+    <a href="careers.html">Careers</a>
+    <a href="https://provider.birthmodel.com" target="_blank">Clinician Login</a>
+    <a href="demo.html" class="mobile-cta">Schedule Demo</a>
+  </div>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-header-label">Our Company</div>
+    <h1>Together, we are transforming obstetrics with AI-driven precision.</h1>
+    <p>A dedicated group of board-certified OB-GYNs with engineering expertise, innovative data engineers, and world-class software developers.</p>
+  </section>
+
+  <!-- Story Section -->
+  <section class="story-section">
+    <div class="story-inner">
+      <div class="story-grid">
+        <div class="story-image reveal">
+          <img src="anish-headshot.jpg" alt="Anish J. Shah, MD, FACOG - Founder and CEO of Birth Model">
+        </div>
+        <div class="story-content reveal">
+          <div class="story-label">Our Story</div>
+          <h2>The birth of Birth Model.</h2>
+          <p class="story-quote">
+            "During my OB-GYN residency, I witnessed the chaos of filled labor rooms, care delays, and non-labor patients occupying critical spaces. I quickly realized the need for a more organized and predictable birthing process.
+            <br><br>
+            We created Birth Model to use patient data and machine learning to predict delivery times, optimize staffing, and reduce patient wait times. Over the years, our platform has immensely synchronized hospital operations, saved staffing costs, increased L&D revenue, reduced provider burnout, boosted patient satisfaction, and lowered primary cesarean rates—all while seamlessly integrating with Epic workflows."
+          </p>
+          <p class="story-attribution">— Anish J. Shah, MD, FACOG, Founder and CEO of Birth Model</p>
+          <a href="demo.html" class="btn btn-primary">Get a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="team-inner">
+      <div class="section-header">
+        <h2>Birth Model's Senior Leadership Team</h2>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-avatar">AS</div>
+          <h3 class="team-name">Anish J. Shah, MD, FACOG</h3>
+          <div class="team-role">CEO, Founder</div>
+          <p class="team-bio">Board Certified OBGYN at Penn Princeton Medical Center. Cornell CS/Math. Harvard AI in Healthcare. 4,000+ deliveries.</p>
+        </div>
+        
+        <div class="team-card reveal">
+          <div class="team-avatar">MG</div>
+          <h3 class="team-name">Max Guillet</h3>
+          <div class="team-role">CTO</div>
+          <p class="team-bio">Vanderbilt University. Former Amazon and Microsoft. Full-stack engineering expertise.</p>
+        </div>
+        
+        <div class="team-card reveal">
+          <div class="team-avatar">NS</div>
+          <h3 class="team-name">Nishu Shah, MS</h3>
+          <div class="team-role">Dir. of Clinical Systems</div>
+          <p class="team-bio">Epic Certified. SAS Programming. EpicCare, Stork specialist.</p>
+        </div>
+        
+        <div class="team-card reveal">
+          <div class="team-avatar">TB</div>
+          <h3 class="team-name">Tony Brennan</h3>
+          <div class="team-role">Chief Commercial Officer</div>
+          <p class="team-bio">20+ years hospital and IDN sales experience in HealthTech and medical devices.</p>
+        </div>
+      </div>
+      
+      <div class="advisors-header">
+        <h3>Our Advisory Board</h3>
+      </div>
+      
+      <div class="advisors-grid">
+        <div class="advisor-card reveal">
+          <h4 class="advisor-name">Deepak Bapat, M.Eng.</h4>
+          <div class="advisor-role">Software & AI Advisor</div>
+          <div class="advisor-background">CTO of Tabs</div>
+        </div>
+        <div class="advisor-card reveal">
+          <h4 class="advisor-name">Debra L. Baseman, MD, FACOG</h4>
+          <div class="advisor-role">Clinical Innovations Advisor</div>
+          <div class="advisor-background">Princeton Precision Health</div>
+        </div>
+        <div class="advisor-card reveal">
+          <h4 class="advisor-name">Nicola Pemberton, MD, FACOG</h4>
+          <div class="advisor-role">Clinical Scientist Advisor</div>
+          <div class="advisor-background">Medical Director, Birth Center of NJ</div>
+        </div>
+        <div class="advisor-card reveal">
+          <h4 class="advisor-name">Sam Hessami, MD, MHA, FACHE</h4>
+          <div class="advisor-role">Clinical Patient Safety Advisor</div>
+          <div class="advisor-background">Chief Medical Officer</div>
+        </div>
+        <div class="advisor-card reveal">
+          <h4 class="advisor-name">Neel Shah, MD, FACOG, MPP</h4>
+          <div class="advisor-role">Clinical & Business Expansion Advisor</div>
+          <div class="advisor-background">CMO of Maven Clinic</div>
+        </div>
+        <div class="advisor-card reveal">
+          <h4 class="advisor-name">Girish Navani</h4>
+          <div class="advisor-role">Investor & Strategic Advisor</div>
+          <div class="advisor-background">CEO, eClinicalWorks</div>
+        </div>
+        <div class="advisor-card reveal">
+          <h4 class="advisor-name">Yoav Cohen</h4>
+          <div class="advisor-role">Fractional CFO</div>
+        </div>
+        <div class="advisor-card reveal">
+          <h4 class="advisor-name">Karam Shuaib, CPC</h4>
+          <div class="advisor-role">Medical Coding Optimization</div>
+        </div>
+      </div>
+
+      <div class="advisors-header" style="margin-top: 30px;">
+        <h3>Our Engineering & ML Team</h3>
+      </div>
+
+      <div class="engineering-description" style="text-align: center; max-width: 700px; margin: 0 auto 20px;">
+        <p style="font-size: 15px; color: var(--bm-gray); line-height: 1.7;">Our world-class engineering and machine learning team brings together expertise from top technology companies and leading research institutions. They're building the AI infrastructure that powers real-time delivery predictions and clinical decision support for hospitals nationwide.</p>
+      </div>
+
+      <!-- Join Our Team CTA -->
+      <div class="join-team-cta" style="background: linear-gradient(135deg, var(--bm-teal-light), var(--bm-coral-light)); border-radius: 20px; padding: 40px; text-align: center; margin-top: 30px;">
+        <h3 style="font-size: 24px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 12px;">Join Our Team</h3>
+        <p style="font-size: 15px; color: var(--bm-gray); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto;">We're growing and looking for passionate people to help us transform maternal healthcare. Currently hiring for 2 open positions.</p>
+        <a href="careers.html" class="btn btn-primary" style="background: var(--bm-coral); color: white; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-block;">View Open Positions →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="partners-section">
+    <div class="partners-inner">
+      <h3>We are grateful for the support from our investors and partners</h3>
+      <div class="partners-logos">
+        <a href="https://www.jhu.edu/" target="_blank"><img src="johnshopkins-large.jpg" alt="Johns Hopkins" class="partner-logo" style="height: 55px;"></a>
+        <a href="https://www.techstars.com/accelerators/baltimore-ai-health" target="_blank"><img src="Techstars_Logo_Primary_Black.png" alt="Techstars" class="partner-logo"></a>
+        <a href="https://individual.carefirst.com/individuals-families/home.page" target="_blank"><img src="carefirst.png" alt="CareFirst BlueCross BlueShield" class="partner-logo"></a>
+        <a href="https://www.gurtinventures.com/" target="_blank"><img src="gurtin-ventures.png" alt="Gurtin Ventures" class="partner-logo" style="height: 55px;"></a>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 15 L75 55 L85 55 L60 95 L40 95 L15 55 L25 55 Z" fill="#1e3d3c" opacity="0.9"/>
+            <path d="M50 15 L65 45 L50 45 L35 45 Z" fill="#abdfe2"/>
+            <path d="M50 15 L58 30 L50 28 L42 30 Z" fill="white"/>
+            <path d="M30 35 L45 60 L15 60 Z" fill="#1e3d3c" opacity="0.5"/>
+            <path d="M70 35 L85 60 L55 60 Z" fill="#1e3d3c" opacity="0.5"/>
+          </svg>
+          <span style="font-size: 14px; font-weight: 700; color: var(--bm-dark-teal); letter-spacing: 0.3px; white-space: nowrap;">EVEREST II TRUST FUND</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patents Section -->
+  <section class="patents-section">
+    <div class="patents-inner">
+      <h3>Virtual Patent Marking</h3>
+      <p>Birth Model's platforms are protected by patents in the U.S.A. and elsewhere. This website satisfies the virtual patent marking provisions of various jurisdictions including the America Invents Act and provides notice under 35 U.S.C. §287(a).</p>
+      <div class="patents-grid">
+        <a href="https://patents.google.com/patent/US11664100B2/en" target="_blank" class="patent-item">
+          <div class="patent-label">Patent No.</div>
+          <div class="patent-number">11,664,100</div>
+        </a>
+        <a href="https://patents.google.com/patent/US12133741B2/en" target="_blank" class="patent-item">
+          <div class="patent-label">Patent No.</div>
+          <div class="patent-number">12,133,741</div>
+        </a>
+        <div class="patent-item">
+          <div class="patent-label">PCT No.</div>
+          <div class="patent-number">US2022/074952</div>
+        </div>
+        <a href="https://patents.google.com/patent/US20250372213A1/en" target="_blank" class="patent-item">
+          <div class="patent-label">Patent Pending No.</div>
+          <div class="patent-number">18,680,780</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Join the <span>Movement</span></h2>
+      <p>See how Birth Model can transform your L&D operations with a personalized demo.</p>
+      <a href="demo.html" class="btn btn-primary">Schedule a Demo</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="Birth_Model_Logo.png" alt="Birth Model">
+          </div>
+          <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
+          <div class="footer-social">
+            <a href="mailto:support@birthmodel.com" class="footer-social-icon" title="Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/birth-model/" target="_blank" class="footer-social-icon" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M" target="_blank" class="footer-social-icon" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="solutions-hospitals.html">For Hospitals</a>
+          <a href="solutions-clinicians.html">For Clinicians</a>
+          <a href="company.html">Company</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="https://apps.apple.com/us/app/birth-model/id1562474693" target="_blank">Apple App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.birthmodel.provider" target="_blank">Google Play</a>
+          <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
+          <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
+          <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="blogs.html">Blogs</a>
+          <a href="videos.html">Videos</a>
+          <a href="roi-calculator.html">ROI Calculator</a>
+          <a href="implementation.html">Mobile Implementation</a>
+          <a href="https://app.vanta.com/birthmodel/trust/pbt1stf4skwae09sr1wjf" target="_blank">Trust Center</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="demo.html">Request Demo</a>
+          <a href="https://calendly.com/birthmodel" target="_blank">Schedule Meeting</a>
+          <a href="mailto:support@birthmodel.com">support@birthmodel.com</a>
+          <a href="implementation.html">Mobile Implementation</a>
+    <a href="careers.html">Careers</a>
+        </div>
+      </div>
+      
+            <div class="footer-bottom">
+        <div class="footer-legal">
+          <span>© 2026 Birth Model, Inc. All Rights Reserved.</span>
+          <span>|</span>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>|</span>
+          <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+        <div class="footer-badges">
+          <div class="footer-badge">
+            <span class="check">✓</span> SOC 2 Type II
+          </div>
+          <div class="footer-badge">
+            <span class="check">✓</span> HIPAA Compliant
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const hamburger = document.querySelector('.nav-hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const revealElements = document.querySelectorAll('.reveal');
+      revealElements.forEach(el => el.classList.add('active'));
+    });
+  </script>
+</body>
+</html>

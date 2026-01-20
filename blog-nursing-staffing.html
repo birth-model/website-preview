@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The L&D Staffing Crisis: How Unpredictability Drives Nursing Turnover — Birth Model Blog</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Labor & Delivery units face unique staffing challenges due to the inherent unpredictability of childbirth. Learn how census fluctuations impact nurse burnout, overtime costs, and patient safety.">
+  <meta name="keywords" content="L&D nursing staffing, labor delivery nurse shortage, OB nurse burnout, hospital staffing optimization, predictive staffing, nursing census fluctuations, nurse-to-patient ratios obstetrics">
+  <meta name="author" content="Anish J. Shah, MD, FACOG">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://birthmodel.com/blog-nursing-staffing.html">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bm-black: #1b1b1b;
+      --bm-gray: #6c757d;
+      --bm-teal: #abdfe2;
+      --bm-coral: #ff7660;
+      --bm-coral-light: #ffebe7;
+      --bm-dark-teal: #1e3d3c;
+      --bm-light-gray: #f8fafa;
+      --bm-warm-gray: #f4f2f1;
+      --bm-cream: #faf9f7;
+      --bm-teal-light: #e8f6f7;
+      --bm-border: #e8e6e4;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--bm-cream); color: var(--bm-black); -webkit-font-smoothing: antialiased; line-height: 1.8; }
+
+    .article-header { padding: 160px 40px 60px; background: linear-gradient(170deg, var(--bm-cream) 0%, var(--bm-teal-light) 100%); }
+    .article-header-inner { max-width: 800px; margin: 0 auto; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--bm-coral); text-decoration: none; margin-bottom: 24px; }
+    .article-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    .article-tag { padding: 6px 14px; background: var(--bm-teal-light); border-radius: 100px; font-size: 12px; font-weight: 700; color: var(--bm-dark-teal); }
+    .article-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: var(--bm-dark-teal); line-height: 1.25; margin-bottom: 20px; }
+    .article-author { display: flex; align-items: center; gap: 14px; }
+    .author-avatar { width: 50px; height: 50px; background: var(--bm-teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: var(--bm-dark-teal); }
+    .author-info h4 { font-size: 15px; font-weight: 900; color: var(--bm-dark-teal); }
+    .author-info p { font-size: 13px; color: var(--bm-gray); }
+
+    .article-content { padding: 60px 40px; background: white; }
+    .article-inner { max-width: 700px; margin: 0 auto; }
+    .article-inner p { font-size: 17px; color: var(--bm-black); margin-bottom: 24px; }
+    .article-inner h2 { font-size: 26px; font-weight: 900; color: var(--bm-dark-teal); margin: 40px 0 20px; }
+    .article-inner h3 { font-size: 20px; font-weight: 900; color: var(--bm-dark-teal); margin: 32px 0 16px; }
+    .article-inner ul, .article-inner ol { margin: 0 0 24px 24px; }
+    .article-inner li { font-size: 16px; color: var(--bm-black); margin-bottom: 10px; }
+    .article-inner blockquote { border-left: 4px solid var(--bm-coral); padding: 20px 30px; background: var(--bm-light-gray); border-radius: 0 12px 12px 0; margin: 30px 0; font-style: italic; color: var(--bm-dark-teal); }
+    .stat-highlight { background: linear-gradient(135deg, var(--bm-teal-light), var(--bm-coral-light)); border-radius: 16px; padding: 30px; margin: 30px 0; text-align: center; }
+    .stat-highlight .stat-value { font-size: 48px; font-weight: 900; color: var(--bm-dark-teal); }
+    .stat-highlight .stat-label { font-size: 16px; color: var(--bm-gray); margin-top: 8px; }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 30px 0; }
+    .stat-card { background: var(--bm-light-gray); border-radius: 12px; padding: 24px; text-align: center; }
+    .stat-card .stat-value { font-size: 36px; font-weight: 900; color: var(--bm-coral); }
+    .stat-card .stat-label { font-size: 14px; color: var(--bm-gray); margin-top: 8px; }
+
+    .article-cta { background: var(--bm-dark-teal); border-radius: 20px; padding: 40px; margin: 50px 0; text-align: center; }
+    .article-cta h3 { font-size: 24px; font-weight: 900; color: white; margin-bottom: 12px; }
+    .article-cta p { font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+    .article-cta .btn { display: inline-flex; padding: 14px 28px; background: var(--bm-coral); color: white; text-decoration: none; border-radius: 12px; font-size: 14px; font-weight: 700; transition: all 0.3s ease; }
+    .article-cta .btn:hover { transform: translateY(-2px); }
+
+    /* Footer */
+    .footer {
+      background: #1e3d3c;
+      padding: 70px 40px 30px;
+      color: white;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-brand-logo img {
+      height: 32px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .footer-social-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bm-dark-teal);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-social-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+    }
+    .footer-social-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #abdfe2;
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
+    }
+    .footer-col a:hover {
+      color: white;
+      padding-left: 4px;
+    }
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-legal a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: white; text-decoration: underline; }
+    .footer-badges {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      transition: all 0.2s ease;
+    }
+    .footer-badge:hover {
+      background: rgba(255,255,255,0.12);
+    }
+    .footer-badge .check {
+      color: #4ade80;
+    }
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .stat-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-badges { justify-content: center; }
+    }
+
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="Birth_Model_Logo.png" alt="Birth Model" style="height: 30px;"></a>
+      <div class="nav-links">
+        <a href="solutions-hospitals.html" class="nav-link">For Hospitals</a>
+        <a href="solutions-clinicians.html" class="nav-link">For Clinicians</a>
+        <a href="company.html" class="nav-link">Company</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="blogs.html" class="nav-dropdown-item">Blog</a>
+            <a href="videos.html" class="nav-dropdown-item">Videos</a>
+            <a href="roi-calculator.html" class="nav-dropdown-item">ROI Calculator</a>
+            <a href="implementation.html" class="nav-dropdown-item">Implementation</a>
+            <a href="careers.html" class="nav-dropdown-item">Careers</a>
+          </div>
+        </div>
+        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="demo.html" class="nav-cta">Schedule Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="article-header-inner">
+      <a href="blogs.html" class="back-link">← Back to Blog</a>
+      <div class="article-meta">
+        <span class="article-tag">Operational Efficiency</span>
+        <span class="article-tag">Nursing Staffing</span>
+      </div>
+      <h1 class="article-title">The L&D Staffing Crisis: How Unpredictability Drives Nursing Turnover and Costs</h1>
+      <div class="article-author">
+        <div class="author-avatar">AS</div>
+        <div class="author-info">
+          <h4>Anish J. Shah, MD, FACOG</h4>
+          <p>January 15, 2026 • 8 min read</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-content">
+    <div class="article-inner">
+      <p>
+        Labor and Delivery units operate in a state of perpetual uncertainty. Unlike scheduled surgeries or outpatient clinics, L&D must be ready for anything at any moment—a reality that creates one of healthcare's most challenging staffing environments. This unpredictability isn't just an operational inconvenience; it's a primary driver of nurse burnout, turnover, and unsustainable labor costs.
+      </p>
+
+      <div class="stat-highlight">
+        <div class="stat-value">80%+</div>
+        <div class="stat-label">of L&D admissions are unscheduled, making census prediction nearly impossible with traditional methods</div>
+      </div>
+
+      <h2>The Unpredictability Problem</h2>
+
+      <p>
+        Most hospital units can predict their patient census with reasonable accuracy. Surgical floors know how many cases are scheduled. Medical units can estimate admissions based on ED volumes and historical patterns. But Labor & Delivery is different.
+      </p>
+
+      <p>
+        While scheduled inductions and cesarean sections provide some baseline, the majority of L&D patients arrive unannounced—women in spontaneous labor, patients with ruptured membranes, or emergent transfers from clinics. This fundamental unpredictability cascades through every aspect of unit operations, but nowhere is the impact more severe than on nursing staff.
+      </p>
+
+      <h2>The Real Cost of Census Fluctuations</h2>
+
+      <p>L&D census can swing dramatically within hours. Consider a typical scenario:</p>
+
+      <ul>
+        <li><strong>7 AM:</strong> Unit has 8 patients with 6 nurses scheduled—comfortable staffing</li>
+        <li><strong>11 AM:</strong> Three walk-ins arrive, two scheduled inductions check in—now 13 patients with the same 6 nurses</li>
+        <li><strong>3 PM:</strong> Four deliveries occur, but two new triage patients arrive—back to 11 patients</li>
+        <li><strong>7 PM:</strong> Night shift inherits a unit that looks nothing like what was predicted</li>
+      </ul>
+
+      <p>
+        This volatility forces hospitals into a lose-lose situation: either staff for peak census (expensive and inefficient) or staff for average census (risking patient safety and nurse burnout during surges).
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-value">53%</div>
+          <div class="stat-label">of OB nurses report burnout symptoms</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">$52K</div>
+          <div class="stat-label">average cost to replace one L&D nurse</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">18%</div>
+          <div class="stat-label">annual turnover rate in L&D units</div>
+        </div>
+      </div>
+
+      <h2>How Unpredictability Drives Burnout</h2>
+
+      <p>
+        The connection between census unpredictability and nurse burnout is direct and measurable. When staffing doesn't match patient needs, several negative cascades begin:
+      </p>
+
+      <h3>Mandatory Overtime and Call-Ins</h3>
+      <p>
+        When census spikes unexpectedly, charge nurses scramble to call in additional staff. Nurses who were planning a day off suddenly find themselves working. Those already on shift are asked to extend. This unpredictability in scheduling erodes work-life balance and is consistently cited as a top reason nurses leave L&D.
+      </p>
+
+      <h3>Unsafe Patient Ratios</h3>
+      <p>
+        During surge periods, nurse-to-patient ratios can exceed safe limits. A nurse who should be caring for two laboring patients may find herself responsible for four. The stress of providing suboptimal care—knowing patients aren't getting the attention they need—is a significant contributor to moral injury and burnout.
+      </p>
+
+      <h3>The Overstaffing Paradox</h3>
+      <p>
+        Interestingly, overstaffing can also contribute to turnover. When census drops unexpectedly, nurses may be sent home or "called off," losing expected income. The financial unpredictability compounds the scheduling unpredictability, making it difficult for nurses to plan their lives.
+      </p>
+
+      <blockquote>
+        "I never know if I'm going to work a 12-hour shift with impossible patient loads or get called off and lose a day's pay. The uncertainty is exhausting."
+        <br><br>— L&D Nurse, 8 years experience
+      </blockquote>
+
+      <h2>The Financial Impact on Hospitals</h2>
+
+      <p>
+        Beyond the human cost, census unpredictability drives significant financial waste:
+      </p>
+
+      <ul>
+        <li><strong>Premium labor costs:</strong> Last-minute call-ins often require overtime pay or agency nurses at 2-3x standard rates</li>
+        <li><strong>Turnover expenses:</strong> At $52,000 per nurse to recruit, hire, and train, an 18% turnover rate devastates unit budgets</li>
+        <li><strong>Inefficiency during low census:</strong> When fully staffed for a surge that doesn't materialize, labor costs exceed revenue</li>
+        <li><strong>Quality penalties:</strong> Understaffing correlates with increased complications, potentially triggering quality-based payment reductions</li>
+      </ul>
+
+      <h2>Traditional Solutions Fall Short</h2>
+
+      <p>
+        Hospitals have tried various approaches to manage L&D staffing volatility, with limited success:
+      </p>
+
+      <p>
+        <strong>Float pools</strong> provide some flexibility but require cross-training and don't solve the core prediction problem. <strong>Mandatory overtime policies</strong> fill immediate gaps but accelerate burnout and turnover. <strong>Agency staffing</strong> offers last-minute coverage at premium costs with variable quality. <strong>Overstaffing as a default</strong> protects patient safety but is financially unsustainable.
+      </p>
+
+      <p>
+        None of these approaches address the fundamental issue: without accurate census prediction, staffing will always be reactive rather than proactive.
+      </p>
+
+      <h2>The Predictive Staffing Solution</h2>
+
+      <p>
+        What if you could see the future? Not perfectly, but well enough to staff appropriately 85% of the time instead of 50%?
+      </p>
+
+      <p>
+        Modern AI-powered predictive analytics are changing how leading L&D units approach staffing. By analyzing historical patterns, scheduled procedures, current census, and even external factors like weather and local events, these systems can forecast patient volumes days ahead.
+      </p>
+
+      <h3>Key Capabilities of Predictive Staffing</h3>
+      <ul>
+        <li><strong>10-14 day census forecasting:</strong> See expected patient volumes up to two weeks ahead, allowing proactive scheduling adjustments</li>
+        <li><strong>Walk-in predictions:</strong> AI models estimate unscheduled admissions based on 60+ days of historical data specific to your unit</li>
+        <li><strong>Real-time adjustments:</strong> As the day unfolds, predictions update based on actual census and trends</li>
+        <li><strong>Staffing recommendations:</strong> Translate census predictions into specific nurse staffing needs by shift</li>
+      </ul>
+
+      <div class="article-cta">
+        <h3>Transform Your L&D Staffing</h3>
+        <p>See how Birth Model's predictive analytics help hospitals reduce overtime, cut turnover, and improve nurse satisfaction.</p>
+        <a href="demo.html" class="btn">Schedule a Demo</a>
+      </div>
+
+      <h2>Real Results from Predictive Staffing</h2>
+
+      <p>
+        Hospitals implementing predictive staffing solutions are seeing measurable improvements:
+      </p>
+
+      <ul>
+        <li><strong>25-40% reduction</strong> in premium labor costs (overtime and agency)</li>
+        <li><strong>15-20% improvement</strong> in nurse satisfaction scores</li>
+        <li><strong>Decreased turnover</strong> as scheduling becomes more predictable</li>
+        <li><strong>Improved patient safety</strong> with more consistent nurse-to-patient ratios</li>
+      </ul>
+
+      <p>
+        The key insight is that while individual patient arrivals remain unpredictable, aggregate patterns are remarkably consistent. A unit that averages 6 walk-ins on Tuesdays will continue to average 6 walk-ins on Tuesdays—predictive models capture these patterns and surface them for staffing decisions.
+      </p>
+
+      <h2>Beyond Prediction: Creating a Sustainable L&D Workforce</h2>
+
+      <p>
+        Predictive staffing is one piece of a larger puzzle. Creating sustainable L&D units also requires:
+      </p>
+
+      <ul>
+        <li><strong>Transparent communication:</strong> Sharing predictions with staff so they understand staffing decisions</li>
+        <li><strong>Flexible scheduling options:</strong> Using predictions to offer more schedule control to nurses</li>
+        <li><strong>Fair call-off policies:</strong> Distributing low-census impacts equitably across the team</li>
+        <li><strong>Investment in retention:</strong> Reducing the chaos that drives experienced nurses away</li>
+      </ul>
+
+      <p>
+        The L&D nursing shortage isn't going to solve itself. With fewer nursing graduates choosing obstetrics and experienced nurses leaving the specialty, hospitals must focus on retention. Predictive staffing won't eliminate the inherent unpredictability of childbirth, but it can transform that uncertainty from a daily crisis into a manageable operational challenge.
+      </p>
+
+      <h2>The Path Forward</h2>
+
+      <p>
+        Labor & Delivery will always be unpredictable—that's the nature of childbirth. But unpredictability doesn't have to mean chaos. With modern predictive tools, hospitals can anticipate census fluctuations, staff appropriately, and create working conditions that support nurse wellbeing.
+      </p>
+
+      <p>
+        The units that thrive in the coming decade will be those that embrace data-driven staffing, invest in their nursing workforce, and transform the unpredictability of L&D from a liability into a manageable reality.
+      </p>
+
+      <p>
+        <em>At Birth Model, we believe that better predictions lead to better staffing, which leads to better outcomes—for nurses, for patients, and for hospitals. Our predictive analytics platform is helping L&D units across the country move from reactive crisis management to proactive, sustainable operations.</em>
+      </p>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="Birth_Model_Logo.png" alt="Birth Model">
+          </div>
+          <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
+          <div class="footer-social">
+            <a href="mailto:support@birthmodel.com" class="footer-social-icon" title="Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/birth-model/" target="_blank" class="footer-social-icon" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M" target="_blank" class="footer-social-icon" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="solutions-hospitals.html">For Hospitals</a>
+          <a href="solutions-clinicians.html">For Clinicians</a>
+          <a href="company.html">Company</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="https://apps.apple.com/us/app/birth-model/id6473621253" target="_blank">Apple App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.birthmodel.provider" target="_blank">Google Play</a>
+          <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
+          <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
+          <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="blogs.html">Blogs</a>
+          <a href="videos.html">Videos</a>
+          <a href="roi-calculator.html">ROI Calculator</a>
+          <a href="implementation.html">Mobile Implementation</a>
+          <a href="https://app.vanta.com/birthmodel/trust/pbt1stf4skwae09sr1wjf" target="_blank">Trust Center</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="demo.html">Request Demo</a>
+          <a href="https://calendly.com/birthmodel" target="_blank">Schedule Meeting</a>
+          <a href="mailto:support@birthmodel.com">support@birthmodel.com</a>
+          <a href="implementation.html">Mobile Implementation</a>
+    <a href="careers.html">Careers</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <span>© 2026 Birth Model, Inc. All Rights Reserved.</span>
+          <span>|</span>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>|</span>
+          <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+        <div class="footer-badges">
+          <div class="footer-badge">
+            <span class="check">✓</span> SOC 2 Type II
+          </div>
+          <div class="footer-badge">
+            <span class="check">✓</span> HIPAA Compliant
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const hamburger = document.querySelector('.nav-hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+  </script>
+</body>
+</html>

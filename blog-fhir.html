@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMART on FHIR: The Future of Healthcare Interoperability — Birth Model Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bm-black: #1b1b1b;
+      --bm-gray: #6c757d;
+      --bm-teal: #abdfe2;
+      --bm-coral: #ff7660;
+      --bm-coral-light: #ffebe7;
+      --bm-dark-teal: #1e3d3c;
+      --bm-light-gray: #f8fafa;
+      --bm-cream: #faf9f7;
+      --bm-teal-light: #e8f6f7;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--bm-cream); color: var(--bm-black); -webkit-font-smoothing: antialiased; line-height: 1.8; }
+    
+    .article-header { padding: 160px 40px 60px; background: linear-gradient(170deg, var(--bm-cream) 0%, var(--bm-teal-light) 100%); }
+    .article-header-inner { max-width: 800px; margin: 0 auto; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--bm-coral); text-decoration: none; margin-bottom: 24px; }
+    .article-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    .article-tag { padding: 6px 14px; background: var(--bm-teal-light); border-radius: 100px; font-size: 12px; font-weight: 700; color: var(--bm-dark-teal); }
+    .article-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: var(--bm-dark-teal); line-height: 1.25; margin-bottom: 20px; }
+    .article-author { display: flex; align-items: center; gap: 14px; }
+    .author-avatar { width: 50px; height: 50px; background: var(--bm-teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: var(--bm-dark-teal); }
+    .author-info h4 { font-size: 15px; font-weight: 900; color: var(--bm-dark-teal); }
+    .author-info p { font-size: 13px; color: var(--bm-gray); }
+    
+    .article-content { padding: 60px 40px; background: white; }
+    .article-inner { max-width: 700px; margin: 0 auto; }
+    .article-inner p { font-size: 17px; color: var(--bm-black); margin-bottom: 24px; }
+    .article-inner h2 { font-size: 26px; font-weight: 900; color: var(--bm-dark-teal); margin: 40px 0 20px; }
+    .article-inner h3 { font-size: 20px; font-weight: 900; color: var(--bm-dark-teal); margin: 32px 0 16px; }
+    .article-inner ul { margin: 0 0 24px 24px; }
+    .article-inner li { font-size: 16px; color: var(--bm-black); margin-bottom: 10px; }
+    .article-inner strong { color: var(--bm-dark-teal); }
+    .article-inner code { background: var(--bm-light-gray); padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 14px; }
+    
+    .integration-diagram { background: var(--bm-light-gray); border-radius: 16px; padding: 30px; margin: 30px 0; }
+    .diagram-flow { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .diagram-box { background: white; border-radius: 12px; padding: 20px 24px; text-align: center; box-shadow: 0 4px 15px rgba(30, 61, 60, 0.08); }
+    .diagram-box.ehr { border: 2px solid #c41230; }
+    .diagram-box.fhir { border: 2px solid var(--bm-teal); background: var(--bm-teal-light); }
+    .diagram-box.bm { border: 2px solid var(--bm-dark-teal); background: var(--bm-dark-teal); color: white; }
+    .diagram-box .title { font-size: 14px; font-weight: 900; margin-bottom: 4px; }
+    .diagram-box .subtitle { font-size: 11px; color: var(--bm-gray); }
+    .diagram-box.bm .subtitle { color: rgba(255,255,255,0.7); }
+    .diagram-arrow { font-size: 24px; color: var(--bm-teal); }
+    
+    .article-cta { background: var(--bm-dark-teal); border-radius: 20px; padding: 40px; margin: 50px 0; text-align: center; }
+    .article-cta h3 { font-size: 24px; font-weight: 900; color: white; margin-bottom: 12px; }
+    .article-cta p { font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+    .article-cta .btn { display: inline-flex; padding: 14px 28px; background: var(--bm-coral); color: white; text-decoration: none; border-radius: 12px; font-size: 14px; font-weight: 700; }
+    
+    .footer { background: #0f2524; padding: 50px 40px 30px; color: white; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; }
+    .footer-copy { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: rgba(255,255,255,0.5); }
+    
+    @media (max-width: 768px) { .nav-links { display: none; }
+      .nav-hamburger { display: flex; } .diagram-flow { flex-direction: column; } .diagram-arrow { transform: rotate(90deg); } .footer-content { flex-direction: column; gap: 20px; text-align: center; } }
+
+    /* Footer */
+    .footer {
+      background: #1e3d3c;
+      padding: 70px 40px 30px;
+      color: white;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-brand-logo img {
+      height: 32px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+        .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .footer-social-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bm-dark-teal);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-social-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+    }
+    .footer-social-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #abdfe2;
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
+    }
+    .footer-col a:hover {
+      color: white;
+      padding-left: 4px;
+    }
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-legal a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: white; text-decoration: underline; }
+    .footer-badges {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      transition: all 0.2s ease;
+    }
+    .footer-badge:hover {
+      background: rgba(255,255,255,0.12);
+    }
+    .footer-badge .check {
+      color: #4ade80;
+    }
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-badges { justify-content: center; }
+    }
+
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Birth_Model_Logo.png" alt="Birth Model" style="height: 30px;">
+      </a>
+      <div class="nav-links">
+        <a href="solutions-hospitals.html" class="nav-link">For Hospitals</a>
+        <a href="solutions-clinicians.html" class="nav-link">For Clinicians</a>
+        <a href="company.html" class="nav-link">Company</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="blogs.html" class="nav-dropdown-item">Blog</a>
+            <a href="videos.html" class="nav-dropdown-item">Videos</a>
+            <a href="roi-calculator.html" class="nav-dropdown-item">ROI Calculator</a>
+            <a href="implementation.html" class="nav-dropdown-item">Implementation</a>
+            <a href="careers.html" class="nav-dropdown-item">Careers</a>
+          </div>
+        </div>
+        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="demo.html" class="nav-cta">Schedule Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="article-header-inner">
+      <a href="blogs.html" class="back-link">← Back to Blog</a>
+      <div class="article-meta">
+        <span class="article-tag">Technology</span>
+        <span class="article-tag">EHR Integration</span>
+      </div>
+      <h1 class="article-title">SMART on FHIR: The Future of Healthcare Interoperability</h1>
+      <div class="article-author">
+        <div class="author-avatar">MG</div>
+        <div class="author-info">
+          <h4>Max Guillet, Head of Engineering</h4>
+          <p>November 20, 2024 • 8 min read</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-content">
+    <div class="article-inner">
+      <p>
+        Healthcare interoperability has been a challenge for decades. Despite billions of dollars invested in EHR systems, most healthcare applications still struggle to exchange data seamlessly. SMART on FHIR is changing that—and it's the foundation of how Birth Model integrates with Epic and Oracle Health.
+      </p>
+
+      <h2>What is SMART on FHIR?</h2>
+      
+      <p>
+        <strong>SMART</strong> (Substitutable Medical Applications, Reusable Technologies) is a set of open specifications that enable healthcare applications to run on top of EHR systems. <strong>FHIR</strong> (Fast Healthcare Interoperability Resources) is a modern standard for exchanging healthcare data.
+      </p>
+      
+      <p>
+        Together, SMART on FHIR provides a standardized way for third-party applications to:
+      </p>
+      
+      <ul>
+        <li>Authenticate securely with EHR systems using OAuth 2.0</li>
+        <li>Access patient data in a standardized format</li>
+        <li>Launch directly from within the EHR interface</li>
+        <li>Write data back to the patient record</li>
+      </ul>
+
+      <h2>Why This Matters for Healthcare</h2>
+      
+      <h3>Faster Implementation</h3>
+      <p>
+        Traditional EHR integrations can take 12-18 months and hundreds of thousands of dollars. SMART on FHIR applications can be deployed in weeks because they use standardized APIs rather than custom interfaces.
+      </p>
+      
+      <h3>Reduced IT Burden</h3>
+      <p>
+        Hospital IT departments don't need to build and maintain custom integration code. SMART on FHIR applications work with the EHR's existing infrastructure.
+      </p>
+      
+      <h3>Better Security</h3>
+      <p>
+        OAuth 2.0 authentication means applications never handle user passwords. Access tokens provide granular, time-limited permissions that can be revoked if needed.
+      </p>
+      
+      <h3>In-Context Launch</h3>
+      <p>
+        SMART applications launch within the EHR with full patient context already loaded. Users don't need to re-enter patient information or switch between systems.
+      </p>
+
+      <h2>Birth Model's SMART on FHIR Implementation</h2>
+      
+      <div class="integration-diagram">
+        <div class="diagram-flow">
+          <div class="diagram-box ehr">
+            <div class="title">Epic / Oracle Health</div>
+            <div class="subtitle">EHR System</div>
+          </div>
+          <div class="diagram-arrow">→</div>
+          <div class="diagram-box fhir">
+            <div class="title">OAuth 2.0 + FHIR R4</div>
+            <div class="subtitle">Secure API Layer</div>
+          </div>
+          <div class="diagram-arrow">→</div>
+          <div class="diagram-box bm">
+            <div class="title">Birth Model</div>
+            <div class="subtitle">AI Platform</div>
+          </div>
+        </div>
+      </div>
+      
+      <h3>Zero-Click Integration</h3>
+      <p>
+        Birth Model launches automatically when a provider opens an obstetric patient's chart. There's no separate login, no switching windows, no context loss. The patient's complete L&D data is immediately available.
+      </p>
+      
+      <h3>Real-Time Data Flow</h3>
+      <p>
+        As nurses document vital signs, cervical exams, and medications in the EHR, that data flows to Birth Model in real-time. Our AI continuously updates predictions and risk assessments based on the latest clinical information.
+      </p>
+      
+      <h3>Bi-Directional Sync</h3>
+      <p>
+        Birth Model doesn't just read data—it writes back to the EHR. AI-generated delivery notes, procedure summaries, and handoff reports are automatically saved to the patient's chart, eliminating duplicate documentation.
+      </p>
+
+      <h2>Technical Details</h2>
+      
+      <p>
+        For those interested in the technical implementation:
+      </p>
+      
+      <ul>
+        <li><strong>Authentication:</strong> OAuth 2.0 with PKCE flow for enhanced security</li>
+        <li><strong>Data Format:</strong> FHIR R4 resources including Patient, Observation, Procedure, and Condition</li>
+        <li><strong>Launch Context:</strong> EHR launch with patient and encounter context</li>
+        <li><strong>Epic Support:</strong> Listed in Epic App Orchard, Connection Hub integration</li>
+        <li><strong>Oracle Health Support:</strong> Certified Cerner HealtheIntent integration</li>
+      </ul>
+
+      <h2>The Path Forward</h2>
+      
+      <p>
+        SMART on FHIR represents the future of healthcare application development. As the standard matures and more EHRs adopt it, we'll see an explosion of innovation—specialized applications that solve specific clinical problems without requiring massive integration projects.
+      </p>
+      
+      <p>
+        Birth Model is proud to be at the forefront of this movement, demonstrating what's possible when clinical AI meets modern interoperability standards.
+      </p>
+
+      <div class="article-cta">
+        <h3>See Our Integration in Action</h3>
+        <p>Schedule a demo to see how Birth Model integrates seamlessly with your EHR.</p>
+        <a href="demo.html" class="btn">Request a Demo</a>
+      </div>
+    </div>
+  </article>
+
+      <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="Birth_Model_Logo.png" alt="Birth Model">
+          </div>
+          <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
+          <div class="footer-social">
+            <a href="mailto:support@birthmodel.com" class="footer-social-icon" title="Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/birth-model/" target="_blank" class="footer-social-icon" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M" target="_blank" class="footer-social-icon" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="solutions-hospitals.html">For Hospitals</a>
+          <a href="solutions-clinicians.html">For Clinicians</a>
+          <a href="company.html">Company</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="https://apps.apple.com" target="_blank">Apple App Store</a>
+          <a href="https://play.google.com" target="_blank">Google Play</a>
+          <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
+          <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
+          <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="blogs.html">Blogs</a>
+          <a href="videos.html">Videos</a>
+          <a href="roi-calculator.html">ROI Calculator</a>
+          <a href="implementation.html">Mobile Implementation</a>
+          <a href="https://app.vanta.com/birthmodel/trust/pbt1stf4skwae09sr1wjf" target="_blank">Trust Center</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="demo.html">Request Demo</a>
+          <a href="demo.html">Schedule Meeting</a>
+          <a href="
+          <a href="implementation.html">Mobile Implementation</a>
+    <a href="careers.html">Careers</a>
+        </div>
+      </div>
+      
+            <div class="footer-bottom">
+        <div class="footer-legal">
+          <span>© 2026 Birth Model, Inc. All Rights Reserved.</span>
+          <span>|</span>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>|</span>
+          <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+        <div class="footer-badges">
+          <div class="footer-badge">
+            <span class="check">✓</span> SOC 2 Type II
+          </div>
+          <div class="footer-badge">
+            <span class="check">✓</span> HIPAA Compliant
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const hamburger = document.querySelector('.nav-hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const revealElements = document.querySelectorAll('.reveal');
+      revealElements.forEach(el => el.classList.add('active'));
+    });
+  </script>
+</body>
+</html>

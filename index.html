@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birth Model — AI-Powered Predictive Intelligence for Labor & Delivery</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Birth Model delivers AI-powered predictive intelligence for Labor & Delivery units. Predict delivery times within ±12 minutes, reduce staffing costs, improve maternal outcomes, and integrate seamlessly with Epic and Oracle Health EHRs.">
+  <meta name="keywords" content="labor and delivery software, L&D predictive AI, hospital staffing optimization, Epic EHR integration, Oracle Health integration, maternal health technology, delivery time prediction, PPH risk assessment, preeclampsia detection, OB documentation software, healthcare AI, SMART on FHIR, clinical decision support">
+  <meta name="author" content="Birth Model, Inc.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://birthmodel.com/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://birthmodel.com/">
+  <meta property="og:title" content="Birth Model — AI-Powered Predictive Intelligence for Labor & Delivery">
+  <meta property="og:description" content="Predict delivery times within ±12 minutes. Reduce staffing costs. Improve maternal outcomes. Seamless Epic & Oracle Health integration.">
+  <meta property="og:image" content="https://birthmodel.com/og-image.png">
+  <meta property="og:site_name" content="Birth Model">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://birthmodel.com/">
+  <meta name="twitter:title" content="Birth Model — AI-Powered Predictive Intelligence for Labor & Delivery">
+  <meta name="twitter:description" content="Predict delivery times within ±12 minutes. Reduce staffing costs. Improve maternal outcomes. Seamless Epic & Oracle Health integration.">
+  <meta name="twitter:image" content="https://birthmodel.com/og-image.png">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Birth Model",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "description": "AI-powered predictive intelligence platform for Labor & Delivery units that predicts delivery times, optimizes staffing, and improves maternal outcomes.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Contact for enterprise pricing"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "150"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Birth Model, Inc.",
+      "url": "https://birthmodel.com",
+      "logo": "https://birthmodel.com/Birth_Model_Logo.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/birth-model/",
+        "https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M"
+      ]
+    }
+  }
+  </script>
+  
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Birth Model",
+    "url": "https://birthmodel.com",
+    "logo": "https://birthmodel.com/Birth_Model_Logo.png",
+    "description": "Healthcare AI startup providing predictive intelligence for Labor & Delivery units",
+    "foundingDate": "2020",
+    "founders": [{
+      "@type": "Person",
+      "name": "Anish Shah, MD",
+      "jobTitle": "CEO & Founder"
+    }],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "support@birthmodel.com",
+      "url": "https://birthmodel.com/demo.html"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/birth-model/",
+      "https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M",
+      "https://apps.apple.com/us/app/birth-model/id1562474693",
+      "https://play.google.com/store/apps/details?id=com.birthmodel.provider"
+    ]
+  }
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bm-black: #1b1b1b;
+      --bm-white: #ffffff;
+      --bm-gray: #6c757d;
+      --bm-teal: #abdfe2;
+      --bm-coral: #ff7660;
+      --bm-coral-light: #ffebe7;
+      --bm-dark-teal: #1e3d3c;
+      --bm-light-gray: #f8fafa;
+      --bm-warm-gray: #f4f2f1;
+      --bm-cream: #faf9f7;
+      --bm-teal-light: #e8f6f7;
+      --bm-border: #e8e6e4;
+      --epic-red: #c41230;
+    }
+    
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: 'Lato', sans-serif; 
+      background: var(--bm-cream); 
+      color: var(--bm-black);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes glow { 0%, 100% { box-shadow: 0 0 20px rgba(171, 223, 226, 0.4); } 50% { box-shadow: 0 0 35px rgba(171, 223, 226, 0.7); } }
+    @keyframes livePulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); } 50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); } }
+    @keyframes slideInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes orbit { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes dataFlow { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+    /* Animated Cursor Styles */
+    .demo-cursor {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      z-index: 100;
+      transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1), top 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s ease;
+    }
+    .demo-cursor svg {
+      width: 20px;
+      height: 20px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    .demo-cursor.clicking { transform: scale(0.85); }
+    .cursor-click-ripple {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 118, 96, 0.3);
+      transform: translate(-50%, -50%) scale(0);
+      pointer-events: none;
+      z-index: 99;
+    }
+    .cursor-click-ripple.animate { animation: clickRipple 0.6s ease-out forwards; }
+    @keyframes clickRipple {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+    }
+    .demo-cursor-label {
+      position: absolute;
+      top: 24px;
+      left: 12px;
+      background: var(--bm-dark-teal);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 700;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .demo-cursor.clicking .demo-cursor-label { opacity: 1; transform: translateY(0); }
+
+    /* Scroll reveal animations - visible by default, animate on scroll */
+    .reveal, .reveal-left, .reveal-right, .reveal-scale { 
+      opacity: 1; 
+      transform: none;
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
+    }
+    
+    /* Only apply hidden state if JS is enabled */
+    .js-enabled .reveal { opacity: 0; transform: translateY(40px); }
+    .js-enabled .reveal-left { opacity: 0; transform: translateX(-50px); }
+    .js-enabled .reveal-right { opacity: 0; transform: translateX(50px); }
+    .js-enabled .reveal-scale { opacity: 0; transform: scale(0.9); }
+    
+    /* Active state for JS animations */
+    .js-enabled .reveal.active { opacity: 1; transform: translateY(0); }
+    .js-enabled .reveal-left.active { opacity: 1; transform: translateX(0); }
+    .js-enabled .reveal-right.active { opacity: 1; transform: translateX(0); }
+    .js-enabled .reveal-scale.active { opacity: 1; transform: scale(1); }
+    
+    /* Print/PDF: always visible */
+    @media print {
+      .reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger > * {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+    
+    /* Stagger children - visible by default */
+    .stagger > * { 
+      opacity: 1; 
+      transform: none;
+      transition: all 0.6s ease; 
+    }
+    
+    /* Only apply hidden state if JS is enabled */
+    .js-enabled .stagger > * { opacity: 0; transform: translateY(25px); }
+    .js-enabled .stagger.active > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+    .js-enabled .stagger.active > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+    .js-enabled .stagger.active > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+    .js-enabled .stagger.active > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+    .js-enabled .stagger.active > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+    .js-enabled .stagger.active > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+    
+    /* Navigation styles moved to nav.css */
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(170deg, var(--bm-cream) 0%, #f0efed 50%, var(--bm-teal-light) 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 60%;
+      height: 120%;
+      background: radial-gradient(ellipse, rgba(171, 223, 226, 0.25) 0%, transparent 60%);
+      animation: float 20s ease-in-out infinite;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(30, 61, 60, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 61, 60, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 140px 40px 100px;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-content { color: var(--bm-black); }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      background: rgba(171, 223, 226, 0.3);
+      border: 1px solid rgba(171, 223, 226, 0.5);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+      margin-bottom: 24px;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: livePulse 2s ease-in-out infinite;
+    }
+    .hero-title {
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 900;
+      line-height: 1.12;
+      margin-bottom: 22px;
+      animation: fadeInUp 0.8s ease-out forwards;
+      animation-delay: 0.1s;
+      opacity: 0;
+      color: var(--bm-black);
+    }
+    .hero-title .highlight { color: var(--bm-coral); }
+    .hero-title .teal { color: var(--bm-dark-teal); }
+    .hero-subtitle {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--bm-gray);
+      max-width: 480px;
+      margin-bottom: 32px;
+      animation: fadeInUp 0.8s ease-out forwards;
+      animation-delay: 0.2s;
+      opacity: 0;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out forwards;
+      animation-delay: 0.3s;
+      opacity: 0;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 30px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-family: 'Lato', sans-serif;
+    }
+    .btn-primary {
+      background: var(--bm-coral);
+      color: white;
+      box-shadow: 0 6px 25px rgba(255, 118, 96, 0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(255, 118, 96, 0.5); }
+    .btn-outline { background: transparent; border: 2px solid var(--bm-dark-teal); color: var(--bm-dark-teal); }
+    .btn-outline:hover { background: var(--bm-dark-teal); color: white; }
+    
+    /* Hero Visual - Epic App with Tab Views */
+    .hero-visual {
+      position: relative;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 0.4s;
+      opacity: 0;
+    }
+    .epic-app {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(30, 61, 60, 0.18), 0 15px 40px rgba(30, 61, 60, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      min-height: 420px;
+    }
+    .epic-app:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 50px 100px rgba(30, 61, 60, 0.22);
+    }
+    .epic-header {
+      background: linear-gradient(135deg, #3d4f5f, #2b3a47);
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .epic-header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .epic-logo-img {
+      height: 22px;
+      filter: brightness(0) invert(1);
+    }
+    .epic-logo-text {
+      font-size: 20px;
+      font-weight: 900;
+      font-style: italic;
+      color: var(--epic-red);
+      font-family: Georgia, serif;
+    }
+    .epic-header-title {
+      color: white;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .epic-header-title span {
+      color: var(--epic-red);
+      font-weight: 700;
+    }
+    .epic-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .epic-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    .epic-dot:hover { transform: scale(1.2); }
+    .epic-dot.red { background: #ef4444; }
+    .epic-dot.yellow { background: #f59e0b; }
+    .epic-dot.green { background: #22c55e; }
+    
+    /* Epic Body */
+    .epic-body {
+      display: flex;
+      background: #f8f9fa;
+      position: relative;
+    }
+    .epic-sidebar {
+      width: 150px;
+      background: linear-gradient(180deg, #f8f8f8 0%, #f0f0f0 100%);
+      padding: 10px 0;
+      border-right: 1px solid #ddd;
+    }
+    .epic-nav-item {
+      padding: 10px 14px;
+      color: #333;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-left: 3px solid transparent;
+    }
+    .epic-nav-item:hover { background: rgba(196, 18, 48, 0.08); border-left-color: rgba(196, 18, 48, 0.3); }
+    .epic-nav-item.active {
+      background: rgba(196, 18, 48, 0.12);
+      color: var(--epic-red);
+      font-weight: 700;
+      border-left-color: var(--epic-red);
+    }
+    
+    /* View tabs inside mockup */
+    .epic-view-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+    .epic-view-tab {
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--bm-light-gray);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--bm-gray);
+    }
+    .epic-view-tab.active {
+      background: var(--bm-teal);
+      color: var(--bm-dark-teal);
+    }
+    .epic-view-tab:hover:not(.active) { background: var(--bm-teal-light); }
+    
+    /* Dropdown - hidden by default, show on motherboard view */
+    .epic-dropdown-menu {
+      position: absolute;
+      left: 178px;
+      top: 130px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      padding: 10px;
+      min-width: 185px;
+      z-index: 10;
+      opacity: 0;
+      transform: translateX(-10px);
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+    .epic-dropdown-menu.show {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+    .epic-dropdown-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .epic-dropdown-option:last-child { margin-bottom: 0; }
+    .epic-dropdown-option:hover { background: var(--bm-teal-light); transform: translateX(4px); }
+    .epic-dropdown-option.highlighted {
+      background: linear-gradient(135deg, var(--bm-teal-light), white);
+      border: 2px solid var(--bm-teal);
+    }
+    .epic-dropdown-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--bm-teal);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .epic-dropdown-icon img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+    .epic-dropdown-icon span {
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+    }
+    
+    /* Epic Main */
+    .epic-main {
+      flex: 1;
+      padding: 16px;
+      position: relative;
+    }
+    .epic-patient-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 3px solid var(--epic-red);
+    }
+    .epic-patient-name {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+    }
+    .epic-patient-details {
+      font-size: 13px;
+      color: var(--bm-gray);
+      margin-top: 4px;
+    }
+    .epic-bm-button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      background: var(--bm-teal);
+      border-radius: 25px;
+      animation: glow 2.5s ease-in-out infinite;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .epic-bm-button:hover { transform: scale(1.05); }
+    .epic-bm-button img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+    .epic-bm-button span {
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      font-size: 13px;
+    }
+    
+    /* View containers - fixed height to prevent size changes */
+    .epic-main-content {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+    .view-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .view-container.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    /* Motherboard View - New Layout with Tabs */
+    .bm-motherboard {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--bm-border);
+    }
+    .bm-tabs-header {
+      display: flex;
+      border-bottom: 1px solid var(--bm-border);
+    }
+    .bm-tab {
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .bm-tab.brand {
+      color: var(--bm-dark-teal);
+      display: flex;
+      align-items: center;
+    }
+    .bm-tab.brand img { height: 18px; }
+    .bm-tab.brand span { color: var(--bm-teal); }
+    .bm-tab.active {
+      background: var(--bm-dark-teal);
+      color: white;
+      border-bottom-color: var(--bm-teal);
+    }
+    .bm-board-header {
+      background: var(--bm-dark-teal);
+      padding: 8px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bm-board-title {
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .bm-live-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+    }
+    .bm-live-dot {
+      width: 6px;
+      height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: livePulse 2s infinite;
+    }
+    .bm-live-text {
+      font-size: 10px;
+      font-weight: 700;
+      color: #22c55e;
+    }
+    .bm-columns-header {
+      display: grid;
+      grid-template-columns: 50px 1fr 90px 90px 55px;
+      padding: 8px 10px;
+      background: #f8faf9;
+      border-bottom: 1px solid var(--bm-border);
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--bm-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .bm-patients {
+      padding: 6px;
+    }
+    .bm-patient-row {
+      display: grid;
+      grid-template-columns: 50px 1fr 90px 90px 55px;
+      align-items: center;
+      padding: 8px 6px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .bm-patient-row:last-child { margin-bottom: 0; }
+    .bm-patient-row:hover { transform: translateX(3px); }
+    .bm-patient-row.high { background: linear-gradient(90deg, #fef2f2, #fff8f8); }
+    .bm-patient-row.med { background: linear-gradient(90deg, #fffbeb, #fffdf5); }
+    .bm-patient-row.low { background: linear-gradient(90deg, #f0fdf4, #f5fef7); }
+    .bm-patient-row.delivered { background: linear-gradient(90deg, #eff6ff, #f5f9ff); }
+    .bm-room {
+      padding: 5px 6px;
+      background: var(--bm-teal);
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+      text-align: center;
+    }
+    .bm-patient-info { padding-left: 8px; }
+    .bm-patient-name-row {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+    }
+    .bm-patient-status {
+      font-size: 9px;
+      color: var(--bm-gray);
+      margin-top: 1px;
+    }
+    .bm-time-col { text-align: center; }
+    .bm-time-label {
+      font-size: 8px;
+      color: var(--bm-gray);
+      text-transform: uppercase;
+    }
+    .bm-time-value {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--bm-dark-teal);
+    }
+    .bm-time-value.highlight { color: var(--bm-coral); }
+    .bm-time-value.recovery { color: #3b82f6; }
+    .bm-risk {
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-size: 9px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .bm-risk.high { background: #fee2e2; color: #dc2626; }
+    .bm-risk.med { background: #fef3c7; color: #b45309; }
+    .bm-risk.low { background: #dcfce7; color: #16a34a; }
+    .bm-risk.delivered { background: #dbeafe; color: #2563eb; }
+    
+    /* Wayfarer Patient View - Simplified */
+    .wayfarer-panel {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--bm-border);
+    }
+    .wayfarer-tabs-header {
+      display: flex;
+      border-bottom: 1px solid var(--bm-border);
+    }
+    .wayfarer-tab-item {
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+    .wayfarer-tab-item.brand {
+      color: var(--bm-dark-teal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wayfarer-tab-item.brand span { color: var(--bm-teal); }
+    .wayfarer-tab-item.brand img { height: 20px; }
+    .wayfarer-tab-item.active {
+      background: var(--bm-dark-teal);
+      color: white;
+    }
+    .wayfarer-patient-bar {
+      background: #f8faf9;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--bm-border);
+    }
+    .wayfarer-avatar {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--bm-teal), #7bc4c1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bm-dark-teal);
+      font-weight: 900;
+      font-size: 12px;
+    }
+    .wayfarer-patient-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+    }
+    .wayfarer-patient-meta {
+      font-size: 10px;
+      color: var(--bm-gray);
+    }
+    .wayfarer-badges {
+      display: flex;
+      gap: 6px;
+      margin-left: auto;
+    }
+    .wayfarer-badge {
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 700;
+    }
+    .wayfarer-badge.risk { background: #fee2e2; color: #dc2626; }
+    .wayfarer-badge.condition { background: #fef3c7; color: #b45309; }
+    .wayfarer-content {
+      padding: 12px;
+    }
+    .wayfarer-data-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .wayfarer-data-card {
+      background: #f8faf9;
+      border-radius: 6px;
+      padding: 10px;
+    }
+    .wayfarer-data-label {
+      font-size: 9px;
+      color: var(--bm-gray);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .wayfarer-data-value {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--bm-dark-teal);
+    }
+    .wayfarer-data-value.highlight { color: var(--bm-coral); }
+    .wayfarer-data-value.warning { color: #dc2626; }
+    .wayfarer-data-value.positive { color: #16a34a; }
+    .wayfarer-sync-note {
+      margin-top: 10px;
+      padding: 8px;
+      background: #f0fdf4;
+      border-radius: 6px;
+      font-size: 10px;
+      color: #16a34a;
+      text-align: center;
+    }
+    
+    /* Data Flow Animation */
+    .wayfarer-integration-note {
+      margin-top: 12px;
+      padding: 10px;
+      background: #dcfce7;
+      border-radius: 8px;
+      font-size: 11px;
+      color: #166534;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    /* Stats below mockup */
+    .demo-stats {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 28px;
+    }
+    .demo-stat {
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .demo-stat:hover { transform: translateY(-3px); }
+    .demo-stat-value {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+    }
+    .demo-stat-label {
+      font-size: 13px;
+      color: var(--bm-gray);
+    }
+    
+    /* Stats Bar */
+    .stats-bar {
+      background: white;
+      padding: 50px 40px;
+      border-bottom: 1px solid var(--bm-border);
+    }
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 24px;
+      border-radius: 16px;
+      background: var(--bm-light-gray);
+      transition: all 0.4s ease;
+    }
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(30, 61, 60, 0.1);
+    }
+    .stat-value {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-value span { color: var(--bm-coral); }
+    .stat-label { font-size: 13px; color: var(--bm-gray); font-weight: 600; }
+    
+    /* Partners */
+    .partners-section {
+      padding: 50px 40px;
+      background: white;
+      border-bottom: 1px solid var(--bm-border);
+    }
+    .partners-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .partners-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--bm-gray);
+      margin-bottom: 30px;
+    }
+    .partners-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+    }
+    .partner-logo {
+      height: 40px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+    .partner-logo:hover { opacity: 1; transform: scale(1.08); }
+    .partner-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+      opacity: 0.7;
+      margin-top: 24px;
+    }
+    
+    /* Challenge Section */
+    .challenge-section {
+      padding: 100px 40px;
+      background: var(--bm-warm-gray);
+    }
+    .challenge-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--bm-coral);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--bm-gray);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .comparison-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid var(--bm-border);
+      transition: all 0.4s ease;
+    }
+    .comparison-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(30, 61, 60, 0.12); }
+    .comparison-card.without {
+      background: #fefcfb;
+      border-color: rgba(255, 118, 96, 0.2);
+    }
+    .comparison-card.with {
+      background: #f9fefe;
+      border: 2px solid var(--bm-teal);
+    }
+    .cc-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--bm-border);
+    }
+    .comparison-card.with .cc-header { border-bottom-color: var(--bm-teal); }
+    .cc-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .comparison-card.without .cc-icon { background: var(--bm-coral-light); }
+    .comparison-card.with .cc-icon { background: var(--bm-teal-light); }
+    .cc-title { font-size: 20px; font-weight: 900; color: var(--bm-dark-teal); }
+    .cc-list { list-style: none; }
+    .cc-list li {
+      padding: 12px 0;
+      font-size: 15px;
+      color: var(--bm-gray);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      border-bottom: 1px solid var(--bm-border);
+      transition: all 0.2s ease;
+    }
+    .cc-list li:hover { padding-left: 6px; }
+    .cc-list li:last-child { border-bottom: none; }
+    .cc-list .icon { flex-shrink: 0; font-size: 15px; margin-top: 2px; }
+    .comparison-card.without .cc-list .icon { color: var(--bm-coral); }
+    .comparison-card.with .cc-list .icon { color: #22c55e; }
+    
+    /* Solutions Section */
+    .solutions-section {
+      padding: 100px 40px;
+      background: white;
+    }
+    .solutions-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--bm-light-gray);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--bm-teal), var(--bm-coral));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--bm-teal);
+      box-shadow: 0 25px 60px rgba(30, 61, 60, 0.12);
+    }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: var(--bm-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover .feature-icon { transform: scale(1.1) rotate(5deg); }
+    .feature-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin-bottom: 12px;
+    }
+    .feature-desc {
+      font-size: 14px;
+      color: var(--bm-gray);
+      line-height: 1.7;
+    }
+    .feature-badge {
+      display: inline-flex;
+      padding: 5px 12px;
+      background: var(--bm-coral-light);
+      color: var(--bm-coral);
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 6px;
+      margin-top: 14px;
+    }
+    
+    /* Integration Hub Section */
+    .integration-section {
+      padding: 100px 40px;
+      background: linear-gradient(180deg, white 0%, var(--bm-teal-light) 100%);
+    }
+    .integration-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .integration-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+    /* Data Flow Diagram */
+    .data-flow-container {
+      margin: 50px 0;
+    }
+    .data-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(30, 61, 60, 0.08);
+    }
+    .ehr-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 40px;
+      background: var(--bm-light-gray);
+      border-radius: 20px;
+      border: 2px solid var(--bm-border);
+      transition: all 0.3s ease;
+      min-width: 160px;
+    }
+    .ehr-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(30, 61, 60, 0.12);
+      border-color: var(--bm-teal);
+    }
+    .ehr-logo {
+      height: 38px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .ehr-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--bm-gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .connection-pipe {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 10px;
+      min-width: 140px;
+    }
+    .pipe-line {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--bm-teal), var(--bm-coral), var(--bm-teal));
+      border-radius: 2px;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .data-dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: var(--bm-coral);
+      border-radius: 50%;
+      top: -3px;
+      animation: moveDot 2s ease-in-out infinite;
+    }
+    .data-dot.dot-1 { left: 10%; animation-delay: 0s; }
+    .data-dot.dot-2 { left: 45%; animation-delay: 0.6s; background: var(--bm-teal); }
+    .data-dot.dot-3 { left: 80%; animation-delay: 1.2s; }
+    @keyframes moveDot {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.4); opacity: 1; }
+    }
+    .pipe-protocols {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+      justify-content: center;
+    }
+    .protocol-logo {
+      height: 28px;
+      object-fit: contain;
+    }
+    .protocol-tag {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .protocol-tag.fhir-tag {
+      background: #fef3c7;
+      color: #b45309;
+    }
+    .protocol-tag.adt-tag {
+      background: var(--bm-teal-light);
+      color: var(--bm-dark-teal);
+    }
+    .pipe-arrows {
+      font-size: 18px;
+      color: var(--bm-gray);
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .pipe-arrows .arrow-left { animation: arrowPulseLeft 1.5s ease-in-out infinite; }
+    .pipe-arrows .arrow-right { animation: arrowPulseRight 1.5s ease-in-out infinite; }
+    @keyframes arrowPulseLeft {
+      0%, 100% { transform: translateX(0); opacity: 0.5; }
+      50% { transform: translateX(-5px); opacity: 1; }
+    }
+    @keyframes arrowPulseRight {
+      0%, 100% { transform: translateX(0); opacity: 0.5; }
+      50% { transform: translateX(5px); opacity: 1; }
+    }
+    .bm-center-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px 35px;
+      background: white;
+      border: 3px solid var(--bm-teal);
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(171, 223, 226, 0.4);
+      animation: glow 3s ease-in-out infinite;
+      min-width: 140px;
+    }
+    .bm-center-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+    .bm-center-label {
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+    }
+    .flow-description {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .flow-description p {
+      font-size: 15px;
+      color: var(--bm-gray);
+      font-style: italic;
+    }
+    .integration-details {
+      margin-top: 50px;
+    }
+    .integration-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .int-stat {
+      text-align: center;
+      padding: 24px 20px;
+      background: white;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      border: 1px solid var(--bm-border);
+    }
+    .int-stat:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(30, 61, 60, 0.08); }
+    .int-stat-value { font-size: 28px; font-weight: 900; color: var(--bm-dark-teal); }
+    .int-stat-label { font-size: 12px; color: var(--bm-gray); margin-top: 4px; }
+    .integration-badges-center {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .int-badge {
+      padding: 10px 16px;
+      background: white;
+      border: 1px solid var(--bm-border);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--bm-gray);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+    }
+    .int-badge:hover { border-color: var(--bm-teal); background: var(--bm-teal-light); }
+    .int-badge .icon { color: #22c55e; }
+    
+    /* Unit Intelligence Section */
+    .unit-section {
+      padding: 100px 40px;
+      background: linear-gradient(135deg, var(--bm-dark-teal) 0%, #234746 100%);
+      color: white;
+    }
+    .unit-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .unit-label {
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--bm-teal);
+      margin-bottom: 14px;
+    }
+    .unit-title {
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .unit-subtitle {
+      font-size: 17px;
+      opacity: 0.8;
+      max-width: 620px;
+      margin: 0 auto 55px;
+    }
+    .unit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .unit-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 28px;
+      text-align: center;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+    .unit-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.18); }
+    .unit-icon { font-size: 46px; margin-bottom: 14px; }
+    .unit-card-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .unit-card-desc { font-size: 13px; opacity: 0.7; }
+    
+    /* Testimonials */
+    .testimonials-section {
+      padding: 100px 40px;
+      background: var(--bm-warm-gray);
+    }
+    .testimonials-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial-quote {
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--bm-dark-teal);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+    }
+    .testimonial-role {
+      font-size: 14px;
+      color: var(--bm-gray);
+    }
+    
+    /* CTA */
+    .cta-section {
+      padding: 100px 40px;
+      background: linear-gradient(135deg, #4a8f8c 0%, #3d7a77 50%, #2d5a58 100%);
+      text-align: center;
+    }
+    .cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .cta-title {
+      font-size: 38px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 18px;
+    }
+    .cta-title span { color: var(--bm-teal); }
+    .cta-subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+    }
+    
+    /* Email Form */
+    .cta-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      max-width: 450px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 50px;
+      padding: 6px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+    .cta-email-input {
+      flex: 1;
+      border: none;
+      padding: 14px 24px;
+      font-size: 15px;
+      background: transparent;
+      outline: none;
+      color: var(--bm-black);
+      font-family: inherit;
+    }
+    .cta-email-input::placeholder {
+      color: var(--bm-gray);
+    }
+    .cta-submit-btn {
+      background: var(--bm-dark-teal);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .cta-submit-btn:hover {
+      background: #153130;
+      transform: scale(1.02);
+    }
+    .cta-form-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+    .cta-success {
+      display: none;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .cta-success.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    .cta-success-text {
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--bm-dark-teal);
+      padding: 70px 40px 30px;
+      color: white;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    .footer-brand {}
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-brand-logo img {
+      height: 32px;
+    }
+    .footer-brand-logo span {
+      font-size: 20px;
+      font-weight: 900;
+    }
+    .footer-brand-logo span em {
+      background: var(--bm-teal);
+      color: var(--bm-dark-teal);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-style: normal;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: 20px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bm-dark-teal);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-social-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+    }
+    .footer-social-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .footer-col {}
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--bm-teal);
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
+    }
+    .footer-col a:hover {
+      color: white;
+      padding-left: 4px;
+    }
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-legal a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: white; text-decoration: underline; }
+    .footer-badges {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      transition: all 0.2s ease;
+    }
+    .footer-badge:hover {
+      background: rgba(255,255,255,0.12);
+    }
+    .footer-badge .check {
+      color: #4ade80;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .integration-grid { grid-template-columns: 1fr; }
+      .unit-grid { grid-template-columns: repeat(2, 1fr); }
+      .epic-dropdown-menu { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .data-flow { flex-wrap: wrap; gap: 20px; padding: 30px 20px; }
+      .connection-pipe { min-width: 100px; }
+      .integration-stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .partners-logos { gap: 40px; }
+      .partner-logo { height: 32px; }
+      .demo-stats { flex-direction: column; gap: 20px; }
+      .epic-sidebar { width: 140px; }
+      .wayfarer-sidebar { display: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
+      .footer-badges { justify-content: center; }
+      .footer-legal { flex-wrap: wrap; justify-content: center; gap: 10px; }
+      .data-flow { flex-direction: column; gap: 15px; }
+      .connection-pipe { transform: rotate(90deg); min-width: 80px; margin: 10px 0; }
+      .pipe-arrows { transform: rotate(-90deg); }
+      .ehr-box { min-width: 140px; padding: 20px 30px; }
+      .integration-stats-row { grid-template-columns: 1fr 1fr; }
+      .hero-title { font-size: 36px; }
+      .hero-subtitle { font-size: 16px; }
+      .section-title { font-size: 28px; }
+      .cta-title { font-size: 28px; }
+      .cta-form { flex-direction: column; gap: 10px; }
+      .cta-email-input { text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 12px 20px; }
+      .hero-inner { padding: 100px 20px 60px; }
+      .hero-title { font-size: 28px; }
+      .bm-columns-header { font-size: 8px; }
+      .bm-patient-row { padding: 6px 4px; }
+      .bm-room { font-size: 9px; padding: 4px 5px; }
+      .bm-patient-name-row { font-size: 11px; }
+      .bm-patient-status { font-size: 8px; }
+      .bm-time-value { font-size: 10px; }
+      .bm-risk { font-size: 8px; padding: 2px 6px; }
+      .footer-social-icon { width: 36px; height: 36px; }
+    }
+    
+    /* Height-responsive styles for Epic mockup */
+    @media (max-height: 900px) {
+      .epic-mockup { max-width: 540px; }
+      .epic-content { padding: 16px 18px; }
+      .epic-patient-header { padding-bottom: 10px; margin-bottom: 10px; }
+      .epic-patient-name { font-size: 18px; }
+      .bm-tabs-header { padding: 6px 10px; }
+      .bm-columns-header { padding: 6px 10px; }
+      .bm-patient-row { padding: 8px 10px; }
+      .demo-stats { padding: 16px 0; gap: 30px; }
+    }
+    
+    @media (max-height: 750px) {
+      .epic-mockup { max-width: 480px; }
+      .epic-content { padding: 14px 16px; }
+      .epic-patient-name { font-size: 16px; }
+      .epic-patient-details { font-size: 11px; }
+      .epic-bm-button { padding: 6px 12px; font-size: 11px; }
+      .bm-columns-header { font-size: 9px; padding: 5px 8px; }
+      .bm-patient-row { padding: 6px 8px; }
+      .bm-room { font-size: 9px; padding: 4px 6px; }
+      .bm-patient-name-row { font-size: 11px; }
+      .bm-time-value { font-size: 10px; }
+      .demo-stat-value { font-size: 28px; }
+      .demo-stat-label { font-size: 11px; }
+    }
+    
+    @media (max-height: 650px) {
+      .epic-mockup { max-width: 420px; }
+      .epic-header { padding: 10px 14px; }
+      .epic-content { padding: 12px 14px; }
+      .epic-sidebar { padding: 12px 10px; }
+      .epic-sidebar-item { padding: 6px 8px; font-size: 10px; }
+      .bm-motherboard { min-height: auto; }
+      .demo-stats { padding: 12px 0; gap: 20px; }
+      .demo-stat-value { font-size: 24px; }
+    }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Birth_Model_Logo.png" alt="Birth Model" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="solutions-hospitals.html" class="nav-link">For Hospitals</a>
+        <a href="solutions-clinicians.html" class="nav-link">For Clinicians</a>
+        <a href="company.html" class="nav-link">Company</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="blogs.html" class="nav-dropdown-item">Blog</a>
+            <a href="videos.html" class="nav-dropdown-item">Videos</a>
+            <a href="roi-calculator.html" class="nav-dropdown-item">ROI Calculator</a>
+            <a href="implementation.html" class="nav-dropdown-item">Implementation</a>
+            <a href="careers.html" class="nav-dropdown-item">Careers</a>
+          </div>
+        </div>
+        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="demo.html" class="nav-cta">Schedule Demo</a>
+      </div>
+      <div class="nav-hamburger" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="solutions-hospitals.html">For Hospitals</a>
+    <a href="solutions-clinicians.html">For Clinicians</a>
+    <a href="company.html">Company</a>
+    <a href="blogs.html">Blog</a>
+    <a href="videos.html">Videos</a>
+    <a href="roi-calculator.html">ROI Calculator</a>
+    <a href="implementation.html">Mobile Implementation</a>
+    <a href="careers.html">Careers</a>
+    <a href="https://provider.birthmodel.com" target="_blank">Clinician Login</a>
+    <a href="demo.html" class="mobile-cta">Schedule Demo</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Built on 150,000+ Patient Charts
+        </div>
+        <h1 class="hero-title">
+          Safer <span class="highlight">Births</span>.<br>
+          Smarter <span class="teal">Staffing</span>.<br>
+          Profitable <span class="teal">Hospitals</span>.
+        </h1>
+        <p class="hero-subtitle">
+          AI that makes Labor & Delivery safer, smarter, and more sustainable. Deep EHR integration via SMART on FHIR. Zero clicks to launch.
+        </p>
+        <div class="hero-actions">
+          <a href="demo.html" class="btn btn-primary">Schedule a Demo</a>
+          <a href="videos.html" class="btn btn-outline">See How It Works</a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="epic-app">
+          <!-- Animated Cursor -->
+          <div class="demo-cursor" id="epic-cursor" style="left: 50%; top: 50%;">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87c.48 0 .72-.58.38-.92L6.35 2.85a.5.5 0 0 0-.85.36Z" fill="#1e3d3c" stroke="#fff" stroke-width="1.5"/>
+            </svg>
+            <div class="demo-cursor-label" id="epic-cursor-label">Click</div>
+          </div>
+          <div class="cursor-click-ripple" id="epic-ripple"></div>
+          <!-- Epic Header -->
+          <div class="epic-header">
+            <div class="epic-header-left">
+              <img src="Epic_Logo.png" alt="Epic" class="epic-logo-img">
+              <span class="epic-header-title">Hyperspace — <span>Stork</span> Patient Chart</span>
+            </div>
+            <div class="epic-dots">
+              <span class="epic-dot red"></span>
+              <span class="epic-dot yellow"></span>
+              <span class="epic-dot green"></span>
+            </div>
+          </div>
+          
+          <!-- Epic Body -->
+          <div class="epic-body">
+            <!-- Sidebar -->
+            <div class="epic-sidebar">
+              <div class="epic-nav-item">📋 Summary</div>
+              <div class="epic-nav-item">💊 MAR</div>
+              <div class="epic-nav-item">📊 Flowsheets</div>
+              <div class="epic-nav-item active">⚡ More Activities</div>
+            </div>
+            
+            <!-- Dropdown -->
+            <div class="epic-dropdown-menu show">
+              <div class="epic-dropdown-option" onclick="showView('wayfarer')">
+                <div class="epic-dropdown-icon" style="background: var(--bm-teal-light);">
+                  <img src="BM_App_Icon.png" alt="BM">
+                </div>
+                <div>
+                  <div style="font-size: 12px; font-weight: 700; color: var(--bm-dark-teal);">View Patient</div>
+                  <div style="font-size: 9px; color: var(--bm-gray);">Open in Birth Model</div>
+                </div>
+              </div>
+              <div class="epic-dropdown-option highlighted" onclick="showView('motherboard')">
+                <div class="epic-dropdown-icon" style="background: #f8f9fa;">
+                  <img src="BM_App_Icon.png" alt="BM">
+                </div>
+                <div>
+                  <div style="font-size: 12px; font-weight: 600; color: var(--bm-dark-teal);">Motherboard</div>
+                  <div style="font-size: 9px; color: var(--bm-gray);">View all patients</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="epic-main">
+              <!-- Patient Header -->
+              <div class="epic-patient-header">
+                <div>
+                  <div class="epic-patient-name">T. Atkinson — 39w2d</div>
+                  <div class="epic-patient-details">G3P2002 • LDR 4 • MRN: 94521387</div>
+                </div>
+                <div class="epic-bm-button" onclick="toggleView()">
+                  <img src="BM_App_Icon.png" alt="BM">
+                  <span>Birth Model</span>
+                </div>
+              </div>
+              
+              <!-- View Tabs -->
+              <div class="epic-view-tabs">
+                <div class="epic-view-tab active" data-view="motherboard" onclick="showView('motherboard')">Motherboard</div>
+                <div class="epic-view-tab" data-view="wayfarer" onclick="showView('wayfarer')">Patient Detail</div>
+              </div>
+              
+              <!-- Motherboard View -->
+              <div class="view-container active" id="motherboard-view">
+                <div class="bm-motherboard">
+                  <div class="bm-tabs-header">
+                    <div class="bm-tab brand"><img src="Birth_Model_Logo.png" alt="Birth Model"></div>
+                    <div class="bm-tab active">L&D Motherboard</div>
+                  </div>
+                  <div class="bm-columns-header">
+                    <div>Room</div>
+                    <div>Patient</div>
+                    <div>Est. Dilated</div>
+                    <div>Est. Delivery</div>
+                    <div>Risk</div>
+                  </div>
+                  <div class="bm-patients">
+                    <div class="bm-patient-row high" onclick="showView('wayfarer')">
+                      <div class="bm-room">LDR 4</div>
+                      <div class="bm-patient-info">
+                        <div class="bm-patient-name-row">T. Atkinson • 39w2d</div>
+                        <div class="bm-patient-status">8/100/+1 • Severe PreE • Epi ✓</div>
+                      </div>
+                      <div class="bm-time-col">
+                        <div class="bm-time-label">Fully Dilated</div>
+                        <div class="bm-time-value highlight">25 min</div>
+                      </div>
+                      <div class="bm-time-col">
+                        <div class="bm-time-label">Delivery</div>
+                        <div class="bm-time-value highlight">1h 15m</div>
+                      </div>
+                      <div class="bm-risk high">HIGH</div>
+                    </div>
+                    <div class="bm-patient-row med">
+                      <div class="bm-room">LDR 6</div>
+                      <div class="bm-patient-info">
+                        <div class="bm-patient-name-row">N. Davis • 38w5d</div>
+                        <div class="bm-patient-status">5/80/0 • Pit ✓ • GBS+ Abx ✓</div>
+                      </div>
+                      <div class="bm-time-col">
+                        <div class="bm-time-label">Fully Dilated</div>
+                        <div class="bm-time-value">2h 10m</div>
+                      </div>
+                      <div class="bm-time-col">
+                        <div class="bm-time-label">Delivery</div>
+                        <div class="bm-time-value">3h 45m</div>
+                      </div>
+                      <div class="bm-risk med">MED</div>
+                    </div>
+                    <div class="bm-patient-row low">
+                      <div class="bm-room">LDR 8</div>
+                      <div class="bm-patient-info">
+                        <div class="bm-patient-name-row">S. Miller • 40w1d</div>
+                        <div class="bm-patient-status">3/50/-2 • Latent • GDM A1</div>
+                      </div>
+                      <div class="bm-time-col">
+                        <div class="bm-time-label">Fully Dilated</div>
+                        <div class="bm-time-value">5h 30m</div>
+                      </div>
+                      <div class="bm-time-col">
+                        <div class="bm-time-label">Delivery</div>
+                        <div class="bm-time-value">7h 15m</div>
+                      </div>
+                      <div class="bm-risk low">LOW</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Wayfarer Patient View -->
+              <div class="view-container" id="wayfarer-view">
+                <div class="wayfarer-panel">
+                  <div class="wayfarer-tabs-header">
+                    <div class="wayfarer-tab-item brand"><img src="Birth_Model_Logo.png" alt="Birth Model"></div>
+                    <div class="wayfarer-tab-item active">Patient Detail</div>
+                  </div>
+                  <div class="wayfarer-patient-bar">
+                    <div class="wayfarer-avatar">TA</div>
+                    <div>
+                      <div class="wayfarer-patient-name">T. Atkinson • LDR 4</div>
+                      <div class="wayfarer-patient-meta">MRN: 94521387 • 28 y.o. • G3P2002 • 39w2d</div>
+                    </div>
+                    <div class="wayfarer-badges">
+                      <span class="wayfarer-badge risk">PPH Risk: High</span>
+                      <span class="wayfarer-badge condition">Severe PreE</span>
+                    </div>
+                  </div>
+                  <div class="wayfarer-content">
+                    <div class="wayfarer-data-grid">
+                      <div class="wayfarer-data-card">
+                        <div class="wayfarer-data-label">Cervical Exam</div>
+                        <div class="wayfarer-data-value">8/100/+1/ant/soft</div>
+                      </div>
+                      <div class="wayfarer-data-card">
+                        <div class="wayfarer-data-label">Est. Fully Dilated</div>
+                        <div class="wayfarer-data-value highlight">25 min</div>
+                      </div>
+                      <div class="wayfarer-data-card">
+                        <div class="wayfarer-data-label">Est. Delivery</div>
+                        <div class="wayfarer-data-value highlight">1h 15m</div>
+                      </div>
+                      <div class="wayfarer-data-card">
+                        <div class="wayfarer-data-label">FHR Baseline</div>
+                        <div class="wayfarer-data-value">145 bpm</div>
+                      </div>
+                      <div class="wayfarer-data-card">
+                        <div class="wayfarer-data-label">BP (Last)</div>
+                        <div class="wayfarer-data-value warning">158/102</div>
+                      </div>
+                      <div class="wayfarer-data-card">
+                        <div class="wayfarer-data-label">GBS / Epidural</div>
+                        <div class="wayfarer-data-value positive">Pos ✓ / ✓ In</div>
+                      </div>
+                    </div>
+                    <div class="wayfarer-sync-note">
+                      ✓ Auto-synced from Epic • Last update: 1 min ago
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="demo-stats">
+          <div class="demo-stat">
+            <div class="demo-stat-value">30+</div>
+            <div class="demo-stat-label">min saved per handoff</div>
+          </div>
+          <div class="demo-stat">
+            <div class="demo-stat-value">±12</div>
+            <div class="demo-stat-label">min prediction accuracy</div>
+          </div>
+          <div class="demo-stat">
+            <div class="demo-stat-value">0</div>
+            <div class="demo-stat-label">clicks to launch</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="stats-inner stagger">
+      <div class="stat-item">
+        <div class="stat-value">150K<span>+</span></div>
+        <div class="stat-label">Patient Charts Analyzed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">±12<span>min</span></div>
+        <div class="stat-label">Prediction Accuracy</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">99.1<span>%</span></div>
+        <div class="stat-label">Pushing Phase Accuracy</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">0<span></span></div>
+        <div class="stat-label">Extra Clicks Required</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="partners-section">
+    <div class="partners-inner reveal">
+      <p class="partners-label">Trusted By & Integrated With</p>
+      <div class="partners-logos">
+        <a href="https://www.jhu.edu/" target="_blank"><img src="johnshopkins-large.jpg" alt="Johns Hopkins" class="partner-logo" style="height: 55px;"></a>
+        <a href="https://www.techstars.com/accelerators/baltimore-ai-health" target="_blank"><img src="Techstars_Logo_Primary_Black.png" alt="Techstars" class="partner-logo"></a>
+        <a href="https://individual.carefirst.com/individuals-families/home.page" target="_blank"><img src="carefirst.png" alt="CareFirst BlueCross BlueShield" class="partner-logo"></a>
+        <a href="https://www.gurtinventures.com/" target="_blank"><img src="gurtin-ventures.png" alt="Gurtin Ventures" class="partner-logo" style="height: 55px;"></a>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 15 L75 55 L85 55 L60 95 L40 95 L15 55 L25 55 Z" fill="#1e3d3c" opacity="0.9"/>
+            <path d="M50 15 L65 45 L50 45 L35 45 Z" fill="#abdfe2"/>
+            <path d="M50 15 L58 30 L50 28 L42 30 Z" fill="white"/>
+            <path d="M30 35 L45 60 L15 60 Z" fill="#1e3d3c" opacity="0.5"/>
+            <path d="M70 35 L85 60 L55 60 Z" fill="#1e3d3c" opacity="0.5"/>
+          </svg>
+          <span style="font-size: 14px; font-weight: 700; color: var(--bm-dark-teal); letter-spacing: 0.3px; white-space: nowrap;">EVEREST II TRUST FUND</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenge -->
+  <section class="challenge-section">
+    <div class="challenge-inner">
+      <div class="section-header reveal">
+        <div class="section-label">The Challenge</div>
+        <h2 class="section-title">What if L&D could run like Google Maps?</h2>
+        <p class="section-subtitle">Predict the rush before it hits. Reroute around bottlenecks. Live ETAs for every patient and staff need.</p>
+      </div>
+      
+      <div class="comparison-grid">
+        <div class="comparison-card without reveal-left">
+          <div class="cc-header">
+            <div class="cc-icon">😓</div>
+            <div class="cc-title">Without Birth Model</div>
+          </div>
+          <ul class="cc-list">
+            <li><span class="icon">✗</span> Manual handoffs take 30+ minutes</li>
+            <li><span class="icon">✗</span> Delivery predictions based on gut feeling</li>
+            <li><span class="icon">✗</span> Missed deliveries and emergency scrambles</li>
+            <li><span class="icon">✗</span> Risk factors buried in charts</li>
+            <li><span class="icon">✗</span> Documentation delays and denials</li>
+          </ul>
+        </div>
+        <div class="comparison-card with reveal-right">
+          <div class="cc-header">
+            <div class="cc-icon">✨</div>
+            <div class="cc-title">With Birth Model</div>
+          </div>
+          <ul class="cc-list">
+            <li><span class="icon">✓</span> Automated SBAR in seconds</li>
+            <li><span class="icon">✓</span> ±12 minute delivery predictions</li>
+            <li><span class="icon">✓</span> Real-time alerts keep teams ready</li>
+            <li><span class="icon">✓</span> Unified risk intelligence at a glance</li>
+            <li><span class="icon">✓</span> Auto documentation syncs to Epic</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions -->
+  <section class="solutions-section" id="platform">
+    <div class="solutions-inner">
+      <div class="section-header reveal">
+        <div class="section-label">Solutions Overview</div>
+        <h2 class="section-title">Everything L&D Needs in One Platform</h2>
+        <p class="section-subtitle">Comprehensive tools designed by clinicians, for clinicians.</p>
+      </div>
+      
+      <div class="features-grid stagger">
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">The Motherboard</h3>
+          <p class="feature-desc">Real-time visual command center showing every patient, every risk, and every timeline — live.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
+          <h3 class="feature-title">Predictive Delivery Timing</h3>
+          <p class="feature-desc">Two patented AI models predict delivery within ±12 minutes accuracy. 99.1% accuracy for pushing phase.</p>
+          <span class="feature-badge">Patented Technology</span>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3 class="feature-title">Smart Handoffs</h3>
+          <p class="feature-desc">One-click SBAR generation. Accurate, comprehensive, and synced directly to the EHR.</p>
+          <span class="feature-badge">Epic Connected</span>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3 class="feature-title">Electronic Booking</h3>
+          <p class="feature-desc">Smart scheduling for inductions and C-sections with predictive slot optimization.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✍️</div>
+          <h3 class="feature-title">AI Documentation</h3>
+          <p class="feature-desc">Delivery notes that draft themselves. Real-time ICD-10/CPT coding. 30+ minutes saved per patient.</p>
+          <span class="feature-badge">AI Diagnotes™</span>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚠️</div>
+          <h3 class="feature-title">Risk Intelligence</h3>
+          <p class="feature-desc">Real-time alerts for PPH, preeclampsia, and shoulder dystocia. Never miss a critical indicator.</p>
+        </div>
+      </div>
+      
+      <!-- Automated Reportable Outcomes Callout -->
+      <div class="reportables-callout reveal" style="margin-top: 40px; background: linear-gradient(135deg, #f0fdf4, #ecfdf5); border: 2px solid #86efac; border-radius: 16px; padding: 24px 30px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+          <span style="font-size: 20px;">📊</span>
+          <span style="font-size: 16px; font-weight: 800; color: var(--bm-dark-teal);">Automated Reportable Outcomes</span>
+        </div>
+        <p style="font-size: 13px; color: var(--bm-gray); margin-bottom: 14px;">Clean, audit-ready metrics — no manual data collection required</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span style="padding: 6px 14px; background: white; border: 1px solid #d1fae5; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--bm-dark-teal);">CMS</span>
+          <span style="padding: 6px 14px; background: white; border: 1px solid #d1fae5; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--bm-dark-teal);">CDC</span>
+          <span style="padding: 6px 14px; background: white; border: 1px solid #d1fae5; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--bm-dark-teal);">Joint Commission</span>
+          <span style="padding: 6px 14px; background: white; border: 1px solid #d1fae5; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--bm-dark-teal);">State PQCs & DOH</span>
+          <span style="padding: 6px 14px; background: white; border: 1px solid #d1fae5; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--bm-dark-teal);">Commercial Payers</span>
+          <span style="padding: 6px 14px; background: white; border: 1px solid #d1fae5; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--bm-dark-teal);">Malpractice Carriers</span>
+          <span style="padding: 6px 14px; background: white; border: 1px solid #d1fae5; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--bm-dark-teal);">Board & C-Suite</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration Hub -->
+  <section class="integration-section">
+    <div class="integration-inner">
+      <div class="section-header reveal">
+        <div class="section-label">Seamless Integration</div>
+        <h2 class="section-title">Deep EHR Integration</h2>
+        <p class="section-subtitle">Birth Model connects bidirectionally with Epic and Oracle Health using HL7 FHIR and ADT protocols.</p>
+      </div>
+      
+      <!-- Data Flow Diagram -->
+      <div class="data-flow-container reveal">
+        <div class="data-flow">
+          <!-- Epic EHR -->
+          <div class="ehr-box epic-ehr">
+            <img src="Epic_Logo.png" alt="Epic" class="ehr-logo">
+            <span class="ehr-label">EHR System</span>
+          </div>
+          
+          <!-- Connection Pipe Left -->
+          <div class="connection-pipe">
+            <div class="pipe-line">
+              <div class="data-dot dot-1"></div>
+              <div class="data-dot dot-2"></div>
+              <div class="data-dot dot-3"></div>
+            </div>
+            <div class="pipe-protocols">
+              <img src="HL7_FHIR_logo.webp" alt="HL7 FHIR" class="protocol-logo">
+            </div>
+            <div class="pipe-arrows">
+              <span class="arrow-left">←</span>
+              <span class="arrow-right">→</span>
+            </div>
+          </div>
+          
+          <!-- Birth Model Center -->
+          <div class="bm-center-box">
+            <img src="BM_App_Icon.png" alt="Birth Model" class="bm-center-logo">
+            <span class="bm-center-label">Birth Model</span>
+          </div>
+          
+          <!-- Connection Pipe Right -->
+          <div class="connection-pipe">
+            <div class="pipe-line">
+              <div class="data-dot dot-1"></div>
+              <div class="data-dot dot-2"></div>
+              <div class="data-dot dot-3"></div>
+            </div>
+            <div class="pipe-protocols">
+              <img src="HL7_FHIR_logo.webp" alt="HL7 FHIR" class="protocol-logo">
+            </div>
+            <div class="pipe-arrows">
+              <span class="arrow-left">←</span>
+              <span class="arrow-right">→</span>
+            </div>
+          </div>
+          
+          <!-- Oracle Health EHR -->
+          <div class="ehr-box oracle-ehr">
+            <img src="oracle-health.avif" alt="Oracle Health" class="ehr-logo">
+            <span class="ehr-label">EHR System</span>
+          </div>
+        </div>
+        
+        <!-- Flow Description -->
+        <div class="flow-description">
+          <p>Patient data flows securely between your EHR and Birth Model in real-time</p>
+        </div>
+      </div>
+      
+      <!-- Stats and Badges -->
+      <div class="integration-details reveal">
+        <div class="integration-stats-row">
+          <div class="int-stat">
+            <div class="int-stat-value">300+</div>
+            <div class="int-stat-label">Data Points Synced</div>
+          </div>
+          <div class="int-stat">
+            <div class="int-stat-value">Real-time</div>
+            <div class="int-stat-label">Bidirectional Sync</div>
+          </div>
+          <div class="int-stat">
+            <div class="int-stat-value">0</div>
+            <div class="int-stat-label">Extra Clicks</div>
+          </div>
+          <div class="int-stat">
+            <div class="int-stat-value">&lt;4min</div>
+            <div class="int-stat-label">Training Time</div>
+          </div>
+        </div>
+        
+        <div class="integration-badges-center">
+          <span class="int-badge"><span class="icon">✓</span> Epic Connection Hub</span>
+          <span class="int-badge"><span class="icon">✓</span> SMART on FHIR</span>
+          <span class="int-badge"><span class="icon">✓</span> SOC 2 Type II</span>
+          <span class="int-badge"><span class="icon">✓</span> HIPAA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unit Intelligence -->
+  <section class="unit-section">
+    <div class="unit-inner">
+      <div class="unit-label reveal">Unit Intelligence</div>
+      <h2 class="unit-title reveal">Complete visibility into your L&D operations</h2>
+      <p class="unit-subtitle reveal">Real-time dashboards and analytics that help you optimize staffing, predict capacity, and improve outcomes.</p>
+      
+      <div class="unit-grid stagger">
+        <div class="unit-card">
+          <div class="unit-icon">📊</div>
+          <div class="unit-card-title">Census Prediction</div>
+          <div class="unit-card-desc">7-day patient volume forecasting</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-icon">👥</div>
+          <div class="unit-card-title">AWHONN Compliance</div>
+          <div class="unit-card-desc">Real-time staffing ratio alerts</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-icon">⏱️</div>
+          <div class="unit-card-title">Delivery ETAs</div>
+          <div class="unit-card-desc">±12 min prediction accuracy</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-icon">📈</div>
+          <div class="unit-card-title">Analytics Dashboard</div>
+          <div class="unit-card-desc">Outcomes & performance metrics</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="testimonials-inner reveal">
+      <p class="testimonial-quote">"Birth Model has transformed how we manage our L&D unit. The delivery predictions are remarkably accurate, our nurses love the automated handoffs, and we've seen drastic improvements in patient care and outcomes."</p>
+      <p class="testimonial-author">Dr. Nicola Pemberton, Medical Director</p>
+      <p class="testimonial-role">The Birth Center of NJ</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">Ready to transform your <span>L&D</span>?</h2>
+      <p class="cta-subtitle">Join the hospitals already using Birth Model to improve outcomes, reduce burnout, and optimize operations.</p>
+      <form class="cta-form" id="demo-form" action="https://formsubmit.co/anish@birthmodel.com" method="POST">
+        <input type="hidden" name="_subject" value="Birth Model Demo Request">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://birthmodel.com/demo.html?submitted=true">
+        <input type="email" class="cta-email-input" name="email" placeholder="Email address" required>
+        <button type="submit" class="cta-submit-btn">Get a demo</button>
+      </form>
+      <p class="cta-form-note">We'll reach out within 24 hours to schedule a personalized demo.</p>
+      <div class="cta-success" id="cta-success">
+        <p class="cta-success-text">✓ Thank you! We'll be in touch soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="Birth_Model_Logo.png" alt="Birth Model">
+          </div>
+          <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
+          <div class="footer-social">
+            <a href="mailto:support@birthmodel.com" class="footer-social-icon" title="Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/birth-model/" target="_blank" class="footer-social-icon" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M" target="_blank" class="footer-social-icon" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="solutions-hospitals.html">For Hospitals</a>
+          <a href="solutions-clinicians.html">For Clinicians</a>
+          <a href="company.html">Company</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="https://apps.apple.com/us/app/birth-model/id1562474693" target="_blank">Apple App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.birthmodel.provider" target="_blank">Google Play</a>
+          <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
+          <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
+          <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="blogs.html">Blogs</a>
+          <a href="videos.html">Videos</a>
+          <a href="roi-calculator.html">ROI Calculator</a>
+          <a href="implementation.html">Mobile Implementation</a>
+          <a href="https://app.vanta.com/birthmodel/trust/pbt1stf4skwae09sr1wjf" target="_blank">Trust Center</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="demo.html">Request Demo</a>
+          <a href="https://calendly.com/birthmodel" target="_blank">Schedule Meeting</a>
+          <a href="mailto:support@birthmodel.com">support@birthmodel.com</a>
+          <a href="careers.html">Careers</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <span>© 2026 Birth Model, Inc. All Rights Reserved.</span>
+          <span>|</span>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>|</span>
+          <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+        <div class="footer-badges">
+          <div class="footer-badge">
+            <span class="check">✓</span> SOC 2 Type II
+          </div>
+          <div class="footer-badge">
+            <span class="check">✓</span> HIPAA Compliant
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const hamburger = document.querySelector('.nav-hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    // View switching for Epic mockup
+    let currentView = 'motherboard';
+
+    function showView(viewName) {
+      currentView = viewName;
+
+      const motherboardView = document.getElementById('motherboard-view');
+      const wayfarerView = document.getElementById('wayfarer-view');
+      const dropdown = document.querySelector('.epic-dropdown-menu');
+      const tabs = document.querySelectorAll('.epic-view-tab');
+
+      if (viewName === 'motherboard') {
+        motherboardView.classList.add('active');
+        wayfarerView.classList.remove('active');
+        if (dropdown) dropdown.classList.add('show');
+      } else {
+        motherboardView.classList.remove('active');
+        wayfarerView.classList.add('active');
+        if (dropdown) dropdown.classList.remove('show');
+      }
+
+      tabs.forEach(tab => {
+        if (tab.dataset.view === viewName) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+    }
+
+    function toggleView() {
+      if (currentView === 'motherboard') {
+        showView('wayfarer');
+      } else {
+        showView('motherboard');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Cursor animation for Epic mockup
+      const epicCursor = document.getElementById('epic-cursor');
+      const epicRipple = document.getElementById('epic-ripple');
+      const epicCursorLabel = document.getElementById('epic-cursor-label');
+
+      function moveCursorToEpic(targetEl, labelText, callback) {
+        if (!epicCursor || !targetEl) return;
+        const mockup = document.querySelector('.epic-app');
+        if (!mockup) return;
+        const rect = targetEl.getBoundingClientRect();
+        const parentRect = mockup.getBoundingClientRect();
+        const x = rect.left - parentRect.left + rect.width / 2;
+        const y = rect.top - parentRect.top + rect.height / 2;
+
+        epicCursor.style.left = x + 'px';
+        epicCursor.style.top = y + 'px';
+        if (epicCursorLabel) epicCursorLabel.textContent = labelText || 'Click';
+
+        setTimeout(() => {
+          epicCursor.classList.add('clicking');
+          if (epicRipple) {
+            epicRipple.style.left = x + 'px';
+            epicRipple.style.top = y + 'px';
+            epicRipple.classList.remove('animate');
+            void epicRipple.offsetWidth;
+            epicRipple.classList.add('animate');
+          }
+          setTimeout(() => {
+            epicCursor.classList.remove('clicking');
+            if (callback) callback();
+          }, 200);
+        }, 800);
+      }
+
+      let epicAnimStep = 0;
+
+      function runEpicCursorAnimation() {
+        epicAnimStep++;
+        const tabs = document.querySelectorAll('.epic-view-tab');
+        const patientRows = document.querySelectorAll('.bm-patient-row');
+        const bmButton = document.querySelector('.epic-bm-button');
+
+        switch(epicAnimStep % 4) {
+          case 1:
+            // Click on Patient Detail tab
+            if (tabs[1]) {
+              moveCursorToEpic(tabs[1], 'Patient Detail', () => showView('wayfarer'));
+            }
+            break;
+          case 2:
+            // Click on Motherboard tab
+            if (tabs[0]) {
+              moveCursorToEpic(tabs[0], 'Motherboard', () => showView('motherboard'));
+            }
+            break;
+          case 3:
+            // Click on a patient row
+            if (patientRows[0]) {
+              moveCursorToEpic(patientRows[0], 'View Patient', () => showView('wayfarer'));
+            }
+            break;
+          case 0:
+            // Click on Birth Model button
+            if (bmButton) {
+              moveCursorToEpic(bmButton, 'Toggle View', () => showView('motherboard'));
+            }
+            break;
+        }
+      }
+
+      // Nav scroll effect
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+      });
+
+      // Reveal animations
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1 });
+      revealElements.forEach(el => observer.observe(el));
+
+      // Auto-cycle Epic mockup with cursor animation
+      setInterval(runEpicCursorAnimation, 4000);
+
+      // Highlight dropdown option based on current view
+      function updateDropdownHighlight() {
+        const options = document.querySelectorAll('.epic-dropdown-option');
+        options.forEach(opt => opt.classList.remove('highlighted'));
+        if (currentView === 'motherboard') {
+          if (options[1]) options[1].classList.add('highlighted');
+        } else {
+          if (options[0]) options[0].classList.add('highlighted');
+        }
+      }
+
+      const originalShowView = showView;
+      showView = function(viewName) {
+        originalShowView(viewName);
+        updateDropdownHighlight();
+      };
+    });
+  </script>
+</body>
+</html>
