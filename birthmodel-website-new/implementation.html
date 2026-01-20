@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Mobile Implementation — Birth Model</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Birth Model enterprise mobile implementation documentation for hospital IT administrators. MDM configuration, Apple Business Manager setup, and Shared Device Mode.">
+  <meta name="keywords" content="Birth Model implementation, hospital MDM configuration, Apple Business Manager healthcare, Shared Device Mode L&D, enterprise mobile deployment, hospital IT documentation, iOS healthcare app deployment, Jamf Intune healthcare">
+  <meta name="author" content="Birth Model, Inc.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://birthmodel.com/implementation.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://birthmodel.com/implementation.html">
+  <meta property="og:title" content="Enterprise Mobile Implementation — Birth Model">
+  <meta property="og:description" content="Enterprise mobile implementation documentation for hospital IT administrators. MDM configuration, Apple Business Manager, and Shared Device Mode setup.">
+  <meta property="og:image" content="https://birthmodel.com/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Enterprise Mobile Implementation — Birth Model">
+  <meta name="twitter:description" content="Enterprise mobile implementation documentation for hospital IT. MDM, Apple Business Manager, and Shared Device Mode setup.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bm-black: #1b1b1b;
+      --bm-white: #ffffff;
+      --bm-gray: #6c757d;
+      --bm-teal: #abdfe2;
+      --bm-coral: #ff7660;
+      --bm-dark-teal: #1e3d3c;
+      --bm-light-gray: #f8fafa;
+      --bm-warm-gray: #f4f2f1;
+      --bm-cream: #faf9f7;
+      --bm-border: #e8e6e4;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bm-cream);
+      color: var(--bm-black);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* Hero */
+    .doc-hero {
+      background: linear-gradient(135deg, var(--bm-dark-teal) 0%, #2a5554 100%);
+      padding: 120px 40px 60px;
+      text-align: center;
+    }
+    .doc-hero h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .doc-hero p {
+      color: rgba(255,255,255,0.8);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .doc-hero .badge {
+      display: inline-block;
+      background: var(--bm-teal);
+      color: var(--bm-dark-teal);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 20px;
+    }
+
+    /* Layout */
+    .doc-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+      padding: 40px;
+    }
+
+    /* Sidebar */
+    .doc-sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+    .doc-nav {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .doc-nav-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--bm-gray);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .doc-nav a {
+      display: block;
+      padding: 8px 12px;
+      font-size: 14px;
+      color: var(--bm-gray);
+      text-decoration: none;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      transition: all 0.2s;
+    }
+    .doc-nav a:hover {
+      background: var(--bm-light-gray);
+      color: var(--bm-dark-teal);
+    }
+    .doc-nav a.active {
+      background: var(--bm-teal);
+      color: var(--bm-dark-teal);
+      font-weight: 600;
+    }
+    .doc-nav-section {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--bm-border);
+    }
+
+    /* Content */
+    .doc-content {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .doc-section {
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--bm-border);
+    }
+    .doc-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .doc-content h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .doc-content h2 .icon {
+      font-size: 28px;
+    }
+
+    .doc-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+      margin: 32px 0 12px;
+    }
+
+    .doc-content h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+      margin: 24px 0 8px;
+    }
+
+    .doc-content p {
+      font-size: 15px;
+      color: var(--bm-gray);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .doc-content ul, .doc-content ol {
+      margin: 16px 0 16px 24px;
+      color: var(--bm-gray);
+    }
+    .doc-content li {
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+
+    .doc-content a {
+      color: var(--bm-coral);
+      text-decoration: none;
+    }
+    .doc-content a:hover {
+      text-decoration: underline;
+    }
+
+    .doc-content strong {
+      color: var(--bm-dark-teal);
+    }
+
+    /* Info boxes */
+    .info-box {
+      background: var(--bm-light-gray);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid var(--bm-teal);
+    }
+    .info-box.warning {
+      background: #fef3c7;
+      border-left-color: #f59e0b;
+    }
+    .info-box.tip {
+      background: #f0fdf4;
+      border-left-color: #22c55e;
+    }
+    .info-box-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .info-box p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    /* Tables */
+    .doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .doc-table th, .doc-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border: 1px solid var(--bm-border);
+    }
+    .doc-table th {
+      background: var(--bm-dark-teal);
+      color: white;
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .doc-table tr:nth-child(even) {
+      background: var(--bm-light-gray);
+    }
+    .doc-table td {
+      color: var(--bm-gray);
+    }
+    .doc-table code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 12px;
+      color: #6b21a8;
+    }
+
+    /* Code blocks */
+    .code-block {
+      background: #1e293b;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+    .code-block pre {
+      margin: 0;
+      font-family: 'SF Mono', Monaco, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #e2e8f0;
+    }
+    .code-block .tag { color: #f472b6; }
+    .code-block .attr { color: #7dd3fc; }
+    .code-block .value { color: #a5f3fc; }
+    .code-block .comment { color: #64748b; }
+
+    /* Steps */
+    .steps {
+      counter-reset: step;
+      margin: 24px 0;
+    }
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .step-number {
+      counter-increment: step;
+      width: 32px;
+      height: 32px;
+      background: var(--bm-teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--bm-dark-teal);
+      flex-shrink: 0;
+    }
+    .step-number::before {
+      content: counter(step);
+    }
+    .step-content h4 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+    .step-content p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* Download button */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bm-coral);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      margin-top: 16px;
+      transition: all 0.2s;
+    }
+    .download-btn:hover {
+      background: #e85a45;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    /* External link */
+    .external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bm-light-gray);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--bm-dark-teal);
+      text-decoration: none;
+      margin: 8px 8px 8px 0;
+      transition: all 0.2s;
+    }
+    .external-link:hover {
+      background: var(--bm-teal);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bm-dark-teal);
+      padding: 60px 40px 30px;
+      color: white;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+    .footer-brand-logo img {
+      height: 32px;
+      width: auto;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .footer-social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .footer-social-icon:hover {
+      background: var(--bm-coral);
+      transform: translateY(-2px);
+    }
+    .footer-social-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      flex-wrap: wrap;
+    }
+    .footer-legal a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: white; }
+    .footer-badges {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.05);
+      padding: 8px 14px;
+      border-radius: 20px;
+    }
+    .footer-badge .check { color: #4ade80; }
+
+    @media (max-width: 900px) {
+      .doc-layout {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      .doc-sidebar {
+        position: static;
+      }
+      .doc-content {
+        padding: 24px;
+      }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .doc-hero { padding: 100px 20px 40px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .doc-table { font-size: 12px; }
+      .doc-table th, .doc-table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Birth_Model_Logo.png" alt="Birth Model" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="solutions-hospitals.html" class="nav-link">For Hospitals</a>
+        <a href="solutions-clinicians.html" class="nav-link">For Clinicians</a>
+        <a href="company.html" class="nav-link">Company</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link active">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="blogs.html" class="nav-dropdown-item">Blog</a>
+            <a href="videos.html" class="nav-dropdown-item">Videos</a>
+            <a href="roi-calculator.html" class="nav-dropdown-item">ROI Calculator</a>
+            <a href="implementation.html" class="nav-dropdown-item">Implementation</a>
+            <a href="careers.html" class="nav-dropdown-item">Careers</a>
+          </div>
+        </div>
+        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="demo.html" class="nav-cta">Schedule Demo</a>
+      </div>
+      <div class="nav-hamburger" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="solutions-hospitals.html">For Hospitals</a>
+    <a href="solutions-clinicians.html">For Clinicians</a>
+    <a href="company.html">Company</a>
+    <a href="blogs.html">Blog</a>
+    <a href="videos.html">Videos</a>
+    <a href="roi-calculator.html">ROI Calculator</a>
+          <a href="implementation.html">Mobile Implementation</a>
+    <a href="implementation.html">Mobile Implementation</a>
+    <a href="careers.html">Careers</a>
+    <a href="https://provider.birthmodel.com" target="_blank">Clinician Login</a>
+    <a href="demo.html" class="mobile-cta">Schedule Demo</a>
+  </div>
+
+  <section class="doc-hero">
+    <h1>Enterprise Mobile Implementation Documentation</h1>
+    <p>Technical guides for hospital IT administrators to deploy and configure Birth Model across your organization.</p>
+    <span class="badge">For Hospital IT Teams</span>
+  </section>
+
+  <div class="doc-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="doc-sidebar">
+      <nav class="doc-nav">
+        <div class="doc-nav-title">Getting Started</div>
+        <a href="#overview" class="active">Overview</a>
+        <a href="#apple-business-manager">Apple Business Manager</a>
+
+        <div class="doc-nav-section">
+          <div class="doc-nav-title">MDM Configuration</div>
+          <a href="#mdm-overview">MDM Overview</a>
+          <a href="#configuration-keys">Configuration Keys</a>
+          <a href="#sample-config">Sample Configuration</a>
+          <a href="#image-requirements">Image Requirements</a>
+        </div>
+
+        <div class="doc-nav-section">
+          <div class="doc-nav-title">Advanced</div>
+          <a href="#shared-device-mode">Shared Device Mode</a>
+          <a href="#troubleshooting">Troubleshooting</a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="doc-content">
+      <!-- Overview -->
+      <section id="overview" class="doc-section">
+        <h2><span class="icon">📋</span> Overview</h2>
+        <p>This guide covers the deployment and configuration of the Birth Model iOS application for enterprise environments. Birth Model integrates with your existing MDM solution and supports Apple Business Manager for streamlined deployment.</p>
+
+        <div class="info-box">
+          <div class="info-box-title">Platform Support</div>
+          <p><strong>iOS:</strong> Apple Business Manager + MDM (Intune, Jamf, Kandji, Workspace ONE, Mosyle)</p>
+        </div>
+
+        <h3>Deployment Options</h3>
+        <ul>
+          <li><strong>Apple Business Manager:</strong> Volume purchase and automatic deployment via MDM</li>
+          <li><strong>Managed App Configuration:</strong> Customize branding and settings per hospital</li>
+          <li><strong>Shared Device Mode:</strong> Multi-user support for shared L&D workstations</li>
+        </ul>
+      </section>
+
+      <!-- Apple Business Manager -->
+      <section id="apple-business-manager" class="doc-section">
+        <h2><span class="icon">🍎</span> Apple Business Manager</h2>
+        <p>Deploy Birth Model through Apple Business Manager (ABM) for seamless enterprise distribution without requiring individual Apple IDs on each device.</p>
+
+        <h3>Benefits</h3>
+        <ul>
+          <li><strong>Volume Purchase Program (VPP):</strong> Acquire app licenses centrally</li>
+          <li><strong>Automated Device Enrollment:</strong> Pre-configure devices before deployment</li>
+          <li><strong>Silent App Installation:</strong> Deploy automatically without user intervention</li>
+          <li><strong>License Management:</strong> Reassign licenses when devices are retired</li>
+        </ul>
+
+        <h3>Setup Steps</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number"></div>
+            <div class="step-content">
+              <h4>Sign in to Apple Business Manager</h4>
+              <p>Navigate to <a href="https://business.apple.com" target="_blank">business.apple.com</a> with your organization's admin credentials.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number"></div>
+            <div class="step-content">
+              <h4>Acquire Birth Model Licenses</h4>
+              <p>Go to Apps and Books, search for "Birth Model", and acquire the required number of licenses for your organization.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number"></div>
+            <div class="step-content">
+              <h4>Assign to MDM Server</h4>
+              <p>Assign the licenses to your MDM server location. The app will sync automatically.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number"></div>
+            <div class="step-content">
+              <h4>Configure in MDM</h4>
+              <p>Create an app deployment policy in your MDM portal and apply managed app configuration (see below).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box warning">
+          <div class="info-box-title">⚠️ Important</div>
+          <p>App must be installed via MDM (not direct App Store download) for managed app configuration to apply.</p>
+        </div>
+      </section>
+
+      <!-- MDM Overview -->
+      <section id="mdm-overview" class="doc-section">
+        <h2><span class="icon">⚙️</span> iOS MDM App Configuration</h2>
+        <p>Configure the Birth Model iOS app through Managed App Configuration keys in your MDM portal. This allows hospital-specific branding and customization.</p>
+
+        <h3>Supported MDM Solutions</h3>
+        <ul>
+          <li>Microsoft Intune</li>
+          <li>Jamf Pro / Jamf Now</li>
+          <li>Kandji</li>
+          <li>VMware Workspace ONE</li>
+          <li>Mosyle</li>
+          <li>Any MDM supporting Apple Managed App Configuration</li>
+        </ul>
+      </section>
+
+      <!-- Configuration Keys -->
+      <section id="configuration-keys" class="doc-section">
+        <h2><span class="icon">🔑</span> Configuration Keys</h2>
+
+        <h3>Home Screen — User Initials</h3>
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>home_username_initial_background_color</code></td>
+              <td>HEX</td>
+              <td>Background color for user initials avatar</td>
+            </tr>
+            <tr>
+              <td><code>home_username_initial_text_color</code></td>
+              <td>HEX</td>
+              <td>Text color for user initials</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Login Button</h3>
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>login_button_background_color</code></td>
+              <td>HEX</td>
+              <td>Login button background color</td>
+            </tr>
+            <tr>
+              <td><code>login_button_text_color</code></td>
+              <td>HEX</td>
+              <td>Login button text color</td>
+            </tr>
+            <tr>
+              <td><code>login_button_text_title</code></td>
+              <td>String</td>
+              <td>Login button label text (e.g., "Start New Shift")</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Full Screen Images</h3>
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>login_full_screen_background_image</code></td>
+              <td>URL</td>
+              <td>Login screen background image URL</td>
+            </tr>
+            <tr>
+              <td><code>splash_full_screen_background_image</code></td>
+              <td>URL</td>
+              <td>Splash screen background image URL</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Sample Configuration -->
+      <section id="sample-config" class="doc-section">
+        <h2><span class="icon">📝</span> Sample Configuration</h2>
+        <p>XML/plist format for iOS Managed App Configuration:</p>
+
+        <div class="code-block">
+<pre><span class="tag">&lt;dict&gt;</span>
+  <span class="tag">&lt;key&gt;</span><span class="attr">home_username_initial_background_color</span><span class="tag">&lt;/key&gt;</span>
+  <span class="tag">&lt;string&gt;</span><span class="value">#574497</span><span class="tag">&lt;/string&gt;</span>
+
+  <span class="tag">&lt;key&gt;</span><span class="attr">home_username_initial_text_color</span><span class="tag">&lt;/key&gt;</span>
+  <span class="tag">&lt;string&gt;</span><span class="value">#FFFFFF</span><span class="tag">&lt;/string&gt;</span>
+
+  <span class="tag">&lt;key&gt;</span><span class="attr">login_button_background_color</span><span class="tag">&lt;/key&gt;</span>
+  <span class="tag">&lt;string&gt;</span><span class="value">#574497</span><span class="tag">&lt;/string&gt;</span>
+
+  <span class="tag">&lt;key&gt;</span><span class="attr">login_button_text_color</span><span class="tag">&lt;/key&gt;</span>
+  <span class="tag">&lt;string&gt;</span><span class="value">#FFFFFF</span><span class="tag">&lt;/string&gt;</span>
+
+  <span class="tag">&lt;key&gt;</span><span class="attr">login_button_text_title</span><span class="tag">&lt;/key&gt;</span>
+  <span class="tag">&lt;string&gt;</span><span class="value">Start New Shift</span><span class="tag">&lt;/string&gt;</span>
+
+  <span class="tag">&lt;key&gt;</span><span class="attr">login_full_screen_background_image</span><span class="tag">&lt;/key&gt;</span>
+  <span class="tag">&lt;string&gt;</span><span class="value">https://your-hospital.com/images/birth_model_bg.png</span><span class="tag">&lt;/string&gt;</span>
+
+  <span class="tag">&lt;key&gt;</span><span class="attr">splash_full_screen_background_image</span><span class="tag">&lt;/key&gt;</span>
+  <span class="tag">&lt;string&gt;</span><span class="value">https://your-hospital.com/images/birth_model_splash.png</span><span class="tag">&lt;/string&gt;</span>
+<span class="tag">&lt;/dict&gt;</span></pre>
+        </div>
+
+        <div class="info-box tip">
+          <div class="info-box-title">✓ Tip</div>
+          <p>Configuration changes apply after app relaunch. Users may need to force-quit and reopen the app to see updated branding.</p>
+        </div>
+      </section>
+
+      <!-- Image Requirements -->
+      <section id="image-requirements" class="doc-section">
+        <h2><span class="icon">🖼️</span> Image Requirements</h2>
+        <p>Requirements for background images provided via URL:</p>
+
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Protocol</td>
+              <td>HTTPS required</td>
+            </tr>
+            <tr>
+              <td>Access</td>
+              <td>Publicly accessible (no authentication)</td>
+            </tr>
+            <tr>
+              <td>Minimum Size</td>
+              <td>1242 x 2688 px (portrait)</td>
+            </tr>
+            <tr>
+              <td>Aspect Ratio</td>
+              <td>~19.5:9 recommended</td>
+            </tr>
+            <tr>
+              <td>Rendering</td>
+              <td>Aspect Fill (edges may crop)</td>
+            </tr>
+            <tr>
+              <td>Format</td>
+              <td>PNG or JPG</td>
+            </tr>
+            <tr>
+              <td>Color Space</td>
+              <td>sRGB</td>
+            </tr>
+            <tr>
+              <td>Max File Size</td>
+              <td>500 KB recommended</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="info-box">
+          <div class="info-box-title">Safe Area Tip</div>
+          <p>Keep logos, text, and critical visuals within the center 80% of the image. Avoid placing important content near the notch, Dynamic Island, or home indicator areas.</p>
+        </div>
+      </section>
+
+      <!-- Shared Device Mode -->
+      <section id="shared-device-mode" class="doc-section">
+        <h2><span class="icon">👥</span> Shared Device Mode</h2>
+        <p>Birth Model supports <strong>Microsoft Entra ID Shared Device Mode</strong> for devices used by multiple clinicians across shifts. This is ideal for shared workstations, nursing stations, and mobile carts in Labor & Delivery units.</p>
+
+        <h3>Benefits</h3>
+        <ul>
+          <li><strong>Single Sign-Out:</strong> When a clinician signs out, all app data and tokens are cleared automatically</li>
+          <li><strong>Fast User Switching:</strong> Next user can sign in immediately with their credentials</li>
+          <li><strong>HIPAA Compliance:</strong> Ensures no PHI persists between user sessions</li>
+          <li><strong>Reduced Device Inventory:</strong> Multiple clinicians can share fewer devices securely</li>
+        </ul>
+
+        <h3>Prerequisites</h3>
+        <ul>
+          <li>Devices must be enrolled in your MDM with <strong>Supervised mode</strong> enabled</li>
+          <li>Microsoft Authenticator app must be installed and configured as the broker</li>
+          <li>Azure AD / Entra ID tenant must have Shared Device Mode enabled</li>
+          <li>Birth Model app installed via MDM (Apple Business Manager)</li>
+        </ul>
+
+        <h3>How It Works</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number"></div>
+            <div class="step-content">
+              <h4>Device Registration</h4>
+              <p>Microsoft Authenticator registers the device as a "shared device" with your Entra ID tenant.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number"></div>
+            <div class="step-content">
+              <h4>Clinician Sign-In</h4>
+              <p>Clinician signs into Birth Model using their hospital credentials. The app detects Shared Device Mode automatically.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number"></div>
+            <div class="step-content">
+              <h4>Shift Work</h4>
+              <p>Clinician uses Birth Model normally throughout their shift with full access to patient data.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number"></div>
+            <div class="step-content">
+              <h4>Global Sign-Out</h4>
+              <p>When the clinician signs out, all tokens and cached data are cleared from the device across all participating apps.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Microsoft Documentation</h3>
+        <p>For detailed setup instructions, refer to Microsoft's official documentation:</p>
+        <div style="margin-top: 12px;">
+          <a href="https://learn.microsoft.com/en-us/entra/identity-platform/msal-ios-shared-devices" target="_blank" class="external-link">
+            📄 Shared device mode for iOS devices
+          </a>
+          <a href="https://learn.microsoft.com/en-us/mem/intune/developer/app-sdk-ios-phase7" target="_blank" class="external-link">
+            📄 Configure Shared Device Mode with Intune
+          </a>
+          <a href="https://learn.microsoft.com/en-us/entra/identity-platform/tutorial-v2-shared-device-mode" target="_blank" class="external-link">
+            📄 Shared Device Mode Tutorial
+          </a>
+        </div>
+      </section>
+
+      <!-- Troubleshooting -->
+      <section id="troubleshooting" class="doc-section">
+        <h2><span class="icon">🔧</span> Troubleshooting</h2>
+
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Issue</th>
+              <th>Resolution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>App not appearing on device</td>
+              <td>Verify ABM sync with MDM; check device group assignment; ensure license is available</td>
+            </tr>
+            <tr>
+              <td>Configuration not applied</td>
+              <td>Ensure managed app config is linked to correct app version; force-quit and relaunch app</td>
+            </tr>
+            <tr>
+              <td>Background image not loading</td>
+              <td>Verify URL is HTTPS and publicly accessible; check image format and file size</td>
+            </tr>
+            <tr>
+              <td>Shared Device Mode not activating</td>
+              <td>Confirm Microsoft Authenticator is installed and configured first; verify device is supervised</td>
+            </tr>
+            <tr>
+              <td>License assignment failed</td>
+              <td>Check available license count in Apple Business Manager; verify MDM server token</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Need Help?</h3>
+        <p>Contact Birth Model support for enterprise deployment guidance:</p>
+        <p><strong>Email:</strong> <a href="mailto:support@birthmodel.com">support@birthmodel.com</a></p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="Birth_Model_Logo.png" alt="Birth Model">
+          </div>
+          <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
+          <div class="footer-social">
+            <a href="mailto:support@birthmodel.com" class="footer-social-icon" title="Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/birth-model/" target="_blank" class="footer-social-icon" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M" target="_blank" class="footer-social-icon" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="solutions-hospitals.html">For Hospitals</a>
+          <a href="solutions-clinicians.html">For Clinicians</a>
+          <a href="company.html">Company</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="https://apps.apple.com/us/app/birth-model/id1562474693" target="_blank">Apple App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.birthmodel.provider" target="_blank">Google Play</a>
+          <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
+          <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
+          <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="blogs.html">Blogs</a>
+          <a href="videos.html">Videos</a>
+          <a href="roi-calculator.html">ROI Calculator</a>
+          <a href="implementation.html">Mobile Implementation</a>
+          <a href="https://app.vanta.com/birthmodel/trust/pbt1stf4skwae09sr1wjf" target="_blank">Trust Center</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="demo.html">Request Demo</a>
+          <a href="https://calendly.com/birthmodel" target="_blank">Schedule Meeting</a>
+          <a href="mailto:support@birthmodel.com">support@birthmodel.com</a>
+          <a href="careers.html">Careers</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <span>&copy; 2026 Birth Model, Inc. All Rights Reserved.</span>
+          <span>|</span>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>|</span>
+          <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+        <div class="footer-badges">
+          <div class="footer-badge">
+            <span class="check">✓</span> SOC 2 Type II
+          </div>
+          <div class="footer-badge">
+            <span class="check">✓</span> HIPAA Compliant
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const hamburger = document.querySelector('.nav-hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+    // Highlight active nav item on scroll
+    const sections = document.querySelectorAll('.doc-section');
+    const navLinks = document.querySelectorAll('.doc-nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

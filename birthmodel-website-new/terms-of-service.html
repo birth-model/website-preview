@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Birth Model</title>
+
+  <meta name="description" content="Birth Model Terms of Service - The terms and conditions governing your use of our platform and services.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://birthmodel.com/terms-of-service.html">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bm-black: #1b1b1b;
+      --bm-white: #ffffff;
+      --bm-gray: #6c757d;
+      --bm-teal: #abdfe2;
+      --bm-coral: #ff7660;
+      --bm-dark-teal: #1e3d3c;
+      --bm-light-gray: #f8fafa;
+      --bm-warm-gray: #f4f2f1;
+      --bm-cream: #faf9f7;
+      --bm-border: #e8e6e4;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bm-cream);
+      color: var(--bm-black);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* Policy Page Styles */
+    .policy-hero {
+      background: linear-gradient(135deg, var(--bm-dark-teal) 0%, #2a5554 100%);
+      padding: 120px 40px 60px;
+      text-align: center;
+    }
+    .policy-hero h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .policy-hero .last-updated {
+      color: var(--bm-teal);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .policy-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+    }
+
+    .policy-content h2 {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin: 40px 0 16px;
+      padding-top: 20px;
+      border-top: 1px solid var(--bm-border);
+    }
+    .policy-content h2:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .policy-content h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--bm-dark-teal);
+      margin: 24px 0 12px;
+    }
+
+    .policy-content p {
+      font-size: 16px;
+      color: var(--bm-gray);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .policy-content ul, .policy-content ol {
+      margin: 16px 0 16px 24px;
+      color: var(--bm-gray);
+    }
+
+    .policy-content li {
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+
+    .policy-content a {
+      color: var(--bm-coral);
+      text-decoration: none;
+    }
+    .policy-content a:hover {
+      text-decoration: underline;
+    }
+
+    .policy-content strong {
+      color: var(--bm-dark-teal);
+    }
+
+    .summary-box {
+      background: var(--bm-light-gray);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+      border-left: 4px solid var(--bm-teal);
+    }
+    .summary-box h3 {
+      margin-top: 0;
+      color: var(--bm-dark-teal);
+    }
+
+    .warning-box {
+      background: #fff8f7;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      border-left: 4px solid var(--bm-coral);
+    }
+    .warning-box p {
+      margin-bottom: 0;
+      color: var(--bm-dark-teal);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bm-dark-teal);
+      padding: 60px 40px 30px;
+      color: white;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+    .footer-brand-logo img {
+      height: 32px;
+      width: auto;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .footer-social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .footer-social-icon:hover {
+      background: var(--bm-coral);
+      transform: translateY(-2px);
+    }
+    .footer-social-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      flex-wrap: wrap;
+    }
+    .footer-legal a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: white; }
+    .footer-badges {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.05);
+      padding: 8px 14px;
+      border-radius: 20px;
+    }
+    .footer-badge .check { color: #4ade80; }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .policy-content { padding: 40px 20px 60px; }
+      .policy-hero { padding: 100px 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Birth_Model_Logo.png" alt="Birth Model" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="solutions-hospitals.html" class="nav-link">For Hospitals</a>
+        <a href="solutions-clinicians.html" class="nav-link">For Clinicians</a>
+        <a href="company.html" class="nav-link">Company</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="blogs.html" class="nav-dropdown-item">Blog</a>
+            <a href="videos.html" class="nav-dropdown-item">Videos</a>
+            <a href="roi-calculator.html" class="nav-dropdown-item">ROI Calculator</a>
+            <a href="implementation.html" class="nav-dropdown-item">Implementation</a>
+            <a href="careers.html" class="nav-dropdown-item">Careers</a>
+          </div>
+        </div>
+        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="demo.html" class="nav-cta">Schedule Demo</a>
+      </div>
+      <div class="nav-hamburger" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="solutions-hospitals.html">For Hospitals</a>
+    <a href="solutions-clinicians.html">For Clinicians</a>
+    <a href="company.html">Company</a>
+    <a href="blogs.html">Blog</a>
+    <a href="videos.html">Videos</a>
+    <a href="roi-calculator.html">ROI Calculator</a>
+          <a href="implementation.html">Mobile Implementation</a>
+    <a href="implementation.html">Mobile Implementation</a>
+    <a href="careers.html">Careers</a>
+    <a href="https://provider.birthmodel.com" target="_blank">Clinician Login</a>
+    <a href="demo.html" class="mobile-cta">Schedule Demo</a>
+  </div>
+
+  <section class="policy-hero">
+    <h1>Terms of Service</h1>
+    <p class="last-updated">Last Updated: January 2026</p>
+  </section>
+
+  <div class="policy-content">
+    <div class="summary-box">
+      <h3>Agreement to Terms</h3>
+      <p>By accessing our website or using our services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+    </div>
+
+    <h2>Overview</h2>
+    <p>Birth Model, Inc. ("Company," "we," "us," or "our") operates <a href="https://www.birthmodel.com">www.birthmodel.com</a>, a mobile application, and related health technology services focused on obstetrics analytics. These Terms of Service govern your use of our platform and services.</p>
+
+    <h2>Eligibility</h2>
+    <p>You must be at least 18 years of age to access or use our services. By using our platform, you represent and warrant that you meet this age requirement and have the legal capacity to enter into this agreement.</p>
+
+    <h2>Intellectual Property Rights</h2>
+    <p>Birth Model owns all content, including but not limited to:</p>
+    <ul>
+      <li>Source code and software</li>
+      <li>Databases and data compilations</li>
+      <li>Designs, graphics, and user interfaces</li>
+      <li>Trademarks and service marks</li>
+      <li>Documentation and training materials</li>
+    </ul>
+    <p>We grant you a <strong>non-exclusive, non-transferable, revocable license</strong> to use our services for personal or internal business purposes only, subject to these Terms.</p>
+
+    <h2>User Representations</h2>
+    <p>By using our services, you represent and warrant that:</p>
+    <ul>
+      <li>All registration information you submit is truthful and accurate</li>
+      <li>You will maintain the accuracy of such information</li>
+      <li>You will not access the services through automated or non-human means (bots, scripts, etc.)</li>
+      <li>You will not use the services for any illegal or unauthorized purpose</li>
+      <li>Your use will not violate any applicable laws or regulations</li>
+    </ul>
+
+    <h2>Payments and Billing</h2>
+    <p>For paid services, we accept the following payment methods:</p>
+    <ul>
+      <li>Visa</li>
+      <li>Mastercard</li>
+      <li>American Express</li>
+      <li>Discover</li>
+    </ul>
+    <p>All prices are subject to change. Charges are processed in US Dollars (USD). You agree to pay all fees at the prices then in effect for your subscriptions or purchases.</p>
+
+    <h2>Prohibited Activities</h2>
+    <p>You may not engage in any of the following activities:</p>
+    <ul>
+      <li>Systematically retrieve data or content to create a collection, database, or directory</li>
+      <li>Make any unauthorized use of the services, including collecting user information</li>
+      <li>Circumvent, disable, or otherwise interfere with security features</li>
+      <li>Engage in unauthorized framing or linking to our website</li>
+      <li>Attempt to defraud us or other users</li>
+      <li>Distribute viruses, malware, or other harmful code</li>
+      <li>Reverse engineer or decompile any software</li>
+      <li>Use the services to compete with us</li>
+      <li>Harass, abuse, or threaten other users</li>
+    </ul>
+
+    <h2>Termination</h2>
+    <p>We reserve the right to deny access to the services, suspend your account, or terminate your access without prior notice or liability, for any reason, including but not limited to breach of these Terms.</p>
+
+    <h2>Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the State of New Jersey, without regard to conflict of law principles.</p>
+
+    <h2>Dispute Resolution</h2>
+    <p>Any disputes arising from or relating to these Terms or your use of our services shall be resolved through:</p>
+    <ol>
+      <li><strong>Informal Negotiation:</strong> We will first attempt to resolve any dispute informally</li>
+      <li><strong>Binding Arbitration:</strong> If informal resolution fails, disputes will proceed to binding arbitration in Bergen County, New Jersey</li>
+    </ol>
+
+    <h2>Disclaimer of Warranties</h2>
+    <div class="warning-box">
+      <p><strong>Important:</strong> Our services are provided on an "AS-IS" and "AS-AVAILABLE" basis. We disclaim all warranties, express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+    </div>
+    <p>We do not warrant that:</p>
+    <ul>
+      <li>The services will be uninterrupted or error-free</li>
+      <li>Defects will be corrected</li>
+      <li>The services are free of viruses or harmful components</li>
+      <li>Any results from use of the services will meet your requirements</li>
+    </ul>
+
+    <h2>Limitation of Liability</h2>
+    <p>In no event shall Birth Model, its directors, employees, or agents be liable for any indirect, consequential, incidental, special, or punitive damages arising from your use of the services, including but not limited to:</p>
+    <ul>
+      <li>Errors, mistakes, or inaccuracies in content</li>
+      <li>Unauthorized access to or use of our servers</li>
+      <li>Interruption or cessation of transmission</li>
+      <li>Bugs, viruses, or similar harmful code transmitted through the services</li>
+      <li>Third-party content or conduct</li>
+    </ul>
+
+    <h2>Medical Disclaimer</h2>
+    <div class="warning-box">
+      <p><strong>Important:</strong> Our services do not constitute medical advice. You should always consult with qualified healthcare professionals for medical decisions. See our <a href="disclaimer.html">Disclaimer</a> for more information.</p>
+    </div>
+
+    <h2>Modifications to Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting to this page. Your continued use of the services after any changes indicates your acceptance of the new Terms.</p>
+
+    <h2>Contact Information</h2>
+    <p>For questions about these Terms of Service, please contact us:</p>
+    <p><strong>Email:</strong> <a href="mailto:support@birthmodel.com">support@birthmodel.com</a></p>
+    <p><strong>Company:</strong> Birth Model, Inc.</p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="Birth_Model_Logo.png" alt="Birth Model">
+          </div>
+          <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
+          <div class="footer-social">
+            <a href="mailto:support@birthmodel.com" class="footer-social-icon" title="Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/birth-model/" target="_blank" class="footer-social-icon" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M" target="_blank" class="footer-social-icon" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="solutions-hospitals.html">For Hospitals</a>
+          <a href="solutions-clinicians.html">For Clinicians</a>
+          <a href="company.html">Company</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="https://apps.apple.com/us/app/birth-model/id1562474693" target="_blank">Apple App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.birthmodel.provider" target="_blank">Google Play</a>
+          <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
+          <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
+          <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="blogs.html">Blogs</a>
+          <a href="videos.html">Videos</a>
+          <a href="roi-calculator.html">ROI Calculator</a>
+          <a href="implementation.html">Mobile Implementation</a>
+          <a href="https://app.vanta.com/birthmodel/trust/pbt1stf4skwae09sr1wjf" target="_blank">Trust Center</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="demo.html">Request Demo</a>
+          <a href="https://calendly.com/birthmodel" target="_blank">Schedule Meeting</a>
+          <a href="mailto:support@birthmodel.com">support@birthmodel.com</a>
+          <a href="implementation.html">Mobile Implementation</a>
+    <a href="careers.html">Careers</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <span>&copy; 2026 Birth Model, Inc. All Rights Reserved.</span>
+          <span>|</span>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>|</span>
+          <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+        <div class="footer-badges">
+          <div class="footer-badge">
+            <span class="check">✓</span> SOC 2 Type II
+          </div>
+          <div class="footer-badge">
+            <span class="check">✓</span> HIPAA Compliant
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const hamburger = document.querySelector('.nav-hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+  </script>
+</body>
+</html>

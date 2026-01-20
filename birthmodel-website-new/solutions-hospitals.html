@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Solutions for Hospital L&D Units — Birth Model</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Transform your L&D unit with Birth Model's AI platform. Automated CDC/CMS reporting, staffing intelligence, NTSV tracking, and Epic integration.">
+  <meta name="keywords" content="hospital L&D software, labor delivery staffing optimization, Epic integration L&D, Oracle Health OB, maternal safety AI, hospital revenue optimization, L&D documentation automation, Joint Commission compliance, CMS reporting OB, malpractice risk reduction obstetrics, NTSV C-section rate, PPH tracking, neonatal Apgar scores, CDC perinatal reporting, quality metrics obstetrics, care disparities maternal health, decision to incision time, triage to admit L&D, NICU admission rates, maternal quality dashboard">
+  <meta name="author" content="Birth Model, Inc.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://birthmodel.com/solutions-hospitals.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://birthmodel.com/solutions-hospitals.html">
+  <meta property="og:title" content="AI Solutions for Hospital L&D Units — Quality Metrics & Staffing Intelligence">
+  <meta property="og:description" content="Automated quality metrics for CDC/CMS reporting, real-time staffing intelligence, NTSV tracking, PPH monitoring, neonatal outcomes, and care disparities analysis. Epic & Oracle Health integration.">
+  <meta property="og:image" content="https://birthmodel.com/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Solutions for Hospital L&D Units — Quality Metrics & Staffing Intelligence">
+  <meta name="twitter:description" content="Automated quality metrics for CDC/CMS reporting, real-time staffing intelligence, NTSV tracking, PPH monitoring, and care disparities analysis.">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Birth Model for Hospitals",
+    "applicationCategory": "HealthcareApplication",
+    "description": "AI-powered platform for hospital L&D units featuring quality intelligence (NTSV, PPH, episiotomy tracking), staffing & census forecasting, automated CDC/CMS reporting, care disparities analysis, neonatal outcomes monitoring, and operational lag time tracking. Integrates with Epic and Oracle Health EHRs.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Birth Model"
+    },
+    "operatingSystem": "Web-based",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Contact for enterprise pricing"
+    },
+    "featureList": [
+      "Quality Intelligence Dashboard",
+      "NTSV C-section Rate Tracking",
+      "PPH Rate Monitoring",
+      "Neonatal Apgar Score Tracking",
+      "Care Disparities Analysis by Race",
+      "CDC and CMS Automated Reporting",
+      "Staffing & Census Intelligence",
+      "Walk-in Predictions",
+      "Decision-to-Incision Time Tracking",
+      "Epic EHR Integration",
+      "Oracle Health Integration"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "150000",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  }
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bm-black: #1b1b1b;
+      --bm-white: #ffffff;
+      --bm-gray: #6c757d;
+      --bm-teal: #abdfe2;
+      --bm-coral: #ff7660;
+      --bm-coral-light: #ffebe7;
+      --bm-dark-teal: #1e3d3c;
+      --bm-light-gray: #f8fafa;
+      --bm-warm-gray: #f4f2f1;
+      --bm-cream: #faf9f7;
+      --bm-teal-light: #e8f6f7;
+      --bm-border: #e8e6e4;
+    }
+    
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: 'Lato', sans-serif; 
+      background: var(--bm-cream); 
+      color: var(--bm-black);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Animated Cursor Styles */
+    .demo-cursor {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      z-index: 100;
+      transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1), top 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s ease;
+    }
+    .demo-cursor svg {
+      width: 20px;
+      height: 20px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    .demo-cursor.clicking {
+      transform: scale(0.85);
+    }
+    .cursor-click-ripple {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 118, 96, 0.3);
+      transform: translate(-50%, -50%) scale(0);
+      pointer-events: none;
+      z-index: 99;
+    }
+    .cursor-click-ripple.animate {
+      animation: clickRipple 0.6s ease-out forwards;
+    }
+    @keyframes clickRipple {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+    }
+    .demo-cursor-label {
+      position: absolute;
+      top: 24px;
+      left: 12px;
+      background: var(--bm-dark-teal);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 700;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .demo-cursor.clicking .demo-cursor-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1; transform: none; transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    /* Navigation styles moved to nav.css */
+
+    /* Hero */
+    .page-hero {
+      padding: 160px 40px 80px;
+      background: linear-gradient(170deg, var(--bm-cream) 0%, var(--bm-teal-light) 100%);
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin-bottom: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .page-hero h1 span { color: var(--bm-coral); }
+    .page-hero p {
+      font-size: 18px;
+      color: var(--bm-gray);
+      max-width: 650px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 30px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    .btn-primary { background: var(--bm-coral); color: white; box-shadow: 0 6px 25px rgba(255, 118, 96, 0.4); }
+    .btn-primary:hover { transform: translateY(-2px); }
+    
+    /* Solution Section */
+    .solution-section {
+      padding: 50px 40px;
+      background: white;
+    }
+    .solution-section:nth-child(odd) { background: var(--bm-warm-gray); }
+    .solution-inner { max-width: 1100px; margin: 0 auto; }
+    .solution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .solution-grid.reverse .solution-content { order: 2; }
+    .solution-grid.reverse .solution-image { order: 1; }
+    @media (max-width: 1024px) {
+      .solution-grid { grid-template-columns: 1fr; gap: 30px; }
+      .solution-grid.reverse .solution-content { order: 1; }
+      .solution-grid.reverse .solution-image { order: 2; }
+    }
+    .solution-label {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--bm-coral);
+      margin-bottom: 14px;
+    }
+    .solution-content h2 {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .solution-content p {
+      font-size: 16px;
+      color: var(--bm-gray);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .solution-list {
+      list-style: none;
+      margin-bottom: 0;
+    }
+    .solution-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      font-size: 14px;
+      color: var(--bm-gray);
+      line-height: 1.4;
+    }
+    .solution-list .icon { color: #22c55e; font-size: 14px; flex-shrink: 0; }
+    .solution-list strong { color: var(--bm-dark-teal); }
+    .solution-image {
+      background: linear-gradient(135deg, var(--bm-teal-light), var(--bm-coral-light));
+      border-radius: 24px;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      padding: 60px 40px;
+      background: linear-gradient(135deg, #4a8f8c 0%, #3d7a77 50%, #2d5a58 100%);
+    }
+    .stats-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .stat-item { text-align: center; }
+    .stat-value { font-size: 42px; font-weight: 900; color: var(--bm-teal); line-height: 1; margin-bottom: 6px; }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,0.7); }
+    
+    /* ROI Section */
+    .roi-section {
+      padding: 50px 40px;
+      background: var(--bm-light-gray);
+    }
+    .roi-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .roi-inner h2 { font-size: 36px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 16px; }
+    .roi-inner p { font-size: 16px; color: var(--bm-gray); margin-bottom: 40px; }
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .roi-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .roi-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(30, 61, 60, 0.1); }
+    .roi-value { font-size: 36px; font-weight: 900; color: var(--bm-coral); margin-bottom: 8px; }
+    .roi-label { font-size: 14px; color: var(--bm-gray); }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 60px 40px;
+      background: linear-gradient(135deg, #4a8f8c 0%, #3d7a77 50%, #2d5a58 100%);
+      text-align: center;
+    }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-section h2 { font-size: 36px; font-weight: 900; color: white; margin-bottom: 16px; }
+    .cta-section h2 span { color: var(--bm-teal); }
+    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 30px; }
+    
+        /* Footer */
+    .footer {
+      background: #1e3d3c;
+      padding: 70px 40px 30px;
+      color: white;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    .footer-brand {}
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-brand-logo img {
+      height: 32px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+        .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .footer-social-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bm-dark-teal);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-social-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+    }
+    .footer-social-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #abdfe2;
+      margin-bottom: 20px;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
+    }
+    .footer-col a:hover {
+      color: white;
+      padding-left: 4px;
+    }
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-legal a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: white; text-decoration: underline; }
+    .footer-badges {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      transition: all 0.2s ease;
+    }
+    .footer-badge:hover {
+      background: rgba(255,255,255,0.12);
+    }
+    .footer-badge .check {
+      color: #4ade80;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Birth_Model_Logo.png" alt="Birth Model" style="height: 30px;">
+      </a>
+      <div class="nav-links">
+        <a href="solutions-hospitals.html" class="nav-link active">For Hospitals</a>
+        <a href="solutions-clinicians.html" class="nav-link">For Clinicians</a>
+        <a href="company.html" class="nav-link">Company</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="blogs.html" class="nav-dropdown-item">Blog</a>
+            <a href="videos.html" class="nav-dropdown-item">Videos</a>
+            <a href="roi-calculator.html" class="nav-dropdown-item">ROI Calculator</a>
+            <a href="implementation.html" class="nav-dropdown-item">Implementation</a>
+            <a href="careers.html" class="nav-dropdown-item">Careers</a>
+          </div>
+        </div>
+        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="demo.html" class="nav-cta">Schedule Demo</a>
+      </div>
+      <div class="nav-hamburger" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="solutions-hospitals.html">For Hospitals</a>
+    <a href="solutions-clinicians.html">For Clinicians</a>
+    <a href="company.html">Company</a>
+    <a href="blogs.html">Blog</a>
+    <a href="videos.html">Videos</a>
+    <a href="roi-calculator.html">ROI Calculator</a>
+          <a href="implementation.html">Mobile Implementation</a>
+    <a href="implementation.html">Mobile Implementation</a>
+    <a href="careers.html">Careers</a>
+    <a href="https://provider.birthmodel.com" target="_blank">Clinician Login</a>
+    <a href="demo.html" class="mobile-cta">Schedule Demo</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <h1>AI Precision for <span>Financial</span>, <span>Operational</span> & <span>Clinical</span> Excellence in L&D</h1>
+    <p>Birth Model's predictive AI integrates with Epic and Oracle Health EHRs to deliver comprehensive clinical assessments, real-time risk alerts, staffing forecasts, and billing insights.</p>
+    <a href="demo.html" class="btn btn-primary">Request a Demo</a>
+  </section>
+
+  <!-- Five Pillars Section -->
+  <section class="pillars-section" style="padding: 50px 40px; background: var(--bm-light-gray);">
+    <style>
+      .pillars-inner { max-width: 1200px; margin: 0 auto; }
+      .pillars-header { margin-bottom: 50px; }
+      .pillars-header h2 { font-size: 36px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 12px; }
+      .pillars-header p { font-size: 17px; color: var(--bm-gray); max-width: 700px; }
+      .pillars-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 40px; }
+      .pillar-card {
+        background: white;
+        padding: 28px 24px;
+        border-radius: 16px;
+        border: 1px solid var(--bm-border);
+        transition: all 0.3s ease;
+      }
+      .pillar-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(30, 61, 60, 0.1); }
+      .pillar-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--bm-teal-light);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 18px;
+      }
+      .pillar-title { font-size: 17px; font-weight: 800; color: var(--bm-dark-teal); margin-bottom: 10px; }
+      .pillar-desc { font-size: 13px; color: var(--bm-gray); line-height: 1.6; }
+      
+      .reportables-card {
+        background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+        border: 2px solid #86efac;
+        border-radius: 16px;
+        padding: 24px 30px;
+      }
+      .reportables-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+      .reportables-icon { font-size: 20px; }
+      .reportables-title { font-size: 16px; font-weight: 800; color: var(--bm-dark-teal); }
+      .reportables-subtitle { font-size: 13px; color: var(--bm-gray); margin-bottom: 14px; }
+      .reportables-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+      .reportable-tag {
+        padding: 6px 14px;
+        background: white;
+        border: 1px solid #d1fae5;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--bm-dark-teal);
+      }
+      
+      @media (max-width: 1024px) { .pillars-grid { grid-template-columns: repeat(3, 1fr); } }
+      @media (max-width: 768px) { .pillars-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 480px) { .pillars-grid { grid-template-columns: 1fr; } }
+    </style>
+    <div class="pillars-inner">
+      <div class="pillars-header">
+        <h2>Five Pillars of L&D Excellence</h2>
+        <p>Our AI platform delivers measurable improvements across every dimension of Labor & Delivery performance.</p>
+      </div>
+      
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">💰</div>
+          <h3 class="pillar-title">Financial Excellence</h3>
+          <p class="pillar-desc">Optimize revenue capture with AI-powered documentation and ICD-10/CPT coding. Reduce claim denials and improve reimbursement rates.</p>
+        </div>
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">⚡</div>
+          <h3 class="pillar-title">Operational Efficiency</h3>
+          <p class="pillar-desc">Predict delivery times within ±12 minutes. Enable smarter staffing decisions, reduce overtime, and maximize room turnover.</p>
+        </div>
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">❤️</div>
+          <h3 class="pillar-title">Clinical Safety</h3>
+          <p class="pillar-desc">Real-time risk stratification for PPH, preeclampsia, shoulder dystocia, and other complications. Early warning alerts for clinical teams.</p>
+        </div>
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">📋</div>
+          <h3 class="pillar-title">Documentation & Compliance</h3>
+          <p class="pillar-desc">Auto-generated clinical documentation for regulatory reporting. Audit-ready metrics for accreditation and quality programs.</p>
+        </div>
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">🛡️</div>
+          <h3 class="pillar-title">Liability Protection</h3>
+          <p class="pillar-desc">Reduce malpractice exposure with comprehensive documentation trails and proactive risk identification in high-litigation L&D environment.</p>
+        </div>
+      </div>
+      
+      <!-- Automated Reportable Outcomes -->
+      <div class="reportables-card">
+        <div class="reportables-header">
+          <span class="reportables-icon">📊</span>
+          <span class="reportables-title">Automated Reportable Outcomes</span>
+        </div>
+        <p class="reportables-subtitle">Clean, audit-ready metrics — no manual data collection required</p>
+        <div class="reportables-tags">
+          <span class="reportable-tag">CMS</span>
+          <span class="reportable-tag">CDC</span>
+          <span class="reportable-tag">Joint Commission</span>
+          <span class="reportable-tag">State PQCs & DOH</span>
+          <span class="reportable-tag">Commercial Payers</span>
+          <span class="reportable-tag">Malpractice Carriers</span>
+          <span class="reportable-tag">Board & C-Suite</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reduce Staffing Costs -->
+  <section class="solution-section">
+    <div class="solution-inner">
+      <div class="solution-grid reveal">
+        <div class="solution-content">
+          <div class="solution-label" style="color: #16a34a;">Reduce Staffing Costs</div>
+          <h2>Automate L&D staff management with real-time data and customized analytics.</h2>
+          <ul class="solution-list">
+            <li><span class="icon">✓</span> <strong>Staff Allocation:</strong> Right-size staffing based on accurate census data</li>
+            <li><span class="icon">✓</span> <strong>Cost Savings:</strong> Align staffing with predicted patient volumes</li>
+            <li><span class="icon">✓</span> <strong>Room Turn-over:</strong> Predict delivery times and room availability</li>
+          </ul>
+          <a href="blog-nursing-staffing.html" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--bm-coral); text-decoration: none; margin-top: 12px;">📖 Read: The L&D Staffing Crisis →</a>
+        </div>
+        <!-- Dynamic Staff Management Mockup -->
+        <div class="staff-mgmt-mockup">
+          <!-- Animated Cursor -->
+          <div class="demo-cursor" id="sm-cursor" style="left: 50%; top: 50%;">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87c.48 0 .72-.58.38-.92L6.35 2.85a.5.5 0 0 0-.85.36Z" fill="#1e3d3c" stroke="#fff" stroke-width="1.5"/>
+            </svg>
+            <div class="demo-cursor-label" id="sm-cursor-label">Click</div>
+          </div>
+          <div class="cursor-click-ripple" id="sm-ripple"></div>
+          <style>
+            .staff-mgmt-mockup {
+              background: white;
+              border-radius: 16px;
+              box-shadow: 0 20px 60px rgba(30, 61, 60, 0.15);
+              overflow: hidden;
+              border: 1px solid var(--bm-border);
+              max-width: 560px;
+              position: relative;
+            }
+            .sm-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 10px 16px;
+              background: linear-gradient(135deg, #4a8f8c, #3d7a77);
+              border-radius: 12px 12px 0 0;
+              color: white;
+            }
+            .sm-header-left {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+            .sm-title {
+              font-size: 13px;
+              font-weight: 700;
+              color: white;
+            }
+            .sm-nurses-badge {
+              background: rgba(255,255,255,0.2);
+              border: none;
+              padding: 4px 10px;
+              border-radius: 6px;
+              font-size: 10px;
+              color: white;
+            }
+            .sm-nurses-badge strong {
+              color: white;
+            }
+            .sm-date {
+              font-size: 10px;
+              opacity: 0.9;
+              color: white;
+            }
+            .sm-tabs {
+              display: flex;
+              padding: 0 16px;
+              border-bottom: 1px solid var(--bm-border);
+              gap: 16px;
+            }
+            .sm-tab {
+              padding: 8px 0;
+              font-size: 11px;
+              color: var(--bm-gray);
+              border-bottom: 2px solid transparent;
+              cursor: pointer;
+              transition: all 0.2s ease;
+            }
+            .sm-tab.active {
+              color: var(--bm-teal);
+              font-weight: 600;
+              border-bottom-color: var(--bm-teal);
+            }
+            .sm-patients {
+              padding: 8px;
+            }
+            .sm-patient-row {
+              display: grid;
+              grid-template-columns: 130px 80px 80px 1fr;
+              align-items: center;
+              padding: 8px 10px;
+              border: 2px solid var(--bm-border);
+              border-radius: 8px;
+              margin-bottom: 6px;
+              background: #f0fdfa;
+              gap: 8px;
+              transition: all 0.4s ease;
+            }
+            .sm-patient-row.in-progress {
+              border-color: #fbbf24;
+              background: #fffbeb;
+            }
+            .sm-patient-row.highlighted {
+              box-shadow: 0 0 0 3px var(--bm-teal);
+              transform: scale(1.02);
+            }
+            .sm-patient-cell {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+            .sm-avatar {
+              width: 28px;
+              height: 28px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 10px;
+              font-weight: 700;
+              color: white;
+              background: #4b5563;
+            }
+            .sm-patient-name {
+              font-size: 11px;
+              font-weight: 600;
+              color: var(--bm-dark-teal);
+            }
+            .sm-patient-mrn {
+              font-size: 9px;
+              color: var(--bm-gray);
+            }
+            .sm-status-badge {
+              padding: 4px 8px;
+              border-radius: 5px;
+              font-size: 9px;
+              font-weight: 600;
+              text-align: center;
+            }
+            .sm-status-badge.admitted {
+              background: var(--bm-teal-light);
+              color: var(--bm-dark-teal);
+              border: 1px solid var(--bm-teal);
+            }
+            .sm-status-badge.in-progress {
+              background: #fef3c7;
+              color: #b45309;
+              border: 1px solid #fbbf24;
+            }
+            .sm-time-col {
+              text-align: center;
+            }
+            .sm-time-label {
+              font-size: 9px;
+              color: var(--bm-gray);
+              margin-bottom: 2px;
+            }
+            .sm-time-value {
+              font-size: 13px;
+              font-weight: 700;
+              color: var(--bm-coral);
+            }
+            .sm-nurse-cell {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            }
+            .sm-nurse-avatar {
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              background: var(--bm-teal);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 9px;
+              font-weight: 700;
+              color: var(--bm-dark-teal);
+            }
+            .sm-nurse-name {
+              font-size: 10px;
+              font-weight: 600;
+              color: var(--bm-dark-teal);
+            }
+            .sm-nurse-ratio {
+              font-size: 8px;
+              color: var(--bm-gray);
+            }
+            .sm-2nd-nurse-alert {
+              background: #fef2f2;
+              border: 1px solid #fecaca;
+              border-radius: 6px;
+              padding: 8px 10px;
+              margin-top: 6px;
+              opacity: 0;
+              transform: translateY(-10px);
+              transition: all 0.4s ease;
+            }
+            .sm-2nd-nurse-alert.visible {
+              opacity: 1;
+              transform: translateY(0);
+            }
+            .sm-alert-title {
+              font-size: 9px;
+              font-weight: 700;
+              color: #dc2626;
+              text-transform: uppercase;
+              margin-bottom: 4px;
+            }
+            .sm-alert-time {
+              font-size: 11px;
+              font-weight: 600;
+              color: #dc2626;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            }
+            .sm-countdown {
+              background: #dc2626;
+              color: white;
+              padding: 2px 8px;
+              border-radius: 4px;
+              font-size: 10px;
+              font-weight: 700;
+              animation: sm-pulse 1s infinite;
+            }
+            @keyframes sm-pulse {
+              0%, 100% { opacity: 1; }
+              50% { opacity: 0.7; }
+            }
+            
+            /* Responsive Styles for Staff Management */
+            @media (max-width: 1200px) {
+              .staff-mgmt-mockup {
+                max-width: 480px;
+              }
+              .sm-patient-row {
+                grid-template-columns: 130px 80px 80px 1fr;
+                padding: 10px 12px;
+              }
+            }
+            
+            @media (max-width: 1024px) {
+              .staff-mgmt-mockup {
+                max-width: 100%;
+                margin-top: 30px;
+              }
+              .sm-patient-row {
+                grid-template-columns: 140px 90px 90px 1fr;
+                padding: 12px 14px;
+              }
+            }
+            
+            @media (max-width: 768px) {
+              .sm-header {
+                flex-direction: row;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 16px;
+              }
+              .sm-header-left {
+                flex-wrap: nowrap;
+                gap: 8px;
+              }
+              .sm-title {
+                font-size: 12px;
+              }
+              .sm-patient-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+              }
+              .sm-tabs {
+                gap: 16px;
+                padding: 0 16px;
+              }
+              .sm-tab {
+                font-size: 11px;
+                padding: 10px 0;
+              }
+              .sm-patients {
+                padding: 10px;
+              }
+            }
+            
+            @media (max-width: 480px) {
+              .sm-patient-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 10px;
+              }
+              .sm-nurses-badge {
+                font-size: 11px;
+                padding: 4px 8px;
+              }
+            }
+          </style>
+          
+          <div class="sm-header">
+            <div class="sm-header-left">
+              <div class="sm-title">👥 Staff Management</div>
+              <div class="sm-nurses-badge">Nurses: <strong id="sm-nurse-count">14</strong></div>
+            </div>
+            <div class="sm-date" id="sm-date">Mar 3, 2026</div>
+          </div>
+          
+          <div class="sm-tabs">
+            <div class="sm-tab active" id="sm-tab-all">All Patients</div>
+            <div class="sm-tab" id="sm-tab-admitted">Inductions</div>
+            <div class="sm-tab" id="sm-tab-progress">Active Labor</div>
+            <div class="sm-tab" id="sm-tab-csection">C-Section</div>
+            <div class="sm-tab" id="sm-tab-antepartum">Antepartum</div>
+          </div>
+          
+          <div class="sm-patients">
+            <!-- Patient 1: T. Atkinson - Induction -->
+            <div class="sm-patient-row" id="sm-patient-1">
+              <div class="sm-patient-cell">
+                <div class="sm-avatar">TA</div>
+                <div>
+                  <div class="sm-patient-name">T. Atkinson</div>
+                  <div class="sm-patient-mrn">MRN: 94521</div>
+                </div>
+              </div>
+              <div class="sm-status-badge admitted">Induction</div>
+              <div class="sm-time-col">
+                <div class="sm-time-label">Est. Delivery</div>
+                <div class="sm-time-value" id="sm-time-1">2:45 PM</div>
+              </div>
+              <div class="sm-nurse-cell">
+                <div class="sm-nurse-avatar">SJ</div>
+                <div>
+                  <div class="sm-nurse-name">Sarah J.</div>
+                  <div class="sm-nurse-ratio">1:1 Pitocin</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Patient 2: N. Davis - In Progress -->
+            <div class="sm-patient-row in-progress" id="sm-patient-2">
+              <div class="sm-patient-cell">
+                <div class="sm-avatar" style="background: #6b7280;">ND</div>
+                <div>
+                  <div class="sm-patient-name">N. Davis</div>
+                  <div class="sm-patient-mrn">MRN: 87234</div>
+                </div>
+              </div>
+              <div class="sm-status-badge in-progress">Active Labor</div>
+              <div class="sm-time-col">
+                <div class="sm-time-label">Est. Delivery</div>
+                <div class="sm-time-value" id="sm-time-2">5:30 PM</div>
+              </div>
+              <div>
+                <div class="sm-2nd-nurse-alert" id="sm-2nd-nurse-alert">
+                  <div class="sm-alert-title">2nd Nurse Needed</div>
+                  <div class="sm-alert-time">
+                    Delivery in <span class="sm-countdown" id="sm-countdown">45 min</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Patient 3: R. Johnson - Scheduled C-Section -->
+            <div class="sm-patient-row" id="sm-patient-3" style="background: #fef7ed; border-color: #fed7aa;">
+              <div class="sm-patient-cell">
+                <div class="sm-avatar" style="background: #ea580c;">RJ</div>
+                <div>
+                  <div class="sm-patient-name">R. Johnson</div>
+                  <div class="sm-patient-mrn">MRN: 42187</div>
+                </div>
+              </div>
+              <div class="sm-status-badge" style="background: #ffedd5; color: #c2410c; border: 1px solid #fed7aa;">C-Section</div>
+              <div class="sm-time-col">
+                <div class="sm-time-label">Scheduled OR</div>
+                <div class="sm-time-value" style="color: #ea580c;" id="sm-time-3">10:30 AM</div>
+              </div>
+              <div class="sm-nurse-cell">
+                <div class="sm-nurse-avatar" style="background: #fdba74;">MK</div>
+                <div>
+                  <div class="sm-nurse-name">Maria K.</div>
+                  <div class="sm-nurse-ratio">2:1 (OR)</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Patient 4: K. Williams - Antepartum -->
+            <div class="sm-patient-row" id="sm-patient-4" style="background: #ecfdf5; border-color: #6ee7b7;">
+              <div class="sm-patient-cell">
+                <div class="sm-avatar" style="background: #059669;">KW</div>
+                <div>
+                  <div class="sm-patient-name">K. Williams</div>
+                  <div class="sm-patient-mrn">MRN: 33892</div>
+                </div>
+              </div>
+              <div class="sm-status-badge" style="background: #d1fae5; color: #047857; border: 1px solid #6ee7b7;">Antepartum</div>
+              <div class="sm-time-col">
+                <div class="sm-time-label">Monitoring</div>
+                <div class="sm-time-value" style="color: #059669;">34w2d</div>
+              </div>
+              <div class="sm-nurse-cell">
+                <div class="sm-nurse-avatar" style="background: #6ee7b7;">LC</div>
+                <div>
+                  <div class="sm-nurse-name">Lisa C.</div>
+                  <div class="sm-nurse-ratio">1:3 ratio</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Patient 5: S. Miller - Recovery -->
+            <div class="sm-patient-row" id="sm-patient-5" style="background: #faf5ff; border-color: #d8b4fe;">
+              <div class="sm-patient-cell">
+                <div class="sm-avatar" style="background: #7c3aed;">SM</div>
+                <div>
+                  <div class="sm-patient-name">S. Miller</div>
+                  <div class="sm-patient-mrn">MRN: 65891</div>
+                </div>
+              </div>
+              <div class="sm-status-badge" style="background: #ede9fe; color: #6b21a8; border: 1px solid #c4b5fd;">Recovery</div>
+              <div class="sm-time-col">
+                <div class="sm-time-label">Delivered</div>
+                <div class="sm-time-value" style="color: #7c3aed;">1:15 PM</div>
+              </div>
+              <div class="sm-nurse-cell">
+                <div class="sm-nurse-avatar" style="background: #c4b5fd;">JM</div>
+                <div>
+                  <div class="sm-nurse-name">Jessica M.</div>
+                  <div class="sm-nurse-ratio">1:1 recovery</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Stats Summary Bar - Clear Patient vs Nurse counts -->
+          <div style="display: flex; gap: 10px; padding: 10px; background: #f8f9fa; border-top: 1px solid var(--bm-border);">
+            <div style="flex: 1; background: white; border: 1px solid var(--bm-border); border-radius: 8px; padding: 8px; text-align: center;">
+              <div style="font-size: 9px; color: var(--bm-gray); text-transform: uppercase; margin-bottom: 2px;">Patients on Unit</div>
+              <div style="font-size: 22px; font-weight: 700; color: var(--bm-dark-teal);" id="sm-total-patients">17</div>
+            </div>
+            <div style="flex: 1; background: var(--bm-teal-light); border: 2px solid var(--bm-teal); border-radius: 8px; padding: 8px; text-align: center;">
+              <div style="font-size: 9px; color: var(--bm-dark-teal); text-transform: uppercase; margin-bottom: 2px;">Nurses Needed</div>
+              <div style="font-size: 22px; font-weight: 700; color: var(--bm-dark-teal);" id="sm-total-nurses">14</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    // Staff Management Animation with Cursor
+    document.addEventListener('DOMContentLoaded', function() {
+      const smDate = document.getElementById('sm-date');
+      const smNurseCount = document.getElementById('sm-nurse-count');
+      const smTotalNurses = document.getElementById('sm-total-nurses');
+      const smTotalPatients = document.getElementById('sm-total-patients');
+      const sm2ndAlert = document.getElementById('sm-2nd-nurse-alert');
+      const smCountdown = document.getElementById('sm-countdown');
+      const smPatient1 = document.getElementById('sm-patient-1');
+      const smPatient2 = document.getElementById('sm-patient-2');
+      const smPatient3 = document.getElementById('sm-patient-3');
+      const smPatient4 = document.getElementById('sm-patient-4');
+      const smTabs = document.querySelectorAll('.sm-tab');
+      const smCursor = document.getElementById('sm-cursor');
+      const smRipple = document.getElementById('sm-ripple');
+      const smCursorLabel = document.getElementById('sm-cursor-label');
+
+      // Cursor animation helper
+      function moveCursorTo(cursor, ripple, label, targetEl, labelText, callback) {
+        if (!cursor || !targetEl) return;
+        const rect = targetEl.getBoundingClientRect();
+        const parentRect = targetEl.closest('.staff-mgmt-mockup').getBoundingClientRect();
+        const x = rect.left - parentRect.left + rect.width / 2;
+        const y = rect.top - parentRect.top + rect.height / 2;
+
+        cursor.style.left = x + 'px';
+        cursor.style.top = y + 'px';
+        if (label) label.textContent = labelText || 'Click';
+
+        setTimeout(() => {
+          cursor.classList.add('clicking');
+          if (ripple) {
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.remove('animate');
+            void ripple.offsetWidth;
+            ripple.classList.add('animate');
+          }
+          setTimeout(() => {
+            cursor.classList.remove('clicking');
+            if (callback) callback();
+          }, 200);
+        }, 800);
+      }
+
+      // Generate dynamic dates starting from today
+      function formatShortDate(date) {
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+      }
+
+      function generateDayData() {
+        const today = new Date();
+        const baseData = [
+          { nurses: 14, patients: 17, time1: '2:45 PM', time2: '5:30 PM', time3: '10:30 AM' },
+          { nurses: 12, patients: 14, time1: '11:15 AM', time2: '3:20 PM', time3: '8:00 AM' },
+          { nurses: 18, patients: 23, time1: '1:30 PM', time2: '4:45 PM', time3: '9:15 AM' },
+          { nurses: 15, patients: 18, time1: '12:00 PM', time2: '6:00 PM', time3: '11:00 AM' }
+        ];
+        return baseData.map((data, i) => {
+          const date = new Date(today);
+          date.setDate(today.getDate() + i);
+          return { ...data, date: formatShortDate(date) };
+        });
+      }
+
+      const dayData = generateDayData();
+
+      let currentDay = 0;
+      let smAnimStep = 0;
+
+      function updateDayData() {
+        const d = dayData[currentDay];
+        if (smDate) smDate.textContent = d.date;
+        if (smNurseCount) smNurseCount.textContent = d.nurses;
+        if (smTotalNurses) smTotalNurses.textContent = d.nurses;
+        if (smTotalPatients) smTotalPatients.textContent = d.patients;
+        const time1 = document.getElementById('sm-time-1');
+        const time2 = document.getElementById('sm-time-2');
+        const time3 = document.getElementById('sm-time-3');
+        if (time1) time1.textContent = d.time1;
+        if (time2) time2.textContent = d.time2;
+        if (time3) time3.textContent = d.time3;
+      }
+
+      function runSmAnimation() {
+        smAnimStep++;
+
+        switch(smAnimStep % 8) {
+          case 1:
+            // Move cursor to patient 2 and click
+            moveCursorTo(smCursor, smRipple, smCursorLabel, smPatient2, 'View Patient', () => {
+              if (smPatient2) smPatient2.classList.add('highlighted');
+              if (sm2ndAlert) sm2ndAlert.classList.add('visible');
+            });
+            break;
+          case 2:
+            // Move to Active Labor tab
+            if (smTabs[2]) {
+              moveCursorTo(smCursor, smRipple, smCursorLabel, smTabs[2], 'Filter', () => {
+                smTabs.forEach(t => t.classList.remove('active'));
+                smTabs[2].classList.add('active');
+              });
+            }
+            if (smPatient2) smPatient2.classList.remove('highlighted');
+            break;
+          case 3:
+            // Move to C-Section tab
+            if (smTabs[3]) {
+              moveCursorTo(smCursor, smRipple, smCursorLabel, smTabs[3], 'Filter', () => {
+                smTabs.forEach(t => t.classList.remove('active'));
+                smTabs[3].classList.add('active');
+                if (smPatient3) smPatient3.classList.add('highlighted');
+              });
+            }
+            break;
+          case 4:
+            // Move to patient 1 and highlight
+            moveCursorTo(smCursor, smRipple, smCursorLabel, smPatient1, 'View Patient', () => {
+              if (smPatient3) smPatient3.classList.remove('highlighted');
+              if (smPatient1) smPatient1.classList.add('highlighted');
+            });
+            break;
+          case 5:
+            // Move to date and change
+            const dateEl = document.querySelector('#sm-date');
+            if (dateEl) {
+              moveCursorTo(smCursor, smRipple, smCursorLabel, dateEl.parentElement, 'Next Day', () => {
+                currentDay = (currentDay + 1) % dayData.length;
+                updateDayData();
+              });
+            }
+            break;
+          case 6:
+            // Click patient 4
+            moveCursorTo(smCursor, smRipple, smCursorLabel, smPatient4, 'View Patient', () => {
+              if (smPatient1) smPatient1.classList.remove('highlighted');
+              if (smPatient4) smPatient4.classList.add('highlighted');
+            });
+            break;
+          case 7:
+            // Move to All Patients tab
+            if (smTabs[0]) {
+              moveCursorTo(smCursor, smRipple, smCursorLabel, smTabs[0], 'View All', () => {
+                smTabs.forEach(t => t.classList.remove('active'));
+                smTabs[0].classList.add('active');
+                if (smPatient4) smPatient4.classList.remove('highlighted');
+              });
+            }
+            break;
+          case 0:
+            // Reset
+            if (sm2ndAlert) sm2ndAlert.classList.remove('visible');
+            if (smCountdown) smCountdown.textContent = '45 min';
+            break;
+        }
+      }
+
+      // Initialize with today's date
+      updateDayData();
+      setInterval(runSmAnimation, 2500);
+    });
+  </script>
+
+  <!-- Unit Intelligence Section -->
+  <section class="solution-section" style="background: white;">
+    <style>
+      .unit-intel-mockup {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(30, 61, 60, 0.15);
+        overflow: hidden;
+        border: 1px solid var(--bm-border);
+        max-width: 560px;
+        position: relative;
+      }
+      .ui-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 16px;
+        background: linear-gradient(135deg, #4a8f8c, #3d7a77);
+        color: white;
+      }
+      .ui-title { font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+      .ui-date { font-size: 10px; opacity: 0.9; }
+      .ui-body { padding: 14px; }
+      .ui-stats-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .ui-stat {
+        background: var(--bm-light-gray);
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid var(--bm-border);
+        transition: all 0.4s ease;
+      }
+      .ui-stat.highlight { background: var(--bm-teal-light); border-color: var(--bm-teal); }
+      .ui-stat.predicted { background: #fef3c7; border-color: #fcd34d; }
+      .ui-stat-value { font-size: 22px; font-weight: 700; color: var(--bm-dark-teal); }
+      .ui-stat-label { font-size: 9px; color: var(--bm-gray); text-transform: uppercase; margin-top: 2px; }
+      .ui-stat-sub { font-size: 7px; color: var(--bm-gray); font-style: italic; }
+      .ui-section-title { font-size: 10px; font-weight: 700; color: var(--bm-dark-teal); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+      .ui-shift-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+      .ui-shift-card {
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid var(--bm-border);
+      }
+      .ui-shift-card.day { background: #fffdf7; border-color: #fef3c7; }
+      .ui-shift-card.night { background: #f8f9fc; border-color: #e0e7ff; }
+      .ui-shift-header { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px solid var(--bm-border); }
+      .ui-shift-icon { font-size: 16px; }
+      .ui-shift-name { font-size: 10px; font-weight: 700; }
+      .ui-shift-time { font-size: 8px; color: var(--bm-gray); }
+      .ui-shift-nurses { font-size: 22px; font-weight: 700; color: var(--bm-dark-teal); }
+      .ui-shift-label { font-size: 8px; color: var(--bm-gray); }
+      .ui-breakdown { margin-top: 6px; }
+      .ui-breakdown-row { display: flex; justify-content: space-between; font-size: 9px; margin-bottom: 2px; }
+      .ui-breakdown-row.predicted { background: #fef3c7; margin: 0 -8px; padding: 4px 8px; border-radius: 4px; }
+      .ui-breakdown-label { color: var(--bm-gray); }
+      .ui-breakdown-value { font-weight: 700; color: var(--bm-dark-teal); }
+      .ui-alert-banner {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        border: 1px solid #fca5a5;
+        border-radius: 10px;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.4s ease;
+      }
+      .ui-alert-banner.visible { opacity: 1; transform: translateY(0); }
+      .ui-alert-icon { font-size: 20px; }
+      .ui-alert-title { font-size: 12px; font-weight: 700; color: #b91c1c; }
+      .ui-alert-text { font-size: 10px; color: #dc2626; }
+      
+      @media (max-width: 768px) {
+        .ui-stats-row { grid-template-columns: repeat(2, 1fr); }
+        .ui-shift-cards { grid-template-columns: 1fr; }
+      }
+    </style>
+    <div class="solution-inner">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div class="solution-content">
+          <div class="solution-label" style="color: #7c3aed;">Staffing & Census Intelligence</div>
+          <h2>Real-time visibility into your entire L&D unit with predictive analytics.</h2>
+          <ul class="solution-list">
+            <li><span class="icon">✓</span> <strong>Census Forecasting:</strong> Predict patient volumes 10-14 days ahead</li>
+            <li><span class="icon">✓</span> <strong>Walk-In Predictions:</strong> AI estimates for unscheduled admissions</li>
+            <li><span class="icon">✓</span> <strong>High-Volume Alerts:</strong> Notifications when census exceeds thresholds</li>
+          </ul>
+        </div>
+
+        <!-- Unit Intelligence Mockup -->
+        <div class="unit-intel-mockup" id="unit-intel-demo">
+          <!-- Animated Cursor -->
+          <div class="demo-cursor" id="ui-cursor" style="left: 50%; top: 50%;">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87c.48 0 .72-.58.38-.92L6.35 2.85a.5.5 0 0 0-.85.36Z" fill="#1e3d3c" stroke="#fff" stroke-width="1.5"/>
+            </svg>
+            <div class="demo-cursor-label" id="ui-cursor-label">Click</div>
+          </div>
+          <div class="cursor-click-ripple" id="ui-ripple"></div>
+          <div class="ui-header">
+            <div class="ui-title">📊 Unit Intelligence</div>
+            <div class="ui-date" id="ui-date">March 3, 2026</div>
+          </div>
+          <div class="ui-body">
+            <!-- Patient Census Stats -->
+            <div class="ui-section-title">🏥 Patient Census</div>
+            <div class="ui-stats-row" style="grid-template-columns: repeat(6, 1fr); margin-bottom: 10px;">
+              <div class="ui-stat" style="padding: 6px;">
+                <div class="ui-stat-value" style="font-size: 16px;" id="ui-pitocin">2</div>
+                <div class="ui-stat-label" style="font-size: 7px;">Pitocin</div>
+              </div>
+              <div class="ui-stat" style="padding: 6px;">
+                <div class="ui-stat-value" style="font-size: 16px;" id="ui-ripening">2</div>
+                <div class="ui-stat-label" style="font-size: 7px;">Ripening</div>
+              </div>
+              <div class="ui-stat" style="padding: 6px;">
+                <div class="ui-stat-value" style="font-size: 16px;" id="ui-labor">3</div>
+                <div class="ui-stat-label" style="font-size: 7px;">Labor</div>
+              </div>
+              <div class="ui-stat" style="padding: 6px; background: #ffedd5; border-color: #fed7aa;">
+                <div class="ui-stat-value" style="font-size: 16px; color: #c2410c;" id="ui-csections">3</div>
+                <div class="ui-stat-label" style="font-size: 7px; color: #c2410c;">C-Section</div>
+              </div>
+              <div class="ui-stat" style="padding: 6px; background: #ecfdf5; border-color: #6ee7b7;">
+                <div class="ui-stat-value" style="font-size: 16px; color: #059669;" id="ui-antepartum">3</div>
+                <div class="ui-stat-label" style="font-size: 7px; color: #059669;">Antepartum</div>
+              </div>
+              <div class="ui-stat" style="padding: 6px; background: #ede9fe; border-color: #c4b5fd;">
+                <div class="ui-stat-value" style="font-size: 16px; color: #7c3aed;" id="ui-recovery">2</div>
+                <div class="ui-stat-label" style="font-size: 7px; color: #7c3aed;">Recovery</div>
+              </div>
+            </div>
+            
+            <!-- Walk-in Prediction -->
+            <div style="background: #fef3c7; border: 1px solid #fcd34d; border-radius: 8px; padding: 8px 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 14px;">🚶‍♀️</span>
+                <div>
+                  <div style="font-size: 10px; font-weight: 700; color: #92400e;">Predicted Walk-Ins</div>
+                  <div style="font-size: 8px; color: #a16207;" id="ui-prediction-note">Based on 127 days of data</div>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 20px; font-weight: 700; color: #b45309;" id="ui-walkins">6</div>
+                <div style="font-size: 8px; color: #92400e;">patients expected</div>
+              </div>
+            </div>
+            
+            <!-- Nurse Staffing Summary -->
+            <div class="ui-section-title">👩‍⚕️ Nurse Staffing</div>
+            <div class="ui-shift-cards">
+              <div class="ui-shift-card day">
+                <div class="ui-shift-header">
+                  <span class="ui-shift-icon">🌅</span>
+                  <div>
+                    <div class="ui-shift-name">Day Shift</div>
+                    <div class="ui-shift-time">7 AM – 7 PM</div>
+                  </div>
+                </div>
+                <div class="ui-shift-nurses" id="ui-day-nurses">10</div>
+                <div class="ui-shift-label">Nurses Needed</div>
+                <div class="ui-breakdown">
+                  <div class="ui-breakdown-row"><span class="ui-breakdown-label">Pitocin (1:1)</span><span class="ui-breakdown-value" id="ui-day-ind">2</span></div>
+                  <div class="ui-breakdown-row"><span class="ui-breakdown-label">Ripening (1:2)</span><span class="ui-breakdown-value" id="ui-day-ripen">2</span></div>
+                  <div class="ui-breakdown-row"><span class="ui-breakdown-label">C-Sections (2:1)</span><span class="ui-breakdown-value" id="ui-day-cs">3</span></div>
+                  <div class="ui-breakdown-row"><span class="ui-breakdown-label">Labor (1:2)</span><span class="ui-breakdown-value" id="ui-day-labor">2</span></div>
+                  <div class="ui-breakdown-row"><span class="ui-breakdown-label">Antepartum (1:3)</span><span class="ui-breakdown-value" id="ui-day-ante">1</span></div>
+                  <div class="ui-breakdown-row predicted"><span class="ui-breakdown-label">🚶‍♀️ Walk-Ins</span><span class="ui-breakdown-value" id="ui-day-walk">3</span></div>
+                </div>
+              </div>
+              <div class="ui-shift-card night">
+                <div class="ui-shift-header">
+                  <span class="ui-shift-icon">🌙</span>
+                  <div>
+                    <div class="ui-shift-name">Night Shift</div>
+                    <div class="ui-shift-time">7 PM – 7 AM</div>
+                  </div>
+                </div>
+                <div class="ui-shift-nurses" id="ui-night-nurses">7</div>
+                <div class="ui-shift-label">Nurses Needed</div>
+                <div class="ui-breakdown">
+                  <div class="ui-breakdown-row"><span class="ui-breakdown-label">Pitocin (1:1)</span><span class="ui-breakdown-value" id="ui-night-ind">1</span></div>
+                  <div class="ui-breakdown-row"><span class="ui-breakdown-label">Ripening (1:2)</span><span class="ui-breakdown-value" id="ui-night-ripen">1</span></div>
+                  <div class="ui-breakdown-row"><span class="ui-breakdown-label">C-Sections (2:1)</span><span class="ui-breakdown-value" id="ui-night-cs">2</span></div>
+                  <div class="ui-breakdown-row"><span class="ui-breakdown-label">Labor (1:2)</span><span class="ui-breakdown-value" id="ui-night-labor">1</span></div>
+                  <div class="ui-breakdown-row"><span class="ui-breakdown-label">Antepartum (1:3)</span><span class="ui-breakdown-value" id="ui-night-ante">1</span></div>
+                  <div class="ui-breakdown-row predicted"><span class="ui-breakdown-label">🚶‍♀️ Walk-Ins</span><span class="ui-breakdown-value" id="ui-night-walk">3</span></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Total Nurses Summary -->
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+              <div style="flex: 1; background: var(--bm-teal-light); border: 2px solid var(--bm-teal); border-radius: 8px; padding: 10px; text-align: center;">
+                <div style="font-size: 24px; font-weight: 700; color: var(--bm-dark-teal);" id="ui-total">17</div>
+                <div style="font-size: 8px; color: var(--bm-gray); text-transform: uppercase;">Total Nurses Required</div>
+              </div>
+              <div style="flex: 1; background: white; border: 1px solid var(--bm-border); border-radius: 8px; padding: 10px; text-align: center;">
+                <div style="font-size: 24px; font-weight: 700; color: var(--bm-dark-teal);" id="ui-scheduled">7</div>
+                <div style="font-size: 8px; color: var(--bm-gray); text-transform: uppercase;">Scheduled Procedures</div>
+              </div>
+            </div>
+
+            <!-- Alert Banner -->
+            <div class="ui-alert-banner" id="ui-alert" style="margin-top: 10px;">
+              <span class="ui-alert-icon">⚠️</span>
+              <div>
+                <div class="ui-alert-title" id="ui-alert-title">High Volume — March 5</div>
+                <div class="ui-alert-text" id="ui-alert-text">22 nurses required. Consider calling in additional staff.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // Unit Intelligence Animation with Cursor
+      document.addEventListener('DOMContentLoaded', function() {
+        const uiCursor = document.getElementById('ui-cursor');
+        const uiRipple = document.getElementById('ui-ripple');
+        const uiCursorLabel = document.getElementById('ui-cursor-label');
+
+        function moveCursorToUI(targetEl, labelText, callback) {
+          if (!uiCursor || !targetEl) return;
+          const mockup = document.getElementById('unit-intel-demo');
+          if (!mockup) return;
+          const rect = targetEl.getBoundingClientRect();
+          const parentRect = mockup.getBoundingClientRect();
+          const x = rect.left - parentRect.left + rect.width / 2;
+          const y = rect.top - parentRect.top + rect.height / 2;
+
+          uiCursor.style.left = x + 'px';
+          uiCursor.style.top = y + 'px';
+          if (uiCursorLabel) uiCursorLabel.textContent = labelText || 'Click';
+
+          setTimeout(() => {
+            uiCursor.classList.add('clicking');
+            if (uiRipple) {
+              uiRipple.style.left = x + 'px';
+              uiRipple.style.top = y + 'px';
+              uiRipple.classList.remove('animate');
+              void uiRipple.offsetWidth;
+              uiRipple.classList.add('animate');
+            }
+            setTimeout(() => {
+              uiCursor.classList.remove('clicking');
+              if (callback) callback();
+            }, 200);
+          }, 800);
+        }
+
+        // Generate dynamic dates for Unit Intelligence
+        function formatLongDate(date) {
+          const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          return months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+        }
+        function formatAlertDate(date) {
+          const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          return months[date.getMonth()] + ' ' + date.getDate();
+        }
+
+        function generateUIDates() {
+          const today = new Date();
+          const baseData = [
+            { total: 17, scheduled: 7, walkins: 6, pitocin: 2, ripening: 2, labor: 3, csections: 3, antepartum: 3, recovery: 2, daysOfData: 127, dayN: 10, nightN: 7, alert: false },
+            { total: 15, scheduled: 6, walkins: 5, pitocin: 2, ripening: 1, labor: 2, csections: 3, antepartum: 2, recovery: 3, daysOfData: 128, dayN: 9, nightN: 6, alert: false },
+            { total: 22, scheduled: 10, walkins: 8, pitocin: 3, ripening: 2, labor: 4, csections: 4, antepartum: 4, recovery: 3, daysOfData: 129, dayN: 13, nightN: 9, alert: true },
+            { total: 18, scheduled: 8, walkins: 6, pitocin: 2, ripening: 2, labor: 3, csections: 3, antepartum: 3, recovery: 2, daysOfData: 130, dayN: 11, nightN: 7, alert: false }
+          ];
+          return baseData.map((data, i) => {
+            const date = new Date(today);
+            date.setDate(today.getDate() + i);
+            const result = { ...data, date: formatLongDate(date) };
+            if (data.alert) {
+              result.alertTitle = 'High Volume — ' + formatAlertDate(date);
+              result.alertText = '22 nurses required. Consider calling in additional staff.';
+            }
+            return result;
+          });
+        }
+
+        const dates = generateUIDates();
+        let uiIndex = 0;
+        let uiStep = 0;
+
+        function updateValues(d) {
+          const ids = ['ui-date', 'ui-total', 'ui-scheduled', 'ui-walkins', 'ui-pitocin', 'ui-ripening', 'ui-labor', 'ui-csections', 'ui-antepartum', 'ui-recovery', 'ui-day-nurses', 'ui-night-nurses'];
+          const vals = [d.date, d.total, d.scheduled, d.walkins, d.pitocin, d.ripening, d.labor, d.csections, d.antepartum, d.recovery, d.dayN, d.nightN];
+          ids.forEach((id, i) => { const el = document.getElementById(id); if (el) el.textContent = vals[i]; });
+          const note = document.getElementById('ui-prediction-note');
+          if (note) note.textContent = 'Based on ' + d.daysOfData + ' days of data';
+          const alert = document.getElementById('ui-alert');
+          if (d.alert && alert) {
+            document.getElementById('ui-alert-title').textContent = d.alertTitle;
+            document.getElementById('ui-alert-text').textContent = d.alertText;
+            alert.classList.add('visible');
+          } else if (alert) {
+            alert.classList.remove('visible');
+          }
+        }
+
+        function runUIAnimation() {
+          uiStep++;
+          const d = dates[uiIndex];
+
+          switch(uiStep % 4) {
+            case 1:
+              const dateEl = document.getElementById('ui-date');
+              if (dateEl) moveCursorToUI(dateEl.parentElement || dateEl, 'Change Date', () => {
+                uiIndex = (uiIndex + 1) % dates.length;
+                updateValues(dates[uiIndex]);
+              });
+              break;
+            case 2:
+              const walkinsEl = document.querySelector('[id="ui-walkins"]');
+              if (walkinsEl) moveCursorToUI(walkinsEl.closest('div'), 'View Predictions', () => {});
+              break;
+            case 3:
+              const totalEl = document.getElementById('ui-total');
+              if (totalEl) moveCursorToUI(totalEl.closest('div'), 'Staffing Need', () => {});
+              break;
+            case 0:
+              const alertEl = document.getElementById('ui-alert');
+              if (alertEl && dates[uiIndex].alert) {
+                moveCursorToUI(alertEl, 'View Alert', () => {});
+              }
+              break;
+          }
+        }
+
+        updateValues(dates[0]);
+        setInterval(runUIAnimation, 3000);
+      });
+    </script>
+  </section>
+
+  <!-- Quality Intelligence Section -->
+  <section class="solution-section" style="background: white;">
+    <style>
+      .qi-mockup {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(30, 61, 60, 0.15);
+        overflow: hidden;
+        border: 1px solid var(--bm-border);
+        max-width: 580px;
+        position: relative;
+      }
+      .qi-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        background: linear-gradient(135deg, #4a8f8c, #3d7a77);
+        color: white;
+      }
+      .qi-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+      .qi-filters { display: flex; gap: 6px; }
+      .qi-filter {
+        padding: 4px 10px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        border-radius: 6px;
+        font-size: 10px;
+        color: white;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .qi-filter.active { background: white; color: var(--bm-dark-teal); font-weight: 700; }
+      .qi-body { padding: 16px; }
+      .qi-section-title {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--bm-dark-teal);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid var(--bm-teal);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .qi-metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+      .qi-metric {
+        background: var(--bm-light-gray);
+        border-radius: 10px;
+        padding: 12px;
+        text-align: center;
+        border: 1px solid var(--bm-border);
+        transition: all 0.4s ease;
+      }
+      .qi-metric.alert { background: #fef2f2; border-color: #fca5a5; }
+      .qi-metric.good { background: #f0fdf4; border-color: #86efac; }
+      .qi-metric-value { font-size: 22px; font-weight: 700; color: var(--bm-dark-teal); }
+      .qi-metric-value.alert { color: #dc2626; }
+      .qi-metric-value.good { color: #16a34a; }
+      .qi-metric-label { font-size: 9px; color: var(--bm-gray); margin-top: 2px; }
+      .qi-metric-benchmark { font-size: 8px; color: var(--bm-gray); margin-top: 4px; font-style: italic; }
+      .qi-lag-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+      .qi-lag-item {
+        background: white;
+        border: 1px solid var(--bm-border);
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+      }
+      .qi-lag-value { font-size: 16px; font-weight: 700; color: var(--bm-coral); }
+      .qi-lag-label { font-size: 8px; color: var(--bm-gray); margin-top: 2px; }
+      .qi-disparities {
+        background: linear-gradient(135deg, #fef3c7, #fefce8);
+        border: 1px solid #fcd34d;
+        border-radius: 10px;
+        padding: 12px;
+        margin-bottom: 16px;
+      }
+      .qi-disparities-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+      .qi-disparities-title { font-size: 11px; font-weight: 700; color: #92400e; }
+      .qi-disparities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+      .qi-disparity-item { text-align: center; }
+      .qi-disparity-label { font-size: 8px; color: #78350f; margin-bottom: 2px; }
+      .qi-disparity-value { font-size: 14px; font-weight: 700; color: #92400e; }
+      .qi-neonatal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .qi-neonatal-item {
+        background: #faf5ff;
+        border: 1px solid #d8b4fe;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+      }
+      .qi-neonatal-value { font-size: 16px; font-weight: 700; color: #7c3aed; }
+      .qi-neonatal-label { font-size: 8px; color: #6b21a8; margin-top: 2px; }
+      .qi-resources {
+        margin-top: 16px;
+        padding: 12px;
+        background: var(--bm-light-gray);
+        border-radius: 10px;
+        border: 1px solid var(--bm-border);
+      }
+      .qi-resources-title { font-size: 10px; font-weight: 700; color: var(--bm-dark-teal); margin-bottom: 8px; }
+      .qi-resources-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+      .qi-resource-tag {
+        padding: 4px 10px;
+        background: white;
+        border: 1px solid var(--bm-border);
+        border-radius: 12px;
+        font-size: 9px;
+        font-weight: 600;
+        color: var(--bm-dark-teal);
+      }
+      @media (max-width: 1024px) {
+        .qi-mockup { max-width: 100%; margin-top: 30px; }
+      }
+      @media (max-width: 768px) {
+        .qi-metrics-grid, .qi-lag-grid, .qi-disparities-grid { grid-template-columns: repeat(2, 1fr); }
+        .qi-neonatal { grid-template-columns: 1fr; }
+        .qi-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+        .qi-filters { flex-wrap: wrap; }
+      }
+      @media (max-width: 480px) {
+        .qi-metrics-grid, .qi-lag-grid { grid-template-columns: 1fr; }
+        .qi-disparities-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+    </style>
+    <div class="solution-inner">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div class="solution-content">
+          <div class="solution-label" style="color: #059669;">Quality Intelligence</div>
+          <h2>Automated quality metrics and outcomes tracking for CDC, CMS, and leadership reporting.</h2>
+          <ul class="solution-list">
+            <li><span class="icon">✓</span> <strong>Quality Tracking:</strong> NTSV, PPH rates, and episiotomy metrics</li>
+            <li><span class="icon">✓</span> <strong>Lag Times:</strong> Decision-to-incision, triage-to-admit tracking</li>
+            <li><span class="icon">✓</span> <strong>Neonatal Outcomes:</strong> Apgar scores and NICU admission rates</li>
+            <li><span class="icon">✓</span> <strong>Disparities Analysis:</strong> Filter by race, month, and year</li>
+          </ul>
+        </div>
+
+        <!-- Quality Intelligence Mockup -->
+        <div class="qi-mockup" id="qi-demo">
+          <!-- Animated Cursor -->
+          <div class="demo-cursor" id="qi-cursor" style="left: 50%; top: 50%;">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87c.48 0 .72-.58.38-.92L6.35 2.85a.5.5 0 0 0-.85.36Z" fill="#1e3d3c" stroke="#fff" stroke-width="1.5"/>
+            </svg>
+            <div class="demo-cursor-label" id="qi-cursor-label">Click</div>
+          </div>
+          <div class="cursor-click-ripple" id="qi-ripple"></div>
+          <div class="qi-header">
+            <div class="qi-title">📊 Quality Intelligence</div>
+            <div class="qi-filters">
+              <div class="qi-filter active" id="qi-filter-all">All-Time</div>
+              <div class="qi-filter" id="qi-filter-year">2025</div>
+              <div class="qi-filter" id="qi-filter-month">Dec</div>
+            </div>
+          </div>
+          <div class="qi-body">
+            <!-- Maternal Quality Metrics -->
+            <div class="qi-section-title">❤️ Maternal Quality Metrics</div>
+            <div class="qi-metrics-grid">
+              <div class="qi-metric" id="qi-ntsv">
+                <div class="qi-metric-value" id="qi-ntsv-val">24.3%</div>
+                <div class="qi-metric-label">NTSV C-Section Rate</div>
+                <div class="qi-metric-benchmark">Target: &lt;25.5%</div>
+              </div>
+              <div class="qi-metric alert" id="qi-pph">
+                <div class="qi-metric-value alert" id="qi-pph-val">4.2%</div>
+                <div class="qi-metric-label">PPH Rate</div>
+                <div class="qi-metric-benchmark">Target: &lt;3%</div>
+              </div>
+              <div class="qi-metric good" id="qi-epis">
+                <div class="qi-metric-value good" id="qi-epis-val">3.1%</div>
+                <div class="qi-metric-label">Episiotomy Rate</div>
+                <div class="qi-metric-benchmark">Target: &lt;5%</div>
+              </div>
+            </div>
+
+            <!-- Operational Lag Times -->
+            <div class="qi-section-title">⏱️ Operational Lag Times</div>
+            <div class="qi-lag-grid">
+              <div class="qi-lag-item">
+                <div class="qi-lag-value" id="qi-dti">28 min</div>
+                <div class="qi-lag-label">Decision-to-Incision</div>
+              </div>
+              <div class="qi-lag-item">
+                <div class="qi-lag-value" id="qi-tta">1h 45m</div>
+                <div class="qi-lag-label">Triage-to-Admit</div>
+              </div>
+              <div class="qi-lag-item">
+                <div class="qi-lag-value" id="qi-rti">1h 55m</div>
+                <div class="qi-lag-label">Registration-to-Induction</div>
+              </div>
+            </div>
+
+            <!-- Care Disparities -->
+            <div class="qi-disparities">
+              <div class="qi-disparities-header">
+                <span style="font-size: 14px;">📈</span>
+                <div class="qi-disparities-title">Care Disparities Analysis by Race</div>
+              </div>
+              <div class="qi-disparities-grid">
+                <div class="qi-disparity-item">
+                  <div class="qi-disparity-label">Hispanic</div>
+                  <div class="qi-disparity-value" id="qi-hisp">23.1%</div>
+                </div>
+                <div class="qi-disparity-item">
+                  <div class="qi-disparity-label">White</div>
+                  <div class="qi-disparity-value" id="qi-white">22.8%</div>
+                </div>
+                <div class="qi-disparity-item">
+                  <div class="qi-disparity-label">Black</div>
+                  <div class="qi-disparity-value" id="qi-black">28.4%</div>
+                </div>
+                <div class="qi-disparity-item">
+                  <div class="qi-disparity-label">Asian</div>
+                  <div class="qi-disparity-value" id="qi-asian">21.2%</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Neonatal Outcomes -->
+            <div class="qi-section-title">👶 Neonatal Outcomes</div>
+            <div class="qi-neonatal">
+              <div class="qi-neonatal-item">
+                <div class="qi-neonatal-value" id="qi-apgar1">1.8%</div>
+                <div class="qi-neonatal-label">Apgar &lt;5 at 1 min</div>
+              </div>
+              <div class="qi-neonatal-item">
+                <div class="qi-neonatal-value" id="qi-apgar5">0.4%</div>
+                <div class="qi-neonatal-label">Apgar &lt;5 at 5 min</div>
+              </div>
+              <div class="qi-neonatal-item">
+                <div class="qi-neonatal-value" id="qi-nicu">8.2%</div>
+                <div class="qi-neonatal-label">NICU Admissions</div>
+              </div>
+            </div>
+
+            <!-- Audit-Ready Reporting -->
+            <div class="qi-resources">
+              <div class="qi-resources-title">Audit-Ready Reporting To:</div>
+              <div class="qi-resources-grid">
+                <span class="qi-resource-tag">CMS</span>
+                <span class="qi-resource-tag">CDC</span>
+                <span class="qi-resource-tag">Joint Commission</span>
+                <span class="qi-resource-tag">State PQCs</span>
+                <span class="qi-resource-tag">Commercial Payers</span>
+                <span class="qi-resource-tag">Malpractice Carriers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Quality Intelligence Animation with Cursor
+      document.addEventListener('DOMContentLoaded', function() {
+        const qiCursor = document.getElementById('qi-cursor');
+        const qiRipple = document.getElementById('qi-ripple');
+        const qiCursorLabel = document.getElementById('qi-cursor-label');
+
+        function moveCursorToQI(targetEl, labelText, callback) {
+          if (!qiCursor || !targetEl) return;
+          const mockup = document.getElementById('qi-demo');
+          if (!mockup) return;
+          const rect = targetEl.getBoundingClientRect();
+          const parentRect = mockup.getBoundingClientRect();
+          const x = rect.left - parentRect.left + rect.width / 2;
+          const y = rect.top - parentRect.top + rect.height / 2;
+
+          qiCursor.style.left = x + 'px';
+          qiCursor.style.top = y + 'px';
+          if (qiCursorLabel) qiCursorLabel.textContent = labelText || 'Click';
+
+          setTimeout(() => {
+            qiCursor.classList.add('clicking');
+            if (qiRipple) {
+              qiRipple.style.left = x + 'px';
+              qiRipple.style.top = y + 'px';
+              qiRipple.classList.remove('animate');
+              void qiRipple.offsetWidth;
+              qiRipple.classList.add('animate');
+            }
+            setTimeout(() => {
+              qiCursor.classList.remove('clicking');
+              if (callback) callback();
+            }, 200);
+          }, 800);
+        }
+
+        const qiData = [
+          { ntsv: '24.3%', pph: '4.2%', epis: '3.1%', dti: '28 min', tta: '1h 45m', rti: '1h 55m', hisp: '23.1%', white: '22.8%', black: '28.4%', asian: '21.2%', apgar1: '1.8%', apgar5: '0.4%', nicu: '8.2%', filter: 'all' },
+          { ntsv: '25.1%', pph: '3.8%', epis: '2.9%', dti: '31 min', tta: '1h 52m', rti: '2h 05m', hisp: '24.2%', white: '23.1%', black: '29.1%', asian: '20.8%', apgar1: '2.1%', apgar5: '0.5%', nicu: '7.9%', filter: 'year' },
+          { ntsv: '22.8%', pph: '4.5%', epis: '3.4%', dti: '26 min', tta: '1h 38m', rti: '1h 48m', hisp: '21.8%', white: '21.5%', black: '27.2%', asian: '19.9%', apgar1: '1.5%', apgar5: '0.3%', nicu: '8.5%', filter: 'month' }
+        ];
+
+        let qiIndex = 0;
+
+        function updateQIValues(d) {
+          const ids = ['qi-ntsv-val', 'qi-pph-val', 'qi-epis-val', 'qi-dti', 'qi-tta', 'qi-rti', 'qi-hisp', 'qi-white', 'qi-black', 'qi-asian', 'qi-apgar1', 'qi-apgar5', 'qi-nicu'];
+          const vals = [d.ntsv, d.pph, d.epis, d.dti, d.tta, d.rti, d.hisp, d.white, d.black, d.asian, d.apgar1, d.apgar5, d.nicu];
+          ids.forEach((id, i) => { const el = document.getElementById(id); if (el) el.textContent = vals[i]; });
+          const filters = document.querySelectorAll('.qi-filter');
+          filters.forEach(f => f.classList.remove('active'));
+          const activeFilter = document.getElementById('qi-filter-' + d.filter);
+          if (activeFilter) activeFilter.classList.add('active');
+        }
+
+        function runQIAnimation() {
+          const filterNames = { 'all': 'All-Time', 'year': '2025', 'month': 'Dec' };
+          const nextIndex = (qiIndex + 1) % qiData.length;
+          const nextFilter = qiData[nextIndex].filter;
+          const filterEl = document.getElementById('qi-filter-' + nextFilter);
+
+          if (filterEl) {
+            moveCursorToQI(filterEl, filterNames[nextFilter], () => {
+              qiIndex = nextIndex;
+              updateQIValues(qiData[qiIndex]);
+            });
+          }
+        }
+
+        updateQIValues(qiData[0]);
+        setInterval(runQIAnimation, 3500);
+      });
+    </script>
+  </section>
+
+  <!-- Increase Revenue -->
+  <section class="solution-section" style="padding: 50px 40px; background: linear-gradient(135deg, #f8fafa 0%, #fff 100%);">
+    <style>
+      @keyframes dx-pulse {
+        0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+        50% { opacity: 0.8; box-shadow: 0 0 0 4px rgba(74, 222, 128, 0); }
+      }
+      .dx-code-item {
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: all 0.4s ease;
+      }
+      .dx-code-item.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .dx-code-check {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.25s ease 0.1s;
+      }
+      .dx-code-item.visible .dx-code-check {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .dx-summary {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.4s ease;
+      }
+      .dx-summary.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+    <div class="solution-inner" style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;">
+        <div class="solution-content">
+          <div class="solution-label" style="color: #16a34a;">Increase Revenue</div>
+          <h2>Boost maternal care revenue with automated solutions that integrate effortlessly.</h2>
+          <ul class="solution-list">
+            <li><span class="icon">✓</span> <strong>Accurate Billing:</strong> AI-generated ICD-10 and CPT codes</li>
+            <li><span class="icon">✓</span> <strong>Delivery Volumes:</strong> Streamlined induction and C-section scheduling</li>
+            <li><span class="icon">✓</span> <strong>EHR Integration:</strong> Epic Connection Hub with zero nursing effort</li>
+          </ul>
+          
+          <!-- 2027 Callout -->
+          <div style="background: linear-gradient(135deg, #fef3c7, #fef9c3); border: 2px solid #f59e0b; border-radius: 12px; padding: 16px; margin: 20px 0;">
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+              <span style="font-size: 20px;">⚠️</span>
+              <div>
+                <div style="font-size: 13px; font-weight: 900; color: #92400e; margin-bottom: 4px;">Ahead of 2027 Changes</div>
+                <p style="font-size: 12px; color: #78350f; line-height: 1.5; margin: 0;">Global OB codes are being eliminated January 2027. Birth Model's automated capture prepares you for unbundled billing today. <a href="blog-global-payments.html" style="color: #92400e; font-weight: 700;">Learn more →</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Diagnosis Code Capture Preview - Compact -->
+        <div class="diagnosis-preview" style="background: white; border-radius: 12px; box-shadow: 0 15px 40px rgba(30, 61, 60, 0.12); overflow: hidden; font-size: 11px; position: relative;">
+          <!-- Header -->
+          <div style="background: #d1ecea; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <img src="Birth_Model_Logo.png" alt="Birth Model" style="height: 18px;">
+              <div style="width: 1px; height: 16px; background: rgba(30, 61, 60, 0.3);"></div>
+              <span style="font-size: 11px; font-weight: 700; color: var(--bm-dark-teal);">Automatic Diagnosis Capture</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px; background: rgba(30, 61, 60, 0.1); padding: 4px 10px; border-radius: 10px;">
+              <span style="width: 6px; height: 6px; background: #4ade80; border-radius: 50%; animation: dx-pulse 2s infinite;"></span>
+              <span style="font-size: 9px; font-weight: 700; color: var(--bm-dark-teal);">Auto-Capturing</span>
+            </div>
+          </div>
+          
+          <!-- Patient Bar -->
+          <div style="background: var(--bm-light-gray); padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--bm-border);">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <div style="width: 28px; height: 28px; background: var(--bm-dark-teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 10px;">AM</div>
+              <div>
+                <div style="font-size: 12px; font-weight: 700; color: var(--bm-dark-teal);">A. Martin</div>
+                <div style="font-size: 10px; color: var(--bm-gray);">Room 3 • <span id="dx-gravida">G3P2002</span> • 39w3d</div>
+              </div>
+            </div>
+            <div id="dx-ebl" style="background: var(--bm-border); color: var(--bm-gray); padding: 4px 10px; border-radius: 10px; font-size: 10px; font-weight: 700; transition: all 0.3s ease;">QBL: --</div>
+          </div>
+          
+          <!-- Codes Grid - Compact -->
+          <div style="padding: 12px 16px;">
+            <div style="display: flex; gap: 10px;">
+              <!-- ICD-10 Section -->
+              <div style="flex: 1;">
+                <div style="font-size: 9px; font-weight: 700; color: var(--bm-dark-teal); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid var(--bm-teal);">ICD-10 Codes</div>
+                <div class="dx-code-item" id="dx-i1" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: white; border-radius: 6px; border-left: 3px solid var(--bm-teal); margin-bottom: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: var(--bm-dark-teal); background: var(--bm-teal-light); padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">Z3A.39</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">39 Weeks Gestation</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+                <div class="dx-code-item" id="dx-i2" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: white; border-radius: 6px; border-left: 3px solid var(--bm-teal); margin-bottom: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: var(--bm-dark-teal); background: var(--bm-teal-light); padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">O99.824</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">GBS Carrier</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+                <div class="dx-code-item" id="dx-i3" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: white; border-radius: 6px; border-left: 3px solid var(--bm-teal); margin-bottom: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: var(--bm-dark-teal); background: var(--bm-teal-light); padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">O24.424</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">GDM, Insulin</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+                <div class="dx-code-item" id="dx-i4" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: white; border-radius: 6px; border-left: 3px solid var(--bm-teal); margin-bottom: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: var(--bm-dark-teal); background: var(--bm-teal-light); padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">O14.14</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">Severe PreE</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+                <div class="dx-code-item" id="dx-i5" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: linear-gradient(90deg, var(--bm-coral-light) 0%, white 40%); border-radius: 6px; border-left: 3px solid var(--bm-coral); margin-bottom: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: white; background: var(--bm-coral); padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">O41.123</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">Chorioamnionitis</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+                <div class="dx-code-item" id="dx-i6" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: linear-gradient(90deg, #fee2e2 0%, white 40%); border-radius: 6px; border-left: 3px solid #dc2626; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: white; background: #dc2626; padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">O72.1</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">PPH Immediate</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+              </div>
+              
+              <!-- CPT Section -->
+              <div style="flex: 1;">
+                <div style="font-size: 9px; font-weight: 700; color: var(--bm-dark-teal); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid var(--bm-coral);">CPT Codes</div>
+                <div class="dx-code-item" id="dx-p1" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: white; border-radius: 6px; border-left: 3px solid var(--bm-teal); margin-bottom: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: var(--bm-dark-teal); background: var(--bm-teal-light); padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">59409</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">Vaginal Delivery</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+                <div class="dx-code-item" id="dx-p2" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: linear-gradient(90deg, var(--bm-coral-light) 0%, white 40%); border-radius: 6px; border-left: 3px solid var(--bm-coral); margin-bottom: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: white; background: var(--bm-coral); padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">96365</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">IV Infusion, Initial</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+                <div class="dx-code-item" id="dx-p3" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: linear-gradient(90deg, var(--bm-coral-light) 0%, white 40%); border-radius: 6px; border-left: 3px solid var(--bm-coral); margin-bottom: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: white; background: var(--bm-coral); padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">96366</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">IV Infusion, Addl</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+                <div class="dx-code-item" id="dx-p4" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: linear-gradient(90deg, #fee2e2 0%, white 40%); border-radius: 6px; border-left: 3px solid #dc2626; margin-bottom: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: white; background: #dc2626; padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">96372</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">IM Hemabate</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+                <div class="dx-code-item" id="dx-p5" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: linear-gradient(90deg, #fee2e2 0%, white 40%); border-radius: 6px; border-left: 3px solid #dc2626; margin-bottom: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: white; background: #dc2626; padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">59160</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">Postpartum Curettage</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+                <div class="dx-code-item" id="dx-p6" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: linear-gradient(90deg, #fee2e2 0%, white 40%); border-radius: 6px; border-left: 3px solid #dc2626; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                  <span style="font-size: 9px; font-weight: 700; color: white; background: #dc2626; padding: 2px 6px; border-radius: 3px; min-width: 48px; text-align: center;">59899</span>
+                  <span style="font-size: 10px; color: #374151; flex: 1;">Bakri Balloon</span>
+                  <span class="dx-code-check" style="color: #16a34a; font-weight: 700; font-size: 10px;">✓</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Summary -->
+            <div class="dx-summary" id="dx-summary" style="text-align: center; padding: 10px; background: #dcfce7; border-radius: 6px; font-size: 11px; font-weight: 700; color: #166534; margin-top: 10px;">
+              ✓ 12 codes captured • $4,250 estimated reimbursement
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const hamburger = document.querySelector('.nav-hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+      // Automatic diagnosis capture animation (no cursor - fully automatic)
+      function animateDiagnosis() {
+        const icdCodes = ['dx-i1', 'dx-i2', 'dx-i3', 'dx-i4', 'dx-i5', 'dx-i6'];
+        const cptCodes = ['dx-p1', 'dx-p2', 'dx-p3', 'dx-p4', 'dx-p5', 'dx-p6'];
+        const allCodes = [...icdCodes, ...cptCodes];
+        const summary = document.getElementById('dx-summary');
+        const ebl = document.getElementById('dx-ebl');
+        const gravida = document.getElementById('dx-gravida');
+
+        // Reset
+        allCodes.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.remove('visible');
+        });
+        if (summary) summary.classList.remove('visible');
+        if (ebl) {
+          ebl.style.background = 'var(--bm-border)';
+          ebl.style.color = 'var(--bm-gray)';
+          ebl.textContent = 'QBL: --';
+        }
+        if (gravida) gravida.textContent = 'G3P2002';
+
+        // Animate ICD codes appearing automatically
+        icdCodes.forEach((id, idx) => {
+          setTimeout(() => {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('visible');
+          }, 400 + (idx * 400));
+        });
+
+        // Animate CPT codes appearing automatically
+        cptCodes.forEach((id, idx) => {
+          setTimeout(() => {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('visible');
+
+            // After Vaginal Delivery code (first CPT), update gravida
+            if (idx === 0 && gravida) {
+              setTimeout(() => {
+                gravida.textContent = 'G3P3003';
+                gravida.style.color = '#16a34a';
+                gravida.style.fontWeight = '700';
+              }, 200);
+            }
+          }, 500 + icdCodes.length * 400 + (idx * 400));
+        });
+
+        // Show QBL increasing and turning red for PPH
+        setTimeout(() => {
+          if (ebl) {
+            ebl.textContent = 'QBL: 850 mL';
+            ebl.style.background = '#fbbf24';
+            ebl.style.color = '#1f2937';
+            ebl.style.transition = 'all 0.3s ease';
+          }
+        }, 500 + (icdCodes.length + 2) * 400);
+
+        setTimeout(() => {
+          if (ebl) {
+            ebl.textContent = 'QBL: 1,450 mL';
+            ebl.style.background = '#f97316';
+            ebl.style.color = 'white';
+          }
+        }, 500 + (icdCodes.length + 3) * 400);
+
+        setTimeout(() => {
+          if (ebl) {
+            ebl.textContent = 'QBL: 2,582 mL';
+            ebl.style.background = '#dc2626';
+            ebl.style.color = 'white';
+            ebl.style.fontWeight = '700';
+          }
+        }, 500 + (icdCodes.length + 4) * 400);
+
+        // Show summary
+        setTimeout(() => {
+          if (summary) summary.classList.add('visible');
+          // Reset gravida color
+          if (gravida) {
+            gravida.style.color = '';
+            gravida.style.fontWeight = '';
+          }
+        }, 600 + (icdCodes.length + cptCodes.length) * 400);
+
+        setTimeout(animateDiagnosis, 8000);
+      }
+
+      const dxObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateDiagnosis();
+            dxObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+
+      const dxPreview = document.querySelector('.diagnosis-preview');
+      if (dxPreview) dxObserver.observe(dxPreview);
+    </script>
+  </section>
+
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-value">150K+</div>
+        <div class="stat-label">Patient Charts Analyzed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">±12min</div>
+        <div class="stat-label">Prediction Accuracy</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">300+</div>
+        <div class="stat-label">Data Points Synced</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">&lt;4min</div>
+        <div class="stat-label">Training Time</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section class="roi-section">
+    <div class="roi-inner">
+      <h2>Calculate Your Hospital's ROI</h2>
+      <p>Birth Model delivers measurable financial impact with rapid payback periods.</p>
+      <div class="roi-grid">
+        <div class="roi-card reveal">
+          <div class="roi-value">5-8x</div>
+          <div class="roi-label">Return on Investment</div>
+        </div>
+        <div class="roi-card reveal">
+          <div class="roi-value">1.5mo</div>
+          <div class="roi-label">Payback Period</div>
+        </div>
+        <div class="roi-card reveal">
+          <div class="roi-value">25-30%</div>
+          <div class="roi-label">Overtime Reduction</div>
+        </div>
+      </div>
+      <a href="roi-calculator.html" class="btn btn-primary">Calculate Your ROI</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>See How Birth Model Can <span>Transform</span> Your L&D</h2>
+      <p>Schedule a personalized demo to see our platform in action.</p>
+      <a href="demo.html" class="btn btn-primary">Request a Demo</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="Birth_Model_Logo.png" alt="Birth Model">
+          </div>
+          <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
+          <div class="footer-social">
+            <a href="mailto:support@birthmodel.com" class="footer-social-icon" title="Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/birth-model/" target="_blank" class="footer-social-icon" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M" target="_blank" class="footer-social-icon" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="solutions-hospitals.html">For Hospitals</a>
+          <a href="solutions-clinicians.html">For Clinicians</a>
+          <a href="company.html">Company</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="https://apps.apple.com/us/app/birth-model/id1562474693" target="_blank">Apple App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.birthmodel.provider" target="_blank">Google Play</a>
+          <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
+          <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
+          <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="blogs.html">Blogs</a>
+          <a href="videos.html">Videos</a>
+          <a href="roi-calculator.html">ROI Calculator</a>
+          <a href="implementation.html">Mobile Implementation</a>
+          <a href="https://app.vanta.com/birthmodel/trust/pbt1stf4skwae09sr1wjf" target="_blank">Trust Center</a>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="demo.html">Request Demo</a>
+          <a href="https://calendly.com/birthmodel" target="_blank">Schedule Meeting</a>
+          <a href="mailto:support@birthmodel.com">support@birthmodel.com</a>
+          <a href="implementation.html">Mobile Implementation</a>
+    <a href="careers.html">Careers</a>
+        </div>
+      </div>
+      
+            <div class="footer-bottom">
+        <div class="footer-legal">
+          <span>© 2026 Birth Model, Inc. All Rights Reserved.</span>
+          <span>|</span>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>|</span>
+          <a href="terms-of-service.html">Terms of Service</a>
+        </div>
+        <div class="footer-badges">
+          <div class="footer-badge">
+            <span class="check">✓</span> SOC 2 Type II
+          </div>
+          <div class="footer-badge">
+            <span class="check">✓</span> HIPAA Compliant
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const hamburger = document.querySelector('.nav-hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const revealElements = document.querySelectorAll('.reveal');
+      revealElements.forEach(el => el.classList.add('active'));
+    });
+  </script>
+</body>
+</html>
