@@ -1064,7 +1064,43 @@
                 transform: scale(0.55);
               }
             }
-            
+
+            /* Mobile-specific fixes for staff section */
+            @media (max-width: 768px) {
+              .staff-scroll-section {
+                min-height: auto !important;
+                padding: 40px 20px !important;
+              }
+              .staff-sticky-container {
+                position: relative !important;
+                top: auto !important;
+                height: auto !important;
+                padding: 20px !important;
+              }
+              .staff-scroll-section .solution-grid {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+              }
+              .staff-scroll-section .solution-content {
+                order: 1;
+              }
+              .staff-mgmt-mockup {
+                transform: scale(0.85) !important;
+                transform-origin: top center !important;
+                order: 2;
+                margin: 0 auto;
+              }
+              .staff-steps {
+                justify-content: center;
+              }
+              .solution-content h2 {
+                font-size: 22px;
+              }
+              .solution-list li {
+                font-size: 12px;
+              }
+            }
+
                       </style>
           
           <div class="sm-header">
@@ -1623,6 +1659,34 @@
       @media (max-height: 500px) and (min-width: 768px) {
         .unit-intel-mockup {
           transform: scale(0.55);
+        }
+      }
+
+      /* Mobile-specific fixes for unit section */
+      @media (max-width: 768px) {
+        .unit-scroll-section {
+          min-height: auto !important;
+          padding: 40px 20px !important;
+        }
+        .unit-sticky-container {
+          position: relative !important;
+          top: auto !important;
+          height: auto !important;
+          padding: 20px !important;
+        }
+        .unit-scroll-section .solution-grid,
+        .unit-sticky-container > .solution-inner > div[style*="grid"] {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 30px !important;
+        }
+        .unit-intel-mockup {
+          transform: scale(0.85) !important;
+          transform-origin: top center !important;
+          margin: 0 auto;
+        }
+        .unit-steps {
+          justify-content: center;
         }
       }
           </style>
@@ -2210,6 +2274,34 @@
       @media (max-height: 500px) and (min-width: 768px) {
         .qi-mockup {
           transform: scale(0.55);
+        }
+      }
+
+      /* Mobile-specific fixes for quality section */
+      @media (max-width: 768px) {
+        .quality-scroll-section {
+          min-height: auto !important;
+          padding: 40px 20px !important;
+        }
+        .quality-sticky-container {
+          position: relative !important;
+          top: auto !important;
+          height: auto !important;
+          padding: 20px !important;
+        }
+        .quality-scroll-section .solution-grid,
+        .quality-sticky-container > .solution-inner > div[style*="grid"] {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 30px !important;
+        }
+        .qi-mockup {
+          transform: scale(0.85) !important;
+          transform-origin: top center !important;
+          margin: 0 auto;
+        }
+        .quality-steps {
+          justify-content: center;
         }
       }
           </style>
@@ -2967,6 +3059,19 @@
     }
     
     document.addEventListener('DOMContentLoaded', function() {
+      // iPad/Tablet zoom adjustment - increase zoom for better handling
+      (function() {
+        const viewportMeta = document.querySelector('meta[name="viewport"]');
+        const screenWidth = window.screen.width;
+        const screenHeight = window.screen.height;
+        // Detect iPad/tablet (768px-1024px or larger tablets up to 1366px)
+        const isTablet = (screenWidth >= 768 && screenWidth <= 1366) ||
+                         (screenHeight >= 768 && screenHeight <= 1366);
+        if (isTablet && viewportMeta) {
+          viewportMeta.setAttribute('content', 'width=device-width, initial-scale=0.75, minimum-scale=0.75');
+        }
+      })();
+
       const revealElements = document.querySelectorAll('.reveal');
       revealElements.forEach(el => el.classList.add('active'));
     });

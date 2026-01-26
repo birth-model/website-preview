@@ -460,6 +460,18 @@
     }
     
     document.addEventListener('DOMContentLoaded', function() {
+      // iPad/Tablet zoom adjustment - increase zoom for better handling
+      (function() {
+        const viewportMeta = document.querySelector('meta[name="viewport"]');
+        const screenWidth = window.screen.width;
+        const screenHeight = window.screen.height;
+        const isTablet = (screenWidth >= 768 && screenWidth <= 1366) ||
+                         (screenHeight >= 768 && screenHeight <= 1366);
+        if (isTablet && viewportMeta) {
+          viewportMeta.setAttribute('content', 'width=device-width, initial-scale=0.75, minimum-scale=0.75');
+        }
+      })();
+
       const revealElements = document.querySelectorAll('.reveal');
       revealElements.forEach(el => el.classList.add('active'));
     });

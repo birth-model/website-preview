@@ -1242,6 +1242,39 @@
         z-index: 20;
       }
 
+      /* Mobile-specific fixes for handoff section */
+      @media (max-width: 768px) {
+        .handoff-scroll-section {
+          min-height: auto !important;
+          padding: 40px 20px !important;
+        }
+        .handoff-sticky-container {
+          position: relative !important;
+          top: auto !important;
+          height: auto !important;
+          padding: 20px !important;
+        }
+        .handoff-grid {
+          grid-template-columns: 1fr !important;
+          gap: 30px !important;
+        }
+        .handoff-content h2 {
+          font-size: 22px;
+        }
+        .handoff-content p {
+          font-size: 13px;
+        }
+        .handoff-steps {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .bento-grid {
+          transform: scale(0.85);
+          transform-origin: top center;
+          margin: 0 auto;
+        }
+      }
+
           </style>
 
     <div class="handoff-sticky-container">
@@ -1403,6 +1436,18 @@
     </div>
 
     <script>
+      // iPad/Tablet zoom adjustment - increase zoom for better handling
+      (function() {
+        const viewportMeta = document.querySelector('meta[name="viewport"]');
+        const screenWidth = window.screen.width;
+        const screenHeight = window.screen.height;
+        const isTablet = (screenWidth >= 768 && screenWidth <= 1366) ||
+                         (screenHeight >= 768 && screenHeight <= 1366);
+        if (isTablet && viewportMeta) {
+          viewportMeta.setAttribute('content', 'width=device-width, initial-scale=0.75, minimum-scale=0.75');
+        }
+      })();
+
       // Scroll-Driven Handoff Animation
       document.addEventListener('DOMContentLoaded', function() {
         const section = document.getElementById('handoff-section');
@@ -2189,6 +2234,44 @@
       }
       .confirm-btn:hover {
         transform: translateY(-2px);
+      }
+
+      /* Mobile-specific fixes for booking section */
+      @media (max-width: 768px) {
+        .booking-scroll-section {
+          min-height: auto !important;
+          padding: 40px 20px !important;
+        }
+        .booking-sticky-container {
+          position: relative !important;
+          top: auto !important;
+          height: auto !important;
+          padding: 20px !important;
+        }
+        .booking-grid {
+          grid-template-columns: 1fr !important;
+          gap: 30px !important;
+        }
+        .booking-content {
+          order: 1;
+        }
+        .booking-preview-wrapper {
+          order: 2;
+        }
+        .booking-content h2 {
+          font-size: 22px;
+        }
+        .booking-content p {
+          font-size: 13px;
+        }
+        .booking-steps {
+          justify-content: center;
+        }
+        .booking-bento {
+          transform: scale(0.85);
+          transform-origin: top center;
+          margin: 0 auto;
+        }
       }
 
           </style>

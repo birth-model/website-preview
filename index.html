@@ -2506,6 +2506,19 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
+      // iPad/Tablet zoom adjustment - increase zoom for better handling
+      (function() {
+        const viewportMeta = document.querySelector('meta[name="viewport"]');
+        const screenWidth = window.screen.width;
+        const screenHeight = window.screen.height;
+        // Detect iPad/tablet (768px-1024px or larger tablets up to 1366px)
+        const isTablet = (screenWidth >= 768 && screenWidth <= 1366) ||
+                         (screenHeight >= 768 && screenHeight <= 1366);
+        if (isTablet && viewportMeta) {
+          viewportMeta.setAttribute('content', 'width=device-width, initial-scale=0.75, minimum-scale=0.75');
+        }
+      })();
+
       // Cursor animation for Epic mockup
       const epicCursor = document.getElementById('epic-cursor');
       const epicRipple = document.getElementById('epic-ripple');
