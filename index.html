@@ -1676,11 +1676,13 @@
       .cta-title { font-size: 28px; }
             .cta-email-input { text-align: center; }
       /* Mobile footer adjustments */
-      .footer-email-link { display: none; }
+      .footer-email-link { display: none !important; }
       .footer-bottom { flex-direction: column; gap: 12px; }
       .footer-legal { flex-wrap: wrap; justify-content: center; font-size: 11px; gap: 6px; }
       .footer-badges { gap: 8px; }
       .footer-badge { padding: 6px 10px; font-size: 10px; gap: 4px; }
+      .footer-brand { max-width: 140px; }
+      .footer-brand img { height: 24px; }
       /* Mobile hero animation optimization */
       .hero-inner { padding: 120px 20px 60px; gap: 30px; }
       .epic-main-content { height: 320px; }
@@ -1727,7 +1729,8 @@
       .epic-patient-header { padding-bottom: 8px; margin-bottom: 8px; }
       .epic-patient-name { font-size: 14px; }
       .epic-patient-details { font-size: 10px; }
-      .epic-view-tabs { margin-bottom: 8px; }
+      .epic-view-tabs { margin-bottom: 8px; display: flex !important; }
+      .epic-view-tab { padding: 8px 12px !important; font-size: 11px !important; background: var(--bm-teal-light) !important; }
       .bm-columns-header { font-size: 7px; padding: 5px 6px; }
       .bm-patient-row { padding: 6px; }
       .bm-room { font-size: 8px; padding: 3px 5px; min-width: 36px; }

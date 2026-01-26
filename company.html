@@ -444,12 +444,14 @@
       color: #4ade80;
     }
     /* Mobile footer adjustments */
-    @media (max-width: 768px) {
-      .footer-email-link { display: none; }
+    @media (max-width: 1024px) {
+      .footer-email-link { display: none !important; }
       .footer-bottom { flex-direction: column; gap: 12px; }
       .footer-legal { flex-wrap: wrap; justify-content: center; font-size: 11px; gap: 6px; }
       .footer-badges { gap: 8px; }
       .footer-badge { padding: 6px 10px; font-size: 10px; gap: 4px; }
+      .footer-brand { max-width: 140px; }
+      .footer-brand img { height: 24px; }
     }
 
     /* Responsive */
@@ -463,14 +465,54 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-      
-      
-      .story-image { width: 100%; max-width: 320px; height: 320px; }
+
+      /* Story section - stack vertically on mobile */
+      .story-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+      }
+      .story-image {
+        width: 100% !important;
+        max-width: 280px !important;
+        height: 280px !important;
+        margin: 0 auto !important;
+      }
+      .story-content {
+        text-align: center;
+      }
+      .story-quote {
+        text-align: left;
+        font-size: 14px;
+      }
+      .story-content h2 {
+        font-size: 26px;
+      }
+
+      /* Advisor cards - equal heights */
+      .advisors-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 10px !important;
+      }
+      .advisor-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 140px;
+        padding: 14px 10px !important;
+      }
+      .advisor-name {
+        font-size: 10px !important;
+      }
+      .advisor-role {
+        font-size: 9px !important;
+        flex-grow: 1;
+      }
+      .advisor-background {
+        font-size: 8px !important;
+      }
+
       .partners-logos { gap: 40px; }
       .partner-logo { height: 32px; }
-      
-      
-      
+
     }
   </style>
 </head>

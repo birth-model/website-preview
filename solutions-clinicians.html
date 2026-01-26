@@ -235,7 +235,28 @@
     }
     .benefit-title { font-size: 20px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 10px; }
     .benefit-desc { font-size: 12px; color: var(--bm-gray); line-height: 1.7; }
-    
+
+    /* Mobile benefits adjustments */
+    @media (max-width: 1024px) {
+      .benefits-grid { gap: 12px; }
+      .benefit-card {
+        padding: 20px 16px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 140px;
+      }
+      .benefit-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+      .benefit-title { font-size: 14px; margin-bottom: 0; }
+      .benefit-desc { display: none; }
+    }
+
     /* Feature Section */
     .feature-section {
       padding: 80px 40px;
@@ -649,12 +670,14 @@
       color: #4ade80;
     }
     /* Mobile footer adjustments */
-    @media (max-width: 768px) {
-      .footer-email-link { display: none; }
+    @media (max-width: 1024px) {
+      .footer-email-link { display: none !important; }
       .footer-bottom { flex-direction: column; gap: 12px; }
       .footer-legal { flex-wrap: wrap; justify-content: center; font-size: 11px; gap: 6px; }
       .footer-badges { gap: 8px; }
       .footer-badge { padding: 6px 10px; font-size: 10px; gap: 4px; }
+      .footer-brand { max-width: 140px; }
+      .footer-brand img { height: 24px; }
     }
   </style>
 </head>
