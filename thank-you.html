@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.6">
+  <link rel="icon" type="image/png" href="BM_App_Icon.png">
+
+  <title>Thank You — Birth Model</title>
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bm-black: #1b1b1b;
+      --bm-gray: #6c757d;
+      --bm-teal: #abdfe2;
+      --bm-coral: #ff7660;
+      --bm-coral-light: #ffebe7;
+      --bm-dark-teal: #1e3d3c;
+      --bm-light-gray: #f8fafa;
+      --bm-warm-gray: #f4f2f1;
+      --bm-cream: #faf9f7;
+      --bm-teal-light: #e8f6f7;
+      --bm-border: #e8e6e4;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bm-cream);
+      color: var(--bm-black);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Thank You Section */
+    .thankyou-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 40px 80px;
+      background: linear-gradient(170deg, var(--bm-cream) 0%, var(--bm-teal-light) 50%, var(--bm-cream) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated background elements */
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 20s ease-in-out infinite;
+    }
+    .bg-shape-1 {
+      width: 400px;
+      height: 400px;
+      background: var(--bm-teal);
+      top: -100px;
+      right: -100px;
+      animation-delay: 0s;
+    }
+    .bg-shape-2 {
+      width: 300px;
+      height: 300px;
+      background: var(--bm-coral);
+      bottom: -50px;
+      left: -50px;
+      animation-delay: -5s;
+    }
+    .bg-shape-3 {
+      width: 200px;
+      height: 200px;
+      background: var(--bm-dark-teal);
+      top: 50%;
+      left: 10%;
+      animation-delay: -10s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(20px, -20px) rotate(5deg); }
+      50% { transform: translate(-10px, 20px) rotate(-5deg); }
+      75% { transform: translate(15px, 10px) rotate(3deg); }
+    }
+
+    .thankyou-card {
+      background: white;
+      border-radius: 32px;
+      padding: 60px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(30, 61, 60, 0.12);
+      position: relative;
+      z-index: 1;
+      animation: cardIn 0.6s ease-out;
+    }
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Success Icon */
+    .success-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, var(--bm-teal-light) 0%, #d4f0f0 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      animation: iconPop 0.5s ease-out 0.2s both;
+    }
+    @keyframes iconPop {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .success-icon svg {
+      width: 50px;
+      height: 50px;
+    }
+    .success-icon svg path {
+      stroke: var(--bm-dark-teal);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: checkDraw 0.6s ease-out 0.5s forwards;
+    }
+    @keyframes checkDraw {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* Content */
+    .thankyou-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--bm-coral-light);
+      color: var(--bm-coral);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      animation: fadeIn 0.5s ease-out 0.3s both;
+    }
+    .thankyou-title {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin-bottom: 16px;
+      animation: fadeIn 0.5s ease-out 0.4s both;
+    }
+    .thankyou-title span {
+      color: var(--bm-coral);
+    }
+    .thankyou-message {
+      font-size: 17px;
+      color: var(--bm-gray);
+      line-height: 1.8;
+      margin-bottom: 32px;
+      animation: fadeIn 0.5s ease-out 0.5s both;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Info Box */
+    .info-box {
+      background: var(--bm-light-gray);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      text-align: left;
+      animation: fadeIn 0.5s ease-out 0.6s both;
+    }
+    .info-box-title {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--bm-dark-teal);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .info-box-title svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--bm-coral);
+    }
+    .info-list {
+      list-style: none;
+    }
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--bm-gray);
+      padding: 8px 0;
+    }
+    .info-list li:not(:last-child) {
+      border-bottom: 1px solid var(--bm-border);
+    }
+    .info-list .check {
+      color: #22c55e;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      animation: fadeIn 0.5s ease-out 0.7s both;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--bm-coral);
+      color: white;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 118, 96, 0.4);
+    }
+    .btn-secondary {
+      background: var(--bm-dark-teal);
+      color: white;
+    }
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(30, 61, 60, 0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--bm-border);
+      color: var(--bm-dark-teal);
+    }
+    .btn-outline:hover {
+      background: var(--bm-light-gray);
+      border-color: var(--bm-teal);
+    }
+
+    /* Social Links */
+    .social-section {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--bm-border);
+      animation: fadeIn 0.5s ease-out 0.8s both;
+    }
+    .social-label {
+      font-size: 13px;
+      color: var(--bm-gray);
+      margin-bottom: 16px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .social-link {
+      width: 44px;
+      height: 44px;
+      background: var(--bm-light-gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bm-dark-teal);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .social-link:hover {
+      background: var(--bm-dark-teal);
+      color: white;
+      transform: translateY(-3px);
+    }
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Logo */
+    .thankyou-logo {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    .thankyou-logo img {
+      height: 32px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .thankyou-section {
+        padding: 100px 20px 60px;
+      }
+      .thankyou-card {
+        padding: 40px 24px;
+        border-radius: 24px;
+      }
+      .success-icon {
+        width: 80px;
+        height: 80px;
+      }
+      .success-icon svg {
+        width: 40px;
+        height: 40px;
+      }
+      .info-box {
+        padding: 20px;
+      }
+    }
+
+    /* Different form type themes */
+    .thankyou-card[data-type="newsletter"] .success-icon {
+      background: linear-gradient(135deg, var(--bm-coral-light) 0%, #ffe4df 100%);
+    }
+    .thankyou-card[data-type="newsletter"] .success-icon svg path {
+      stroke: var(--bm-coral);
+    }
+    .thankyou-card[data-type="application"] .success-icon {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    }
+    .thankyou-card[data-type="application"] .success-icon svg path {
+      stroke: #22c55e;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo -->
+  <a href="index.html" class="thankyou-logo">
+    <img src="Birth_Model_Logo.png" alt="Birth Model">
+  </a>
+
+  <!-- Background Shapes -->
+  <section class="thankyou-section">
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
+
+    <!-- Demo Request Thank You (Default) -->
+    <div class="thankyou-card" id="demo-content">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <span class="thankyou-badge">Demo Request Received</span>
+      <h1 class="thankyou-title">You're <span>All Set!</span></h1>
+      <p class="thankyou-message">Thank you for your interest in Birth Model. Our team is excited to show you how we're transforming Labor & Delivery operations.</p>
+
+      <div class="info-box">
+        <div class="info-box-title">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          What happens next?
+        </div>
+        <ul class="info-list">
+          <li><span class="check">1</span> A member of our team will email you within 24 hours</li>
+          <li><span class="check">2</span> We'll schedule a personalized 30-minute demo</li>
+          <li><span class="check">3</span> See the Motherboard, Smart Handoffs & Risk Intelligence in action</li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <a href="https://calendly.com/anish-birthmodel/30min" target="_blank" class="btn btn-primary">
+          Schedule Now on Calendly
+          <span>→</span>
+        </a>
+        <a href="index.html" class="btn btn-outline">
+          Return to Website
+        </a>
+      </div>
+
+      <div class="social-section">
+        <p class="social-label">Follow us for L&D insights and updates</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/birth-model/" target="_blank" class="social-link" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M" target="_blank" class="social-link" title="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Thank You -->
+    <div class="thankyou-card" id="newsletter-content" data-type="newsletter" style="display: none;">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <span class="thankyou-badge">Subscription Confirmed</span>
+      <h1 class="thankyou-title">You're <span>Subscribed!</span></h1>
+      <p class="thankyou-message">Welcome to the Birth Model community! You'll receive the latest insights on AI in obstetrics, maternal health innovation, and L&D operational excellence.</p>
+
+      <div class="info-box">
+        <div class="info-box-title">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          What to expect
+        </div>
+        <ul class="info-list">
+          <li><span class="check">✓</span> Monthly insights on L&D technology trends</li>
+          <li><span class="check">✓</span> Early access to webinars and resources</li>
+          <li><span class="check">✓</span> No spam, ever — unsubscribe anytime</li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <a href="blogs.html" class="btn btn-primary">
+          Read Our Latest Articles
+          <span>→</span>
+        </a>
+        <a href="index.html" class="btn btn-outline">
+          Return to Website
+        </a>
+      </div>
+
+      <div class="social-section">
+        <p class="social-label">Follow us for more updates</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/birth-model/" target="_blank" class="social-link" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M" target="_blank" class="social-link" title="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Job Application Thank You -->
+    <div class="thankyou-card" id="application-content" data-type="application" style="display: none;">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <span class="thankyou-badge">Application Received</span>
+      <h1 class="thankyou-title">Thanks for <span>Applying!</span></h1>
+      <p class="thankyou-message">We're thrilled you're interested in joining Birth Model. Our team will carefully review your application and get back to you soon.</p>
+
+      <div class="info-box">
+        <div class="info-box-title">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          Our hiring process
+        </div>
+        <ul class="info-list">
+          <li><span class="check">1</span> Application review (5-7 business days)</li>
+          <li><span class="check">2</span> Initial phone screen with our team</li>
+          <li><span class="check">3</span> Technical/role-specific interview</li>
+          <li><span class="check">4</span> Final conversation with leadership</li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <a href="company.html" class="btn btn-primary">
+          Learn More About Us
+          <span>→</span>
+        </a>
+        <a href="index.html" class="btn btn-outline">
+          Return to Website
+        </a>
+      </div>
+
+      <div class="social-section">
+        <p class="social-label">Connect with us</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/birth-model/" target="_blank" class="social-link" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/playlist?list=PLNI6vyIhohr05pB-D8hXatntLZPTyCD1M" target="_blank" class="social-link" title="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const formType = urlParams.get('type') || 'demo';
+
+      // Hide all content cards
+      document.getElementById('demo-content').style.display = 'none';
+      document.getElementById('newsletter-content').style.display = 'none';
+      document.getElementById('application-content').style.display = 'none';
+
+      // Show the appropriate content based on form type
+      if (formType === 'newsletter') {
+        document.getElementById('newsletter-content').style.display = 'block';
+        document.title = 'Subscribed! — Birth Model';
+      } else if (formType === 'application') {
+        document.getElementById('application-content').style.display = 'block';
+        document.title = 'Application Received — Birth Model';
+      } else {
+        // Default to demo
+        document.getElementById('demo-content').style.display = 'block';
+        document.title = 'Thank You — Birth Model';
+      }
+    });
+  </script>
+</body>
+</html>

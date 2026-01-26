@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.6">
   <title>Schedule a Demo — Birth Model AI for Labor & Delivery</title>
   
   <!-- SEO Meta Tags -->
@@ -11,6 +11,8 @@
   <meta name="author" content="Birth Model, Inc.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://birthmodel.com/demo.html">
+  <link rel="icon" type="image/png" href="BM_App_Icon.png">
+
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -96,7 +98,7 @@
       align-items: center;
       justify-content: center;
       color: #22c55e;
-      font-size: 14px;
+      font-size: 13px;
       flex-shrink: 0;
     }
     .trust-badges {
@@ -131,7 +133,7 @@
       margin-bottom: 8px;
     }
     .form-subtitle {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--bm-gray);
       margin-bottom: 28px;
     }
@@ -150,7 +152,7 @@
       padding: 14px 16px;
       border: 2px solid var(--bm-border);
       border-radius: 10px;
-      font-size: 14px;
+      font-size: 13px;
       font-family: inherit;
       transition: border-color 0.3s ease;
       background: white;
@@ -198,14 +200,14 @@
     .alternative-inner { max-width: 600px; margin: 0 auto; }
     .alternative-inner h3 { font-size: 22px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 12px; }
     .alternative-inner p { font-size: 15px; color: var(--bm-gray); margin-bottom: 20px; }
-    .btn { display: inline-flex; padding: 14px 28px; font-size: 14px; font-weight: 700; text-decoration: none; border-radius: 12px; }
+    .btn { display: inline-flex; padding: 14px 28px; font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 12px; }
     .btn-outline { background: transparent; border: 2px solid var(--bm-dark-teal); color: var(--bm-dark-teal); }
     .btn-outline:hover { background: linear-gradient(135deg, #4a8f8c 0%, #3d7a77 50%, #2d5a58 100%); color: white; }
     
         /* Footer */
     .footer {
       background: #1e3d3c;
-      padding: 70px 40px 30px;
+      padding: 70px 50px 30px;
       color: white;
     }
     .footer-inner {
@@ -214,8 +216,8 @@
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr repeat(4, 1fr);
-      gap: 50px;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 30px;
       margin-bottom: 50px;
     }
     .footer-brand {}
@@ -229,7 +231,7 @@
       height: 32px;
     }
     .footer-brand p {
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(255,255,255,0.65);
       line-height: 1.7;
       max-width: 280px;
@@ -269,10 +271,12 @@
       margin-bottom: 20px;
     }
     .footer-col a {
+      word-break: break-word;
+      overflow-wrap: break-word;
       display: block;
       color: rgba(255,255,255,0.7);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 12px;
       transition: all 0.2s ease;
     }
@@ -405,7 +409,7 @@
       margin-bottom: 24px;
     }
     .success-details p {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--bm-gray);
       margin: 0;
     }
@@ -434,7 +438,7 @@
     .success-secondary {
       display: block;
       margin-top: 16px;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--bm-gray);
     }
     .success-secondary a {
@@ -518,10 +522,10 @@
   </div>
 
   <!-- Navigation -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="Birth_Model_Logo.png" alt="Birth Model" style="height: 30px;">
+        <img src="Birth_Model_Logo.png" alt="Birth Model" class="nav-logo-img">
       </a>
       <div class="nav-links">
         <a href="solutions-hospitals.html" class="nav-link">For Hospitals</a>
@@ -537,7 +541,7 @@
             <a href="careers.html" class="nav-dropdown-item">Careers</a>
           </div>
         </div>
-        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="https://provider.birthmodel.com" class="nav-login" target="_blank">Clinician Login</a>
       </div>
     </div>
   </nav>
@@ -553,7 +557,7 @@
     <a href="roi-calculator.html">ROI Calculator</a>
     <a href="implementation.html">Mobile Implementation</a>
     <a href="careers.html">Careers</a>
-    <a href="https://provider.birthmodel.com" target="_blank">Clinician Login</a>
+    <a href="https://provider.birthmodel.com" class="mobile-login" target="_blank">Clinician Login</a>
     <a href="demo.html" class="mobile-cta">Schedule Demo</a>
   </div>
 
@@ -586,7 +590,7 @@
         <form id="demo-form" action="https://formsubmit.co/anish@birthmodel.com" method="POST">
           <input type="hidden" name="_subject" value="Birth Model Demo Request">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://birthmodel.com/demo.html?submitted=true">
+          <input type="hidden" name="_next" value="thank-you.html?type=demo">
           <input type="hidden" name="_template" value="table">
           <div class="form-row">
             <div class="form-group">
@@ -675,7 +679,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-brand-logo">
-            <img src="Birth_Model_Logo.png" alt="Birth Model">
+            <img src="birthmodelfooterlogo.png" alt="Birth Model">
           </div>
           <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
           <div class="footer-social">

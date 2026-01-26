@@ -211,18 +211,6 @@
         transform: none !important;
       }
     }
-
-    /* Mobile: always show animations, no scroll reveal */
-    @media (max-width: 1024px) {
-      .js-enabled .reveal,
-      .js-enabled .reveal-left,
-      .js-enabled .reveal-right,
-      .js-enabled .reveal-scale,
-      .js-enabled .stagger > * {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-    }
     
     /* Stagger children - visible by default */
     .stagger > * { 
@@ -796,7 +784,7 @@
       font-size: 12px;
     }
     .wayfarer-patient-name {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--bm-dark-teal);
     }
@@ -837,7 +825,7 @@
       margin-bottom: 3px;
     }
     .wayfarer-data-value {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 800;
       color: var(--bm-dark-teal);
     }
@@ -870,7 +858,7 @@
     .demo-stats {
       display: flex;
       justify-content: center;
-      gap: 50px;
+      gap: 30px;
       margin-top: 28px;
     }
     .demo-stat {
@@ -967,16 +955,16 @@
     
     /* Challenge Section */
     .challenge-section {
-      padding: clamp(60px, 8vh, 120px) clamp(40px, 5vw, 80px);
+      padding: 100px 40px;
       background: var(--bm-warm-gray);
     }
     .challenge-inner {
-      max-width: min(1400px, 90vw);
+      max-width: 1100px;
       margin: 0 auto;
     }
     .section-header {
       text-align: center;
-      margin-bottom: clamp(50px, 6vh, 90px);
+      margin-bottom: 60px;
     }
     .section-label {
       display: inline-flex;
@@ -990,28 +978,28 @@
       margin-bottom: 14px;
     }
     .section-title {
-      font-size: clamp(28px, 3.5vw, 52px);
+      font-size: clamp(28px, 3.5vw, 42px);
       font-weight: 900;
       color: var(--bm-dark-teal);
-      margin-bottom: clamp(14px, 1.5vh, 24px);
+      margin-bottom: 14px;
       line-height: 1.2;
     }
     .section-subtitle {
-      font-size: clamp(17px, 1.3vw, 24px);
+      font-size: 17px;
       color: var(--bm-gray);
-      max-width: 700px;
+      max-width: 600px;
       margin: 0 auto;
       line-height: 1.7;
     }
     .comparison-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(30px, 3vw, 60px);
+      gap: 30px;
     }
     .comparison-card {
       background: white;
       border-radius: 20px;
-      padding: clamp(30px, 3.5vw, 60px);
+      padding: 40px;
       border: 1px solid var(--bm-border);
       transition: all 0.4s ease;
     }
@@ -1028,27 +1016,27 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: clamp(24px, 2.5vh, 40px);
-      padding-bottom: clamp(18px, 2vh, 28px);
+      margin-bottom: 28px;
+      padding-bottom: 20px;
       border-bottom: 2px solid var(--bm-border);
     }
     .comparison-card.with .cc-header { border-bottom-color: var(--bm-teal); }
     .cc-icon {
-      width: clamp(50px, 4vw, 70px);
-      height: clamp(50px, 4vw, 70px);
+      width: 50px;
+      height: 50px;
       border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: clamp(24px, 2vw, 36px);
+      font-size: 24px;
     }
     .comparison-card.without .cc-icon { background: var(--bm-coral-light); }
     .comparison-card.with .cc-icon { background: var(--bm-teal-light); }
-    .cc-title { font-size: clamp(18px, 1.5vw, 26px); font-weight: 900; color: var(--bm-dark-teal); }
+    .cc-title { font-size: 20px; font-weight: 900; color: var(--bm-dark-teal); }
     .cc-list { list-style: none; }
     .cc-list li {
-      padding: clamp(10px, 1vh, 16px) 0;
-      font-size: clamp(15px, 1.1vw, 19px);
+      padding: 12px 0;
+      font-size: 15px;
       color: var(--bm-gray);
       display: flex;
       align-items: flex-start;
@@ -1123,7 +1111,7 @@
       margin-bottom: 12px;
     }
     .feature-desc {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--bm-gray);
       line-height: 1.7;
     }
@@ -1288,7 +1276,7 @@
       margin-bottom: 8px;
     }
     .bm-center-label {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 900;
       color: var(--bm-dark-teal);
     }
@@ -1415,7 +1403,7 @@
       color: var(--bm-dark-teal);
     }
     .testimonial-role {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--bm-gray);
     }
     
@@ -1473,7 +1461,7 @@
       color: white;
       border: none;
       padding: 14px 28px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       border-radius: 50px;
       cursor: pointer;
@@ -1533,7 +1521,7 @@
       margin-bottom: 16px;
     }
     .footer-brand-logo img {
-      height: 45px;
+      height: 32px;
     }
     .footer-brand-logo span {
       font-size: 20px;
@@ -1547,7 +1535,7 @@
       font-style: normal;
     }
     .footer-brand p {
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(255,255,255,0.65);
       line-height: 1.7;
       max-width: 280px;
@@ -1588,14 +1576,14 @@
       margin-bottom: 20px;
     }
     .footer-col a {
+      word-break: break-word;
+      overflow-wrap: break-word;
       display: block;
       color: rgba(255,255,255,0.7);
       text-decoration: none;
       font-size: 13px;
       margin-bottom: 12px;
       transition: all 0.2s ease;
-      word-break: break-word;
-      overflow-wrap: break-word;
     }
     .footer-col a:hover {
       color: white;
@@ -1655,23 +1643,34 @@
       .unit-grid { grid-template-columns: repeat(2, 1fr); }
       .epic-dropdown-menu { display: none; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
-            .connection-pipe { min-width: 100px; }
+      
+      
+      .connection-pipe { min-width: 100px; }
       .integration-stats-row { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       .features-grid { grid-template-columns: 1fr; }
       .partners-logos { gap: 40px; }
       .partner-logo { height: 32px; }
-            .epic-sidebar { display: none; }
+      
+      .epic-sidebar { display: none; }
       .epic-dropdown-menu { display: none; }
       .wayfarer-sidebar { display: none; }
-                  .ehr-box { min-width: 140px; padding: 20px 30px; }
+      
+      
+      
+      
+      
+      
+      
+      .ehr-box { min-width: 140px; padding: 20px 30px; }
       .integration-stats-row { grid-template-columns: 1fr 1fr; }
       .hero-title { font-size: 36px; }
       .hero-subtitle { font-size: 16px; }
       .section-title { font-size: 28px; }
       .cta-title { font-size: 28px; }
-            .cta-email-input { text-align: center; }
+      
+      .cta-email-input { text-align: center; }
       /* Mobile hero animation optimization */
       .hero-inner { padding: 120px 20px 60px; gap: 30px; }
       .epic-main-content { height: 320px; }
@@ -1710,13 +1709,13 @@
       .hero-inner { padding: 100px 16px 50px; gap: 24px; }
       .hero-badge { padding: 8px 14px; font-size: 11px; margin-bottom: 16px; }
       .hero-title { font-size: 26px; line-height: 1.15; margin-bottom: 16px; }
-      .hero-subtitle { font-size: 14px; margin-bottom: 24px; }
+      .hero-subtitle { font-size: 13px; margin-bottom: 24px; }
       .hero-actions { flex-direction: column; gap: 10px; }
       .btn { width: 100%; justify-content: center; }
       /* Even smaller animation for phones */
       .epic-main-content { height: 280px; }
       .epic-patient-header { padding-bottom: 8px; margin-bottom: 8px; }
-      .epic-patient-name { font-size: 14px; }
+      .epic-patient-name { font-size: 13px; }
       .epic-patient-details { font-size: 10px; }
       .epic-view-tabs { margin-bottom: 8px; }
       .bm-columns-header { font-size: 7px; padding: 5px 6px; }
@@ -2099,7 +2098,7 @@
             <path d="M30 35 L45 60 L15 60 Z" fill="#1e3d3c" opacity="0.5"/>
             <path d="M70 35 L85 60 L55 60 Z" fill="#1e3d3c" opacity="0.5"/>
           </svg>
-          <span style="font-size: 14px; font-weight: 700; color: var(--bm-dark-teal); letter-spacing: 0.3px; white-space: nowrap;">EVEREST II TRUST FUND</span>
+          <span style="font-size: 13px; font-weight: 700; color: var(--bm-dark-teal); letter-spacing: 0.3px; white-space: nowrap;">EVEREST II TRUST FUND</span>
         </div>
       </div>
     </div>
@@ -2111,7 +2110,7 @@
       <div class="section-header reveal">
         <div class="section-label">The Challenge</div>
         <h2 class="section-title">What if L&D could run like Google Maps?</h2>
-        <p class="section-subtitle">Predict the rush before it hits. Reroute around bottlenecks.<br>Live ETAs for every patient and staff need.</p>
+        <p class="section-subtitle">Predict the rush before it hits. Reroute around bottlenecks. Live ETAs for every patient and staff need.</p>
       </div>
       
       <div class="comparison-grid">

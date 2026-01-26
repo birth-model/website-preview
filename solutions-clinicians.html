@@ -225,7 +225,7 @@
       margin-bottom: 20px;
     }
     .benefit-title { font-size: 20px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 12px; }
-    .benefit-desc { font-size: 14px; color: var(--bm-gray); line-height: 1.7; }
+    .benefit-desc { font-size: 13px; color: var(--bm-gray); line-height: 1.7; }
     
     /* Feature Section */
     .feature-section {
@@ -450,7 +450,7 @@
       color: rgba(255,255,255,0.5);
     }
     .ios-notif-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: white;
       margin-bottom: 3px;
@@ -502,7 +502,7 @@
     .app-btn:hover { background: #3d4654; }
     .app-btn:hover { transform: translateY(-2px); }
     .app-btn-label { font-size: 9px; opacity: 0.8; }
-    .app-btn-name { font-size: 14px; font-weight: 700; }
+    .app-btn-name { font-size: 13px; font-weight: 700; }
     
     /* CTA */
     .cta-section {
@@ -542,7 +542,7 @@
       height: 32px;
     }
     .footer-brand p {
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(255,255,255,0.65);
       line-height: 1.7;
       max-width: 280px;
@@ -582,10 +582,12 @@
       margin-bottom: 20px;
     }
     .footer-col a {
+      word-break: break-word;
+      overflow-wrap: break-word;
       display: block;
       color: rgba(255,255,255,0.7);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 12px;
       transition: all 0.2s ease;
     }
@@ -842,7 +844,7 @@
         align-items: center;
         gap: 8px;
         padding: 6px 0;
-        font-size: 14px;
+        font-size: 13px;
         color: var(--bm-gray);
         line-height: 1.4;
       }
@@ -850,7 +852,7 @@
         color: #22c55e;
         font-weight: 700;
         flex-shrink: 0;
-        font-size: 14px;
+        font-size: 13px;
       }
       .handoff-features strong {
         color: var(--bm-dark-teal);
@@ -1223,36 +1225,7 @@
         z-index: 20;
       }
 
-      @media (max-width: 900px) {
-        .handoff-scroll-section {
-          min-height: auto;
-        }
-        .handoff-sticky-container {
-          position: relative;
-          top: 0;
-          height: auto;
-          padding: 60px 20px;
-        }
-        .handoff-grid {
-          grid-template-columns: 1fr;
-        }
-        .handoff-steps {
-          flex-wrap: wrap;
-        }
-        .bento-grid {
-          grid-template-columns: 1fr;
-        }
-        .bento-card.large {
-          grid-column: span 1;
-        }
-        .data-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .handoff-progress {
-          display: none;
-        }
-      }
-    </style>
+          </style>
 
     <div class="handoff-sticky-container">
       <div class="handoff-grid">
@@ -1692,7 +1665,7 @@
         align-items: center;
         gap: 8px;
         padding: 6px 0;
-        font-size: 14px;
+        font-size: 13px;
         color: var(--bm-gray);
         line-height: 1.4;
       }
@@ -1700,7 +1673,7 @@
         color: #22c55e;
         font-weight: 700;
         flex-shrink: 0;
-        font-size: 14px;
+        font-size: 13px;
       }
       .booking-features strong {
         color: var(--bm-dark-teal);
@@ -2094,7 +2067,7 @@
         text-align: center;
       }
       .ai-stat-value {
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 900;
         color: white;
         margin-bottom: 2px;
@@ -2133,7 +2106,7 @@
         align-items: center;
         justify-content: center;
         color: white;
-        font-size: 14px;
+        font-size: 13px;
         box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
       }
       .confirm-title {
@@ -2201,39 +2174,7 @@
         transform: translateY(-2px);
       }
 
-      @media (max-width: 900px) {
-        .booking-scroll-section {
-          min-height: auto;
-        }
-        .booking-sticky-container {
-          position: relative;
-          top: 0;
-          height: auto;
-          padding: 60px 20px;
-        }
-        .booking-grid {
-          grid-template-columns: 1fr;
-        }
-        .booking-steps {
-          flex-wrap: wrap;
-        }
-        .booking-preview-wrapper {
-          order: -1;
-        }
-        .booking-bento-grid {
-          grid-template-columns: 1fr;
-        }
-        .booking-bento-card.tall {
-          grid-row: span 1;
-        }
-        .booking-bento-card.wide {
-          grid-column: span 1;
-        }
-        .booking-progress {
-          display: none;
-        }
-      }
-    </style>
+          </style>
 
     <div class="booking-sticky-container">
       <div class="booking-grid">

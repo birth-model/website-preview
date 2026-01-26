@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.6">
   <title>Blog — Labor & Delivery AI Insights | Birth Model</title>
   
   <!-- SEO Meta Tags -->
@@ -11,6 +11,8 @@
   <meta name="author" content="Birth Model, Inc.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://birthmodel.com/blogs.html">
+  <link rel="icon" type="image/png" href="BM_App_Icon.png">
+
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -57,7 +59,7 @@
     .blog-section { padding: 70px 40px; }
     .blog-inner { max-width: 1100px; margin: 0 auto; }
     
-    .featured-post { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; margin-bottom: 60px; align-items: center; }
+    .featured-post { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; margin-bottom: 60px; align-items: center; }
     .featured-image { background: linear-gradient(135deg, var(--bm-coral-light), var(--bm-teal-light)); border-radius: 20px; height: 350px; display: flex; align-items: center; justify-content: center; }
     .featured-image-placeholder { font-size: 80px; }
     .post-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -67,19 +69,19 @@
     .featured-title a { text-decoration: none; color: inherit; transition: color 0.2s; }
     .featured-title a:hover { color: var(--bm-coral); }
     .featured-excerpt { font-size: 15px; color: var(--bm-gray); line-height: 1.7; margin-bottom: 20px; }
-    .read-more { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--bm-coral); text-decoration: none; transition: gap 0.3s ease; }
+    .read-more { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--bm-coral); text-decoration: none; transition: gap 0.3s ease; }
     .read-more:hover { gap: 12px; }
     
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .blog-card { background: var(--bm-light-gray); border-radius: 16px; overflow: hidden; transition: all 0.4s ease; border: 2px solid transparent; }
+    .blog-card { background: var(--bm-light-gray); border-radius: 16px; overflow: hidden; transition: all 0.4s ease; border: 2px solid transparent; cursor: pointer; text-decoration: none; display: block; color: inherit; }
     .blog-card:hover { transform: translateY(-6px); border-color: var(--bm-teal); }
     .blog-card, .featured-post { transition: all 0.4s ease; }
     .blog-card-image { height: 160px; background: linear-gradient(135deg, var(--bm-teal-light), var(--bm-coral-light)); display: flex; align-items: center; justify-content: center; font-size: 36px; }
-    .blog-card-image svg { width: 64px; height: 64px; }
+    .blog-card-image svg { width: 90px; height: 90px; }
     .blog-card-image.teal-gradient { background: linear-gradient(135deg, var(--bm-dark-teal), #3d7a77); }
     .blog-card-image.coral-gradient { background: linear-gradient(135deg, var(--bm-coral), #ff9080); }
     .blog-card-image.mixed-gradient { background: linear-gradient(135deg, var(--bm-teal-light), var(--bm-coral-light)); }
-    .featured-image svg { width: 120px; height: 120px; }
+    .featured-image svg { width: 140px; height: 140px; }
     .blog-card-content { padding: 20px; }
     .blog-card .post-meta { margin-bottom: 8px; }
     .blog-card .post-date { font-size: 11px; margin-bottom: 6px; }
@@ -87,22 +89,23 @@
     .blog-card-title a { text-decoration: none; color: inherit; transition: color 0.2s; }
     .blog-card-title a:hover { color: var(--bm-coral); }
     .blog-card-excerpt { font-size: 12px; color: var(--bm-gray); line-height: 1.6; margin-bottom: 12px; }
-    
+    .blog-card .read-more { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--bm-coral); margin-top: 8px; }
+
     .newsletter-section { padding: 80px 40px; background: var(--bm-warm-gray); }
     .newsletter-inner { max-width: 600px; margin: 0 auto; text-align: center; }
     .newsletter-inner h2 { font-size: 28px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 12px; }
     .newsletter-inner p { font-size: 15px; color: var(--bm-gray); margin-bottom: 24px; }
     .newsletter-form { display: flex; gap: 12px; justify-content: center; }
-    .newsletter-input { flex: 1; max-width: 300px; padding: 14px 20px; border: 2px solid var(--bm-border); border-radius: 12px; font-size: 14px; font-family: inherit; transition: border-color 0.3s; }
+    .newsletter-input { flex: 1; max-width: 300px; padding: 14px 20px; border: 2px solid var(--bm-border); border-radius: 12px; font-size: 13px; font-family: inherit; transition: border-color 0.3s; }
     .newsletter-input:focus { outline: none; border-color: var(--bm-teal); }
-    .newsletter-btn { padding: 14px 28px; background: var(--bm-coral); color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; transition: all 0.3s ease; }
+    .newsletter-btn { padding: 14px 28px; background: var(--bm-coral); color: white; border: none; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; transition: all 0.3s ease; }
     .newsletter-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 118, 96, 0.4); }
     .newsletter-success { display: none; text-align: center; padding: 20px; }
     .newsletter-success.show { display: block; }
     .newsletter-success-icon { width: 48px; height: 48px; background: var(--bm-teal-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
     .newsletter-success-icon svg { width: 24px; height: 24px; }
     .newsletter-success h3 { font-size: 20px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 8px; }
-    .newsletter-success p { font-size: 14px; color: var(--bm-gray); }
+    .newsletter-success p { font-size: 13px; color: var(--bm-gray); }
     .newsletter-form.hidden { display: none; }
     
     .footer { background: #0f2524; padding: 50px 40px 30px; color: white; }
@@ -119,7 +122,7 @@
     /* Footer */
     .footer {
       background: #1e3d3c;
-      padding: 70px 40px 30px;
+      padding: 70px 50px 30px;
       color: white;
     }
     .footer-inner {
@@ -128,8 +131,8 @@
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr repeat(4, 1fr);
-      gap: 50px;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 30px;
       margin-bottom: 50px;
     }
     .footer-brand-logo {
@@ -142,7 +145,7 @@
       height: 32px;
     }
     .footer-brand p {
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(255,255,255,0.65);
       line-height: 1.7;
       max-width: 280px;
@@ -182,10 +185,12 @@
       margin-bottom: 20px;
     }
     .footer-col a {
+      word-break: break-word;
+      overflow-wrap: break-word;
       display: block;
       color: rgba(255,255,255,0.7);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 12px;
       transition: all 0.2s ease;
     }
@@ -238,12 +243,12 @@
       color: #4ade80;
     }
     @media (max-width: 1024px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      
     }
     @media (max-width: 768px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .footer-badges { justify-content: center; }
+      
+      
+      
     }
 
   </style>
@@ -268,7 +273,7 @@
             <a href="careers.html" class="nav-dropdown-item">Careers</a>
           </div>
         </div>
-        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="https://provider.birthmodel.com" class="nav-login" target="_blank">Clinician Login</a>
         <a href="demo.html" class="nav-cta">Schedule Demo</a>
       </div>
       <div class="nav-hamburger" onclick="toggleMobileMenu()">
@@ -291,7 +296,7 @@
           <a href="implementation.html">Mobile Implementation</a>
     <a href="implementation.html">Mobile Implementation</a>
     <a href="careers.html">Careers</a>
-    <a href="https://provider.birthmodel.com" target="_blank">Clinician Login</a>
+    <a href="https://provider.birthmodel.com" class="mobile-login" target="_blank">Clinician Login</a>
     <a href="demo.html" class="mobile-cta">Schedule Demo</a>
   </div>
 
@@ -346,7 +351,7 @@
       <!-- Blog Grid - Ordered by date (newest first) -->
       <div class="blog-grid">
         <!-- January 15, 2026 -->
-        <article class="blog-card" data-categories="operational-efficiency">
+        <a href="blog-nursing-staffing.html" class="blog-card" data-categories="operational-efficiency">
           <div class="blog-card-image teal-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="50" cy="30" r="16" fill="#abdfe2"/>
@@ -361,16 +366,14 @@
               <span class="post-tag">Nursing Staffing</span>
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • January 15, 2026</div>
-            <h3 class="blog-card-title">
-              <a href="blog-nursing-staffing.html">The L&D Staffing Crisis: How Unpredictability Drives Nursing Turnover</a>
-            </h3>
+            <h3 class="blog-card-title">The L&D Staffing Crisis: How Unpredictability Drives Nursing Turnover</h3>
             <p class="blog-card-excerpt">80%+ of L&D admissions are unscheduled. Here's how census fluctuations drive burnout, overtime, and turnover.</p>
-            <a href="blog-nursing-staffing.html" class="read-more">Read More →</a>
+            <span class="read-more">Read More →</span>
           </div>
-        </article>
+        </a>
 
         <!-- January 10, 2026 -->
-        <article class="blog-card" data-categories="operational-efficiency">
+        <a href="blog-global-payments.html" class="blog-card" data-categories="operational-efficiency">
           <div class="blog-card-image coral-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="50" cy="50" r="32" fill="white" opacity="0.2"/>
@@ -385,16 +388,14 @@
               <span class="post-tag">2027 Changes</span>
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • January 10, 2026</div>
-            <h3 class="blog-card-title">
-              <a href="blog-global-payments.html">Preparing for 2027: The End of OB Global Billing</a>
-            </h3>
+            <h3 class="blog-card-title">Preparing for 2027: The End of OB Global Billing</h3>
             <p class="blog-card-excerpt">16 global OB codes are being deleted. Here's what the shift to unbundled billing means for your practice.</p>
-            <a href="blog-global-payments.html" class="read-more">Read More →</a>
+            <span class="read-more">Read More →</span>
           </div>
-        </article>
+        </a>
 
         <!-- January 2, 2026 -->
-        <article class="blog-card" data-categories="operational-efficiency">
+        <a href="blog-2026-trends.html" class="blog-card" data-categories="operational-efficiency">
           <div class="blog-card-image teal-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="15" y="70" width="12" height="20" rx="2" fill="#abdfe2" opacity="0.6"/>
@@ -412,15 +413,14 @@
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • January 2, 2026</div>
             <h3 class="blog-card-title">
-              <a href="blog-2026-trends.html">2026 Maternal Health Trends: What Hospital Leaders Need to Know</a>
+              2026 Maternal Health Trends: What Hospital Leaders Need to Know
             </h3>
             <p class="blog-card-excerpt">Five key trends shaping the future of L&D operations and maternal care this year.</p>
-            <a href="blog-2026-trends.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
 
         <!-- December 15, 2025 -->
-        <article class="blog-card" data-categories="company-news">
+        <a href="blog-techstars.html" class="blog-card" data-categories="company-news">
           <div class="blog-card-image mixed-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <polygon points="50,15 90,35 50,55 10,35" fill="#1e3d3c"/>
@@ -438,15 +438,38 @@
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • December 15, 2025</div>
             <h3 class="blog-card-title">
-              <a href="blog-techstars.html">Birth Model Graduates from Techstars AI Health Baltimore</a>
+              Birth Model Graduates from Techstars AI Health Baltimore
             </h3>
             <p class="blog-card-excerpt">Reflections on 13 transformative weeks and what's next for Birth Model.</p>
-            <a href="blog-techstars.html" class="read-more">Read More →</a>
+            <span class="read-more">Read More →</span></div>
+        </a>
+
+        <!-- September 2, 2025 -->
+        <a href="blog-techstars-selection.html" class="blog-card" data-categories="company-news">
+          <div class="blog-card-image mixed-gradient">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,15 90,35 50,55 10,35" fill="#1e3d3c"/>
+              <polygon points="50,55 90,35 90,45 50,65 10,45 10,35" fill="#abdfe2"/>
+              <rect x="47" y="55" width="6" height="25" fill="#1e3d3c"/>
+              <circle cx="50" cy="85" r="8" fill="#ff7660"/>
+              <path d="M85 40v25" stroke="#1e3d3c" stroke-width="3"/>
+              <circle cx="85" cy="68" r="5" fill="#ff7660"/>
+            </svg>
           </div>
-        </article>
+          <div class="blog-card-content">
+            <div class="post-meta">
+              <span class="post-tag">Company News</span>
+              <span class="post-tag">Accelerator</span>
+            </div>
+            <div class="post-date">Anish J. Shah, MD, FACOG • September 2, 2025</div>
+            <h3 class="blog-card-title">Birth Model Selected for Techstars AI Health Baltimore</h3>
+            <p class="blog-card-excerpt">Selected from 700+ applicants to join the prestigious Techstars AI Health Baltimore accelerator powered by Johns Hopkins University and CareFirst Blue Cross Blue Shield.</p>
+            <span class="read-more">Read More →</span>
+          </div>
+        </a>
 
         <!-- May 12, 2025 -->
-        <article class="blog-card" data-categories="ai-obstetrics clinical-outcomes">
+        <a href="blog-pph.html" class="blog-card" data-categories="ai-obstetrics clinical-outcomes">
           <div class="blog-card-image coral-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M50 85c-25-20-35-35-35-50 0-12 10-22 22-22 8 0 13 5 13 5s5-5 13-5c12 0 22 10 22 22 0 15-10 30-35 50z" fill="white"/>
@@ -460,15 +483,14 @@
             </div>
             <div class="post-date">Debra Baseman, MD, FACOG • May 12, 2025</div>
             <h3 class="blog-card-title">
-              <a href="blog-pph.html">The Growing Threat of Postpartum Hemorrhage and How AI Can Change That</a>
+              The Growing Threat of Postpartum Hemorrhage and How AI Can Change That
             </h3>
             <p class="blog-card-excerpt">PPH accounts for 11% of U.S. maternal deaths. Here's how AI-driven risk assessment enables early intervention.</p>
-            <a href="blog-pph.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
 
         <!-- April 22, 2025 -->
-        <article class="blog-card" data-categories="ai-obstetrics operational-efficiency">
+        <a href="blog-closures.html" class="blog-card" data-categories="ai-obstetrics operational-efficiency">
           <div class="blog-card-image teal-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="20" y="35" width="60" height="50" rx="3" fill="white"/>
@@ -490,15 +512,14 @@
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • April 22, 2025</div>
             <h3 class="blog-card-title">
-              <a href="blog-closures.html">The Alarming Trend: Maternity Unit Closures Over the Last Decade</a>
+              The Alarming Trend: Maternity Unit Closures Over the Last Decade
             </h3>
             <p class="blog-card-excerpt">Over 200 maternity units have closed across the United States, creating maternal care deserts.</p>
-            <a href="blog-closures.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
 
         <!-- April 2, 2025 -->
-        <article class="blog-card" data-categories="operational-efficiency">
+        <a href="blog-costs.html" class="blog-card" data-categories="operational-efficiency">
           <div class="blog-card-image mixed-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="35" cy="70" rx="20" ry="8" fill="#1e3d3c"/>
@@ -519,15 +540,14 @@
             </div>
             <div class="post-date">Sam Hessami, MD, MHA, FACOG, FACHE • April 2, 2025</div>
             <h3 class="blog-card-title">
-              <a href="blog-costs.html">The Hidden Cost of Obstetric Care and How AI Can Mitigate It</a>
+              The Hidden Cost of Obstetric Care and How AI Can Mitigate It
             </h3>
             <p class="blog-card-excerpt">AI-driven financial management tools ensure hospitals are fairly reimbursed for maternity care.</p>
-            <a href="blog-costs.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
 
         <!-- March 5, 2025 -->
-        <article class="blog-card" data-categories="company-news">
+        <a href="blog-himss-2025.html" class="blog-card" data-categories="company-news">
           <div class="blog-card-image teal-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M30 25h40v30c0 15-10 25-20 25s-20-10-20-25V25z" fill="#ff7660"/>
@@ -545,15 +565,14 @@
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • March 5, 2025</div>
             <h3 class="blog-card-title">
-              <a href="blog-himss-2025.html">Birth Model Selected for HIMSS25 Emerge Innovation Experience in Las Vegas</a>
+              Birth Model Selected for HIMSS25 Emerge Innovation Experience in Las Vegas
             </h3>
             <p class="blog-card-excerpt">We're thrilled to announce our selection as a top emerging healthcare innovation company at HIMSS25.</p>
-            <a href="blog-himss-2025.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
 
         <!-- February 25, 2025 -->
-        <article class="blog-card" data-categories="ai-obstetrics company-news">
+        <a href="blog-intro.html" class="blog-card" data-categories="ai-obstetrics company-news">
           <div class="blog-card-image coral-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="50" cy="50" r="30" fill="white" opacity="0.2"/>
@@ -575,15 +594,14 @@
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • February 25, 2025</div>
             <h3 class="blog-card-title">
-              <a href="blog-intro.html">Revolutionizing Obstetric Care: An Introduction to Birth Model's AI-Powered Platform</a>
+              Revolutionizing Obstetric Care: An Introduction to Birth Model's AI-Powered Platform
             </h3>
             <p class="blog-card-excerpt">How Birth Model uses machine learning to predict delivery times and optimize staffing.</p>
-            <a href="blog-intro.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
 
         <!-- January 15, 2025 -->
-        <article class="blog-card" data-categories="operational-efficiency technology">
+        <a href="blog-motherboard.html" class="blog-card" data-categories="operational-efficiency technology">
           <div class="blog-card-image teal-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="15" y="20" width="70" height="50" rx="4" fill="white"/>
@@ -603,15 +621,14 @@
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • January 15, 2025</div>
             <h3 class="blog-card-title">
-              <a href="blog-motherboard.html">The Motherboard: Why Real-Time Visualization Changes Everything in L&D</a>
+              The Motherboard: Why Real-Time Visualization Changes Everything in L&D
             </h3>
             <p class="blog-card-excerpt">A single source of truth for L&D units, updating automatically from EHR data.</p>
-            <a href="blog-motherboard.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
 
         <!-- December 8, 2024 -->
-        <article class="blog-card" data-categories="ai-obstetrics clinical-outcomes">
+        <a href="blog-burnout.html" class="blog-card" data-categories="ai-obstetrics clinical-outcomes">
           <div class="blog-card-image mixed-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="50" cy="35" r="20" fill="#1e3d3c"/>
@@ -631,15 +648,14 @@
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • December 8, 2024</div>
             <h3 class="blog-card-title">
-              <a href="blog-burnout.html">Tackling Provider Burnout Through Predictable Workflows</a>
+              Tackling Provider Burnout Through Predictable Workflows
             </h3>
             <p class="blog-card-excerpt">OB-GYN burnout rates exceed 53%. How reducing unpredictability can restore joy to maternal care.</p>
-            <a href="blog-burnout.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
 
         <!-- November 20, 2024 -->
-        <article class="blog-card" data-categories="technology">
+        <a href="blog-fhir.html" class="blog-card" data-categories="technology">
           <div class="blog-card-image teal-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="10" y="35" width="30" height="30" rx="6" fill="white"/>
@@ -657,15 +673,14 @@
             </div>
             <div class="post-date">Max Guillet • November 20, 2024</div>
             <h3 class="blog-card-title">
-              <a href="blog-fhir.html">SMART on FHIR: The Future of Healthcare Interoperability</a>
+              SMART on FHIR: The Future of Healthcare Interoperability
             </h3>
             <p class="blog-card-excerpt">Why SMART on FHIR integration matters and how Birth Model achieved zero-click Epic integration.</p>
-            <a href="blog-fhir.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
 
         <!-- October 5, 2024 -->
-        <article class="blog-card" data-categories="clinical-outcomes ai-obstetrics">
+        <a href="blog-risk.html" class="blog-card" data-categories="clinical-outcomes ai-obstetrics">
           <div class="blog-card-image coral-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M50 15L85 80H15L50 15z" fill="white"/>
@@ -681,15 +696,14 @@
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • October 5, 2024</div>
             <h3 class="blog-card-title">
-              <a href="blog-risk.html">Predictive Risk Scoring: From Reactive to Proactive Care</a>
+              Predictive Risk Scoring: From Reactive to Proactive Care
             </h3>
             <p class="blog-card-excerpt">AI-driven risk stratification for PPH, preeclampsia, and shoulder dystocia enables earlier interventions.</p>
-            <a href="blog-risk.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
 
         <!-- September 15, 2024 -->
-        <article class="blog-card" data-categories="ai-obstetrics technology">
+        <a href="blog-documentation.html" class="blog-card" data-categories="ai-obstetrics technology">
           <div class="blog-card-image mixed-gradient">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="25" y="15" width="50" height="65" rx="4" fill="white"/>
@@ -709,12 +723,11 @@
             </div>
             <div class="post-date">Anish J. Shah, MD, FACOG • September 15, 2024</div>
             <h3 class="blog-card-title">
-              <a href="blog-documentation.html">AI-Powered Clinical Documentation: The End of Pajama Time</a>
+              AI-Powered Clinical Documentation: The End of Pajama Time
             </h3>
             <p class="blog-card-excerpt">Diagnotes automatically generates delivery notes, reducing documentation time from 30+ minutes to under 5.</p>
-            <a href="blog-documentation.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+            <span class="read-more">Read More →</span></div>
+        </a>
       </div>
     </div>
   </section>
@@ -726,7 +739,7 @@
       <form class="newsletter-form" id="newsletter-form" action="https://formsubmit.co/anish@birthmodel.com" method="POST">
         <input type="hidden" name="_subject" value="Birth Model Newsletter Signup">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://birthmodel.com/blogs.html?subscribed=true">
+        <input type="hidden" name="_next" value="thank-you.html?type=newsletter">
         <input type="email" class="newsletter-input" name="email" placeholder="Enter your email" required>
         <button type="submit" class="newsletter-btn">Subscribe</button>
       </form>
@@ -747,7 +760,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-brand-logo">
-            <img src="Birth_Model_Logo.png" alt="Birth Model">
+            <img src="birthmodelfooterlogo.png" alt="Birth Model">
           </div>
           <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
           <div class="footer-social">
@@ -794,7 +807,6 @@
           <a href="demo.html">Request Demo</a>
           <a href="https://calendly.com/birthmodel" target="_blank">Schedule Meeting</a>
           <a href="mailto:support@birthmodel.com">support@birthmodel.com</a>
-          <a href="implementation.html">Mobile Implementation</a>
     <a href="careers.html">Careers</a>
         </div>
       </div>

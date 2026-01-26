@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.6">
   <title>Blog — Labor & Delivery AI Insights | Birth Model</title>
   
   <!-- SEO Meta Tags -->
@@ -11,6 +11,8 @@
   <meta name="author" content="Birth Model, Inc.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://birthmodel.com/blogs.html">
+  <link rel="icon" type="image/png" href="BM_App_Icon.png">
+
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -57,7 +59,7 @@
     .blog-section { padding: 70px 40px; }
     .blog-inner { max-width: 1100px; margin: 0 auto; }
     
-    .featured-post { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; margin-bottom: 60px; align-items: center; }
+    .featured-post { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; margin-bottom: 60px; align-items: center; }
     .featured-image { background: linear-gradient(135deg, var(--bm-coral-light), var(--bm-teal-light)); border-radius: 20px; height: 350px; display: flex; align-items: center; justify-content: center; }
     .featured-image-placeholder { font-size: 80px; }
     .post-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -67,7 +69,7 @@
     .featured-title a { text-decoration: none; color: inherit; transition: color 0.2s; }
     .featured-title a:hover { color: var(--bm-coral); }
     .featured-excerpt { font-size: 15px; color: var(--bm-gray); line-height: 1.7; margin-bottom: 20px; }
-    .read-more { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--bm-coral); text-decoration: none; transition: gap 0.3s ease; }
+    .read-more { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--bm-coral); text-decoration: none; transition: gap 0.3s ease; }
     .read-more:hover { gap: 12px; }
     
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -88,9 +90,9 @@
     .newsletter-inner h2 { font-size: 28px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 12px; }
     .newsletter-inner p { font-size: 15px; color: var(--bm-gray); margin-bottom: 24px; }
     .newsletter-form { display: flex; gap: 12px; justify-content: center; }
-    .newsletter-input { flex: 1; max-width: 300px; padding: 14px 20px; border: 2px solid var(--bm-border); border-radius: 12px; font-size: 14px; font-family: inherit; transition: border-color 0.3s; }
+    .newsletter-input { flex: 1; max-width: 300px; padding: 14px 20px; border: 2px solid var(--bm-border); border-radius: 12px; font-size: 13px; font-family: inherit; transition: border-color 0.3s; }
     .newsletter-input:focus { outline: none; border-color: var(--bm-teal); }
-    .newsletter-btn { padding: 14px 28px; background: var(--bm-coral); color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .newsletter-btn { padding: 14px 28px; background: var(--bm-coral); color: white; border: none; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; }
     
     .footer { background: #0f2524; padding: 50px 40px 30px; color: white; }
     .footer-inner { max-width: 1100px; margin: 0 auto; }
@@ -106,7 +108,7 @@
     /* Footer */
     .footer {
       background: #1e3d3c;
-      padding: 70px 40px 30px;
+      padding: 70px 50px 30px;
       color: white;
     }
     .footer-inner {
@@ -115,8 +117,8 @@
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr repeat(4, 1fr);
-      gap: 50px;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 30px;
       margin-bottom: 50px;
     }
     .footer-brand-logo {
@@ -129,7 +131,7 @@
       height: 32px;
     }
     .footer-brand p {
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(255,255,255,0.65);
       line-height: 1.7;
       max-width: 280px;
@@ -169,10 +171,12 @@
       margin-bottom: 20px;
     }
     .footer-col a {
+      word-break: break-word;
+      overflow-wrap: break-word;
       display: block;
       color: rgba(255,255,255,0.7);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 12px;
       transition: all 0.2s ease;
     }
@@ -225,12 +229,12 @@
       color: #4ade80;
     }
     @media (max-width: 1024px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      
     }
     @media (max-width: 768px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .footer-badges { justify-content: center; }
+      
+      
+      
     }
 
   </style>
@@ -255,7 +259,7 @@
             <a href="careers.html" class="nav-dropdown-item">Careers</a>
           </div>
         </div>
-        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="https://provider.birthmodel.com" class="nav-login" target="_blank">Clinician Login</a>
         <a href="demo.html" class="nav-cta">Schedule Demo</a>
       </div>
       <div class="nav-hamburger" onclick="toggleMobileMenu()">
@@ -278,7 +282,7 @@
           <a href="implementation.html">Mobile Implementation</a>
     <a href="implementation.html">Mobile Implementation</a>
     <a href="careers.html">Careers</a>
-    <a href="https://provider.birthmodel.com" target="_blank">Clinician Login</a>
+    <a href="https://provider.birthmodel.com" class="mobile-login" target="_blank">Clinician Login</a>
     <a href="demo.html" class="mobile-cta">Schedule Demo</a>
   </div>
 
@@ -580,7 +584,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-brand-logo">
-            <img src="Birth_Model_Logo.png" alt="Birth Model">
+            <img src="birthmodelfooterlogo.png" alt="Birth Model">
           </div>
           <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
           <div class="footer-social">
@@ -627,7 +631,6 @@
           <a href="demo.html">Request Demo</a>
           <a href="https://calendly.com/birthmodel" target="_blank">Schedule Meeting</a>
           <a href="mailto:support@birthmodel.com">support@birthmodel.com</a>
-          <a href="implementation.html">Mobile Implementation</a>
     <a href="careers.html">Careers</a>
         </div>
       </div>

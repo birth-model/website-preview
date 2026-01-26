@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.6">
   <title>Birth Model Selected for HIMSS25 Emerge Innovation Experience in Las Vegas | Birth Model</title>
 
   <!-- SEO Meta Tags -->
@@ -11,6 +11,8 @@
   <meta name="author" content="Birth Model, Inc.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://birthmodel.com/blog-himss-2025.html">
+  <link rel="icon" type="image/png" href="BM_App_Icon.png">
+
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
@@ -71,12 +73,14 @@
     }
     body { font-family: 'Lato', sans-serif; color: var(--bm-black); line-height: 1.6; }
 
-    .blog-hero {
+    .article-header {
       padding: 140px 50px 80px;
       background: linear-gradient(135deg, var(--bm-light-gray), white);
     }
-    .blog-hero-inner { max-width: 800px; margin: 0 auto; }
-    .blog-category {
+    .article-header-inner { max-width: 800px; margin: 0 auto; }
+    .back-link { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--bm-coral); text-decoration: none; margin-bottom: 20px; width: fit-content; }
+    .back-link:hover { gap: 12px; transition: gap 0.3s ease; }
+    .article-tag {
       display: inline-block;
       background: var(--bm-teal-light);
       color: var(--bm-dark-teal);
@@ -86,7 +90,7 @@
       font-weight: 700;
       margin-bottom: 20px;
     }
-    .blog-hero h1 {
+    .article-title {
       font-size: 42px;
       font-weight: 900;
       color: var(--bm-dark-teal);
@@ -96,7 +100,7 @@
     .blog-meta {
       display: flex;
       gap: 20px;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--bm-gray);
     }
 
@@ -161,7 +165,7 @@
       margin-bottom: 8px;
     }
     .quote-block .attribution {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--bm-gray);
       font-style: normal;
     }
@@ -222,8 +226,8 @@
     }
 
     @media (max-width: 768px) {
-      .blog-hero { padding: 120px 24px 60px; }
-      .blog-hero h1 { font-size: 32px; }
+      .article-header { padding: 120px 24px 60px; }
+      .article-title { font-size: 32px; }
       .blog-content { padding: 40px 24px 80px; }
       .blog-content h2 { font-size: 24px; }
       .cta-section { padding: 40px 24px; }
@@ -232,14 +236,14 @@
     /* Footer */
     .footer {
       background: var(--bm-dark-teal);
-      padding: 70px 40px 30px;
+      padding: 70px 50px 30px;
       color: white;
     }
     .footer-inner { max-width: 1200px; margin: 0 auto; }
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr repeat(4, 1fr);
-      gap: 50px;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 30px;
       margin-bottom: 50px;
     }
     .footer-brand-logo {
@@ -248,9 +252,10 @@
       gap: 10px;
       margin-bottom: 16px;
     }
-    .footer-brand-logo img { height: 32px; }
+    .footer-brand-logo img {
+      height: 45px; }
     .footer-brand p {
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(255,255,255,0.65);
       line-height: 1.7;
       max-width: 280px;
@@ -283,10 +288,12 @@
       margin-bottom: 20px;
     }
     .footer-col a {
+      word-break: break-word;
+      overflow-wrap: break-word;
       display: block;
       color: rgba(255,255,255,0.7);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 12px;
       transition: all 0.2s ease;
     }
@@ -321,8 +328,8 @@
     }
     .footer-badge .check { color: #4ade80; }
     @media (max-width: 768px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-      .footer-bottom { flex-direction: column; text-align: center; }
+      
+      
     }
   </style>
 </head>
@@ -347,7 +354,7 @@
             <a href="careers.html" class="nav-dropdown-item">Careers</a>
           </div>
         </div>
-        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="https://provider.birthmodel.com" class="nav-login" target="_blank">Clinician Login</a>
         <a href="demo.html" class="nav-cta">Schedule Demo</a>
       </div>
       <div class="nav-hamburger" onclick="toggleMobileMenu()">
@@ -370,25 +377,31 @@
           <a href="implementation.html">Mobile Implementation</a>
     <a href="implementation.html">Mobile Implementation</a>
     <a href="careers.html">Careers</a>
-    <a href="https://provider.birthmodel.com" target="_blank">Clinician Login</a>
+    <a href="https://provider.birthmodel.com" class="mobile-login" target="_blank">Clinician Login</a>
     <a href="demo.html" class="mobile-cta">Schedule Demo</a>
   </div>
 
   <!-- Blog Hero -->
-  <section class="blog-hero">
-    <div class="blog-hero-inner">
-      <span class="blog-category">Company News</span>
-      <h1>Birth Model Selected for HIMSS25 Emerge Innovation Experience in Las Vegas</h1>
-      <div class="blog-meta">
-        <span>Dr. Anish Shah</span>
-        <span>March 5, 2025</span>
-        <span>4 min read</span>
+  <header class="article-header">
+    <div class="article-header-inner">
+      <a href="blogs.html" class="back-link">← Back to all Blogs</a>
+      <div class="article-meta">
+        <span class="article-tag">Company News</span>
+        <span class="article-tag">HIMSS</span>
+      </div>
+      <h1 class="article-title">Birth Model Selected for HIMSS25 Emerge Innovation Experience in Las Vegas</h1>
+      <div class="article-author">
+        <div class="author-avatar">AS</div>
+        <div class="author-info">
+          <h4>Anish J. Shah, MD, FACOG</h4>
+          <p>March 5, 2025 • 4 min read</p>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
   <!-- Blog Content -->
-  <article class="blog-content">
+  <article class="article-content">
     <p>We are thrilled to announce that Birth Model has been selected as one of the top emerging healthcare innovation companies to present at the <strong>HIMSS25 Emerge Innovation Experience</strong> in Las Vegas. This prestigious recognition places us among the most promising healthcare technology startups working to transform patient care.</p>
 
     <div class="event-details">
@@ -495,7 +508,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-brand-logo">
-            <img src="Birth_Model_Logo.png" alt="Birth Model">
+            <img src="birthmodelfooterlogo.png" alt="Birth Model">
           </div>
           <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
           <div class="footer-social">
@@ -542,7 +555,6 @@
           <a href="demo.html">Request Demo</a>
           <a href="https://calendly.com/birthmodel" target="_blank">Schedule Meeting</a>
           <a href="mailto:support@birthmodel.com">support@birthmodel.com</a>
-          <a href="implementation.html">Mobile Implementation</a>
     <a href="careers.html">Careers</a>
         </div>
       </div>

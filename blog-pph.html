@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.6">
+  <link rel="icon" type="image/png" href="BM_App_Icon.png">
+
   <title>The Growing Threat of Postpartum Hemorrhage — Birth Model Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="nav.css">
@@ -26,7 +28,7 @@
     
     .article-header { padding: 160px 40px 60px; background: linear-gradient(170deg, var(--bm-cream) 0%, var(--bm-coral-light) 100%); }
     .article-header-inner { max-width: 800px; margin: 0 auto; }
-    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--bm-coral); text-decoration: none; margin-bottom: 24px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--bm-coral); text-decoration: none; margin-bottom: 24px; }
     .article-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
     .article-tag { padding: 6px 14px; background: var(--bm-teal-light); border-radius: 100px; font-size: 12px; font-weight: 700; color: var(--bm-dark-teal); }
     .article-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: var(--bm-dark-teal); line-height: 1.25; margin-bottom: 20px; }
@@ -48,12 +50,12 @@
     
     .stat-highlight { background: var(--bm-coral-light); border-radius: 16px; padding: 30px; margin: 30px 0; text-align: center; }
     .stat-highlight .value { font-size: 48px; font-weight: 900; color: var(--bm-coral); line-height: 1; margin-bottom: 8px; }
-    .stat-highlight .label { font-size: 14px; color: var(--bm-gray); }
+    .stat-highlight .label { font-size: 13px; color: var(--bm-gray); }
     
     .article-cta { background: var(--bm-dark-teal); border-radius: 20px; padding: 40px; margin: 50px 0; text-align: center; }
     .article-cta h3 { font-size: 24px; font-weight: 900; color: white; margin-bottom: 12px; }
     .article-cta p { font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
-    .article-cta .btn { display: inline-flex; padding: 14px 28px; background: var(--bm-coral); color: white; text-decoration: none; border-radius: 12px; font-size: 14px; font-weight: 700; transition: all 0.3s ease; }
+    .article-cta .btn { display: inline-flex; padding: 14px 28px; background: var(--bm-coral); color: white; text-decoration: none; border-radius: 12px; font-size: 13px; font-weight: 700; transition: all 0.3s ease; }
     .article-cta .btn:hover { transform: translateY(-2px); }
     
     .footer { background: #0f2524; padding: 50px 40px 30px; color: white; }
@@ -69,7 +71,7 @@
     /* Footer */
     .footer {
       background: #1e3d3c;
-      padding: 70px 40px 30px;
+      padding: 70px 50px 30px;
       color: white;
     }
     .footer-inner {
@@ -78,8 +80,8 @@
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr repeat(4, 1fr);
-      gap: 50px;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 30px;
       margin-bottom: 50px;
     }
     .footer-brand-logo {
@@ -92,7 +94,7 @@
       height: 32px;
     }
     .footer-brand p {
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(255,255,255,0.65);
       line-height: 1.7;
       max-width: 280px;
@@ -132,10 +134,12 @@
       margin-bottom: 20px;
     }
     .footer-col a {
+      word-break: break-word;
+      overflow-wrap: break-word;
       display: block;
       color: rgba(255,255,255,0.7);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 12px;
       transition: all 0.2s ease;
     }
@@ -188,21 +192,21 @@
       color: #4ade80;
     }
     @media (max-width: 1024px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      
     }
     @media (max-width: 768px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .footer-badges { justify-content: center; }
+      
+      
+      
     }
 
   </style>
 </head>
 <body>
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="Birth_Model_Logo.png" alt="Birth Model" style="height: 30px;">
+        <img src="Birth_Model_Logo.png" alt="Birth Model" class="nav-logo-img">
       </a>
       <div class="nav-links">
         <a href="solutions-hospitals.html" class="nav-link">For Hospitals</a>
@@ -218,7 +222,7 @@
             <a href="careers.html" class="nav-dropdown-item">Careers</a>
           </div>
         </div>
-        <a href="https://provider.birthmodel.com" class="nav-link" target="_blank">Clinician Login</a>
+        <a href="https://provider.birthmodel.com" class="nav-login" target="_blank">Clinician Login</a>
         <a href="demo.html" class="nav-cta">Schedule Demo</a>
       </div>
     </div>
@@ -226,7 +230,7 @@
 
   <header class="article-header">
     <div class="article-header-inner">
-      <a href="blogs.html" class="back-link">← Back to Blog</a>
+      <a href="blogs.html" class="back-link">← Back to all Blogs</a>
       <div class="article-meta">
         <span class="article-tag">AI in Obstetrics</span>
         <span class="article-tag">Clinical Outcomes</span>
@@ -314,7 +318,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-brand-logo">
-            <img src="Birth_Model_Logo.png" alt="Birth Model">
+            <img src="birthmodelfooterlogo.png" alt="Birth Model">
           </div>
           <p>AI precision for financial, operational, and clinical excellence in Labor & Delivery.</p>
           <div class="footer-social">
@@ -361,7 +365,6 @@
           <a href="demo.html">Request Demo</a>
           <a href="demo.html">Schedule Meeting</a>
           <a href="
-          <a href="implementation.html">Mobile Implementation</a>
     <a href="careers.html">Careers</a>
         </div>
       </div>
