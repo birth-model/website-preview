@@ -503,26 +503,26 @@
         font-size: 26px;
       }
 
-      /* Advisor cards - equal heights */
+      /* Advisor cards - 4 columns on mobile */
       .advisors-grid {
         grid-template-columns: repeat(4, 1fr) !important;
-        gap: 10px !important;
+        gap: 8px !important;
       }
       .advisor-card {
-        display: flex;
-        flex-direction: column;
-        min-height: 140px;
-        padding: 14px 10px !important;
+        padding: 10px 6px !important;
+        min-height: auto !important;
+        height: auto !important;
       }
       .advisor-name {
-        font-size: 10px !important;
+        font-size: 9px !important;
+        margin-bottom: 2px;
       }
       .advisor-role {
-        font-size: 9px !important;
-        flex-grow: 1;
+        font-size: 8px !important;
+        margin-bottom: 2px;
       }
       .advisor-background {
-        font-size: 8px !important;
+        font-size: 7px !important;
       }
 
       .partners-logos { gap: 40px; }
@@ -619,7 +619,7 @@
           <div class="team-avatar">AS</div>
           <h3 class="team-name">Anish J. Shah, MD, FACOG</h3>
           <div class="team-role">CEO, Founder</div>
-          <p class="team-bio">Board Certified OBGYN at Penn Medicine Princeton Medical Center. Cornell Neurobio + Math/CS. Harvard AI in Healthcare. 4,000+ deliveries.</p>
+          <p class="team-bio">Board Certified OBGYN at Penn Medicine Princeton Medical Center. Cornell Neurobio + Math/CS. Harvard AI in Healthcare. <span style="white-space: nowrap;">4,000+ deliveries.</span></p>
         </a>
 
         <a href="https://www.linkedin.com/in/maxguillet/" target="_blank" class="team-card reveal">
