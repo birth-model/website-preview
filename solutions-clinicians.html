@@ -669,26 +669,24 @@
     .footer-badge .check {
       color: #4ade80;
     }
-    /* Mobile footer adjustments - zoom out to 75% in portrait */
+    /* Mobile footer - scale to fit width */
     @media (max-width: 1024px) {
+      .cta-section { padding: 60px 20px; }
       .footer {
-        transform: scale(0.75);
+        transform: scale(0.6);
         transform-origin: top center;
+        margin-bottom: -40%;
+        padding: 50px 20px 20px;
       }
+      .footer-inner { max-width: 100%; }
       .footer-email-link { display: none !important; }
       .footer-grid {
-        grid-template-columns: 1fr repeat(4, 1fr) !important;
-        gap: 12px !important;
+        grid-template-columns: 1.2fr repeat(4, 1fr) !important;
+        gap: 20px !important;
       }
-      .footer-col h4 { font-size: 9px !important; letter-spacing: 1px !important; margin-bottom: 12px !important; }
-      .footer-col a { font-size: 10px !important; margin-bottom: 6px !important; }
-      .footer-bottom { flex-direction: column; gap: 12px; }
-      .footer-legal { flex-wrap: wrap; justify-content: center; font-size: 11px; gap: 6px; }
-      .footer-badges { gap: 8px; }
-      .footer-badge { padding: 6px 10px; font-size: 10px; gap: 4px; }
-      .footer-brand { max-width: 120px; }
-      .footer-brand img { height: 20px !important; }
-      .footer-brand p { font-size: 9px !important; }
+      .footer-bottom { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; }
+      .footer-legal { flex-wrap: wrap; justify-content: center; gap: 8px; }
+      .footer-badges { justify-content: center; gap: 10px; }
     }
   </style>
 </head>
@@ -1834,7 +1832,7 @@
       .booking-bento {
         position: relative;
         width: 100%;
-        min-height: 520px;
+        min-height: 620px;
         padding-bottom: 20px;
       }
       .booking-bento-grid {
@@ -1992,6 +1990,23 @@
         box-shadow: 0 6px 20px rgba(255, 118, 96, 0.5);
         animation: selectPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         z-index: 5;
+      }
+      .calendar-date.today {
+        position: relative;
+      }
+      .calendar-date.today::after {
+        content: '';
+        position: absolute;
+        bottom: 3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--bm-dark-teal);
+      }
+      .calendar-date.today.selected::after {
+        background: white;
       }
       @keyframes selectPop {
         0% { transform: scale(0.7); opacity: 0.5; }
@@ -2332,9 +2347,10 @@
           justify-content: center;
         }
         .booking-bento {
-          transform: scale(0.85);
+          transform: scale(0.75);
           transform-origin: top center;
-          margin: 0 auto;
+          margin: 0 auto -15%;
+          min-height: auto;
         }
       }
 
@@ -2531,6 +2547,86 @@
     <script>
       // Scroll-Driven Booking Animation
       document.addEventListener('DOMContentLoaded', function() {
+        // Generate dynamic calendar for current month
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        const currentMonth = now.getMonth();
+        const todayDay = now.getDate();
+
+        function generateCalendar() {
+          const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                          'July', 'August', 'September', 'October', 'November', 'December'];
+
+          // Update calendar title
+          const calendarTitle = document.querySelector('.calendar-title');
+          if (calendarTitle) {
+            calendarTitle.textContent = months[currentMonth] + ' ' + currentYear;
+          }
+
+          // Get first day of month and total days
+          const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+          const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+          // Generate calendar dates HTML
+          const calendarDatesEl = document.getElementById('calendar-dates');
+          if (calendarDatesEl) {
+            let html = '';
+
+            // Empty cells before first day
+            for (let i = 0; i < firstDay; i++) {
+              html += '<div class="calendar-date"></div>';
+            }
+
+            // Days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+              // Pseudo-random availability based on day
+              const rand = (day * 7 + currentMonth * 3) % 10;
+              let statusClass = '';
+              if (rand < 5) statusClass = 'available';
+              else if (rand < 7) statusClass = 'limited';
+              else statusClass = 'full';
+
+              // Today gets a dot indicator and starts as selected
+              const isToday = (day === todayDay);
+              if (isToday) {
+                statusClass = 'available selected today';
+              }
+
+              html += '<div class="calendar-date ' + statusClass + '" data-day="' + day + '">' + day + '</div>';
+            }
+
+            calendarDatesEl.innerHTML = html;
+          }
+        }
+
+        generateCalendar();
+
+        // Animate cycling through available dates
+        let dateAnimationInterval;
+        function startDateAnimation() {
+          const availableDates = document.querySelectorAll('.calendar-date.available:not(.today), .calendar-date.limited');
+          const todayEl = document.querySelector('.calendar-date.today');
+          let currentIndex = 0;
+
+          dateAnimationInterval = setInterval(() => {
+            // Remove selected from all except today's dot
+            document.querySelectorAll('.calendar-date.selected').forEach(el => {
+              if (!el.classList.contains('today')) {
+                el.classList.remove('selected');
+              }
+            });
+
+            // Add selected to current date in rotation
+            if (availableDates.length > 0) {
+              availableDates[currentIndex].classList.add('selected');
+              currentIndex = (currentIndex + 1) % availableDates.length;
+            }
+          }, 1500);
+        }
+
+        // Start animation after a short delay
+        setTimeout(startDateAnimation, 1000);
+
         const section = document.getElementById('booking-section');
         const bentoCards = {
           calendar: document.getElementById('bento-calendar'),
@@ -2645,15 +2741,7 @@
 
           // Step-specific animations
           if (currentStep === 1) {
-            // Animate calendar date selection
-            const available = Array.from(calendarDates);
-            if (available.length > 0) {
-              const current = document.querySelector('.calendar-date.selected');
-              if (current) current.classList.remove('selected');
-              if (goingForward) {
-                available[Math.floor(Math.random() * available.length)].classList.add('selected');
-              }
-            }
+            // Keep the pre-selected dates (today + 2 days from now) - don't change them
             // Reset gauge if going back to step 1
             const gaugeFill = document.getElementById('gauge-fill');
             const gaugeMarker = document.getElementById('gauge-marker');
@@ -2787,8 +2875,10 @@
             item.classList.remove('visible', 'selected');
           });
 
-          // Reset calendar
-          calendarDates.forEach(date => date.classList.remove('selected'));
+          // Reset calendar - regenerate with proper dates and restart animation
+          generateCalendar();
+          if (dateAnimationInterval) clearInterval(dateAnimationInterval);
+          startDateAnimation();
 
           // Reset AI gauge
           const gaugeFill = document.getElementById('gauge-fill');

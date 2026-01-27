@@ -770,7 +770,9 @@
       .footer {
         transform: scale(0.75);
         transform-origin: top center;
+        margin-bottom: -25%; /* Compensate for scale whitespace */
       }
+      .cta-section { padding: 60px 20px; }
       .footer-email-link { display: none !important; }
       .footer-grid {
         grid-template-columns: 1fr repeat(4, 1fr) !important;
@@ -1310,7 +1312,7 @@
           <input type="hidden" name="_subject" id="form-subject" value="New Application: Position">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" id="form-next" value="">
+          <input type="hidden" name="_next" id="form-next" value="https://birthmodel.com/thank-you.html?type=application">
           <input type="hidden" name="Position" id="form-position" value="">
           
           <div class="form-group">
