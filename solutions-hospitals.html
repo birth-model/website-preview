@@ -777,10 +777,12 @@
           display: none;
         }
       }
-      /* Keep two-column layout for scroll sections - always show animations */
-      .staff-scroll-section .solution-grid {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 40px;
+      /* Keep two-column layout for scroll sections - always show animations (desktop only) */
+      @media (min-width: 769px) {
+        .staff-scroll-section .solution-grid {
+          grid-template-columns: 1fr 1fr !important;
+          gap: 40px;
+        }
       }
       .staff-scroll-section .solution-inner {
         max-width: 1300px;
@@ -1557,16 +1559,18 @@
           display: none;
         }
       }
-      /* Keep two-column layout for scroll sections - always show animations */
-      .unit-scroll-section .solution-grid,
-      .unit-scroll-section > .unit-sticky-container > .solution-inner > div[style*="grid"] {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 40px;
+      /* Keep two-column layout for scroll sections - always show animations (desktop only) */
+      @media (min-width: 769px) {
+        .unit-scroll-section .solution-grid,
+        .unit-scroll-section > .unit-sticky-container > .solution-inner > div[style*="grid"] {
+          grid-template-columns: 1fr 1fr !important;
+          gap: 40px;
+        }
       }
       .unit-scroll-section .solution-inner {
         max-width: 1300px;
       }
-      @media (max-width: 1200px) {
+      @media (max-width: 1200px) and (min-width: 769px) {
         .unit-scroll-section .solution-grid,
         .unit-scroll-section > .unit-sticky-container > .solution-inner > div[style*="grid"] {
           gap: 20px;
@@ -2154,16 +2158,18 @@
           display: none;
         }
       }
-      /* Keep two-column layout for scroll sections - always show animations */
-      .quality-scroll-section .solution-grid,
-      .quality-scroll-section > .quality-sticky-container > .solution-inner > div[style*="grid"] {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 40px;
+      /* Keep two-column layout for scroll sections - always show animations (desktop only) */
+      @media (min-width: 769px) {
+        .quality-scroll-section .solution-grid,
+        .quality-scroll-section > .quality-sticky-container > .solution-inner > div[style*="grid"] {
+          grid-template-columns: 1fr 1fr !important;
+          gap: 40px;
+        }
       }
       .quality-scroll-section .solution-inner {
         max-width: 1300px;
       }
-      @media (max-width: 1200px) {
+      @media (max-width: 1200px) and (min-width: 769px) {
         .quality-scroll-section .solution-grid,
         .quality-scroll-section > .quality-sticky-container > .solution-inner > div[style*="grid"] {
           gap: 20px;
