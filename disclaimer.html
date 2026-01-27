@@ -120,7 +120,7 @@
       border-left: 4px solid var(--bm-coral);
     }
     .warning-box p {
-      margin-bottom: 0;
+      margin-bottom: -12%;
       color: var(--bm-dark-teal);
     }
     .warning-box p:not(:last-child) {
@@ -139,7 +139,7 @@
       color: var(--bm-dark-teal);
     }
     .info-box p {
-      margin-bottom: 0;
+      margin-bottom: -12%;
     }
 
     /* Footer */
@@ -252,9 +252,9 @@
     /* Mobile footer adjustments - zoom out to 75% in portrait */
     @media (max-width: 1024px) {
       .footer {
-        transform: scale(0.75);
+        transform: scale(0.85);
         transform-origin: top center;
-        margin-bottom: -25%; /* Compensate for scale whitespace */
+        margin-bottom: -12%; /* No compensation needed - footer is last element for scale whitespace */
       }
       .cta-section { padding: 60px 20px; }
       .footer-email-link { display: none !important; }

@@ -253,7 +253,7 @@
         font-size: 22px;
         margin-bottom: 12px;
       }
-      .benefit-title { font-size: 14px; margin-bottom: 0; }
+      .benefit-title { font-size: 14px; margin-bottom: -12%; }
       .benefit-desc { display: none; }
     }
 
@@ -673,9 +673,9 @@
     @media (max-width: 1024px) {
       .cta-section { padding: 60px 20px; }
       .footer {
-        transform: scale(0.6);
+        transform: scale(0.85);
         transform-origin: top center;
-        margin-bottom: -40%;
+        margin-bottom: -12%;
         padding: 50px 20px 20px;
       }
       .footer-inner { max-width: 100%; }
@@ -1832,7 +1832,7 @@
       .booking-bento {
         position: relative;
         width: 100%;
-        min-height: 620px;
+        min-height: 520px;
         padding-bottom: 20px;
       }
       .booking-bento-grid {
@@ -2347,10 +2347,9 @@
           justify-content: center;
         }
         .booking-bento {
-          transform: scale(0.75);
+          transform: scale(0.85);
           transform-origin: top center;
-          margin: 0 auto -15%;
-          min-height: auto;
+          margin: 0 auto;
         }
       }
 
@@ -2601,32 +2600,6 @@
 
         generateCalendar();
 
-        // Animate cycling through available dates
-        let dateAnimationInterval;
-        function startDateAnimation() {
-          const availableDates = document.querySelectorAll('.calendar-date.available:not(.today), .calendar-date.limited');
-          const todayEl = document.querySelector('.calendar-date.today');
-          let currentIndex = 0;
-
-          dateAnimationInterval = setInterval(() => {
-            // Remove selected from all except today's dot
-            document.querySelectorAll('.calendar-date.selected').forEach(el => {
-              if (!el.classList.contains('today')) {
-                el.classList.remove('selected');
-              }
-            });
-
-            // Add selected to current date in rotation
-            if (availableDates.length > 0) {
-              availableDates[currentIndex].classList.add('selected');
-              currentIndex = (currentIndex + 1) % availableDates.length;
-            }
-          }, 1500);
-        }
-
-        // Start animation after a short delay
-        setTimeout(startDateAnimation, 1000);
-
         const section = document.getElementById('booking-section');
         const bentoCards = {
           calendar: document.getElementById('bento-calendar'),
@@ -2875,10 +2848,8 @@
             item.classList.remove('visible', 'selected');
           });
 
-          // Reset calendar - regenerate with proper dates and restart animation
+          // Reset calendar - regenerate with proper dates
           generateCalendar();
-          if (dateAnimationInterval) clearInterval(dateAnimationInterval);
-          startDateAnimation();
 
           // Reset AI gauge
           const gaugeFill = document.getElementById('gauge-fill');
