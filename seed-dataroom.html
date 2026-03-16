@@ -1384,6 +1384,14 @@
     const INVESTORS_KEY = 'dataroom_investors';
     const ACCESS_LOG_KEY = 'dataroom_access_log';
 
+    // ===== HARDCODED INVESTORS (works for all users) =====
+    // Add investors here in the format: { email: 'email@example.com', password: 'accesscode', name: 'Full Name' }
+    const HARDCODED_INVESTORS = [
+      { email: 'sophie@amboystreet.com', password: 'birthmodel-amboy', name: 'Sophie Reynolds' },
+      { email: 'anish@birthmodel.com', password: 'birthmodel-admin', name: 'Anish Shah' },
+      { email: 'john@waterlineventures.com', password: 'birthmodel-waterline', name: 'John Curtin' },
+    ];
+
     // ===== ACCESS CONTROL =====
     const accessGate = document.getElementById('access-gate');
     const dataroom = document.getElementById('dataroom');
@@ -1417,14 +1425,23 @@
     // Validate access against investor list
     function validateAccess(email, password) {
       const emailLower = email.toLowerCase().trim();
-      const investors = getInvestors();
 
-      // Find investor with matching email and password
-      const investor = investors.find(inv =>
+      // First check hardcoded investors (works for everyone)
+      const hardcodedInvestor = HARDCODED_INVESTORS.find(inv =>
         inv.email.toLowerCase() === emailLower && inv.password === password
       );
 
-      return investor || null;
+      if (hardcodedInvestor) {
+        return hardcodedInvestor;
+      }
+
+      // Then check localStorage investors (for admin-added investors on same device)
+      const investors = getInvestors();
+      const localInvestor = investors.find(inv =>
+        inv.email.toLowerCase() === emailLower && inv.password === password
+      );
+
+      return localInvestor || null;
     }
 
     // Show data room
