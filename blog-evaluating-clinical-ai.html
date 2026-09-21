@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="BM_App_Icon.png">
 
-  <title>AI-Powered Clinical Documentation: The End of Pajama Time — Birth Model Blog</title>
+  <title>Questions to Ask Before You Deploy Predictive AI in L&D — Birth Model Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="nav.css">
   <style>
@@ -40,29 +40,14 @@
     .article-inner p { font-size: 17px; color: var(--bm-black); margin-bottom: 24px; }
     .article-inner h2 { font-size: 26px; font-weight: 900; color: var(--bm-dark-teal); margin: 40px 0 20px; }
     .article-inner h3 { font-size: 20px; font-weight: 900; color: var(--bm-dark-teal); margin: 32px 0 16px; }
-    .article-inner ul, .article-inner ol { margin: 0 0 24px 24px; }
+    .article-inner ul { margin: 0 0 24px 24px; }
     .article-inner li { font-size: 16px; color: var(--bm-black); margin-bottom: 10px; }
     .article-inner strong { color: var(--bm-dark-teal); }
     
-    .compare-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
-    .compare-box { border-radius: 16px; padding: 24px; }
-    .compare-box.without { background: var(--bm-coral-light); border: 2px solid rgba(255, 118, 96, 0.3); }
-    .compare-box.with { background: var(--bm-teal-light); border: 2px solid var(--bm-teal); }
-    .compare-box .title { font-size: 12px; font-weight: 900; margin-bottom: 10px; }
-    .compare-box.without .title { color: var(--bm-coral); }
-    .compare-box.with .title { color: var(--bm-dark-teal); }
-    .compare-box .time { font-size: 32px; font-weight: 900; line-height: 1; margin-bottom: 8px; }
-    .compare-box.without .time { color: var(--bm-coral); }
-    .compare-box.with .time { color: var(--bm-dark-teal); }
-    .compare-box .desc { font-size: 12px; color: var(--bm-gray); }
-    
-    .doc-preview { background: var(--bm-light-gray); border-radius: 16px; padding: 24px; margin: 30px 0; border: 1px solid var(--bm-border); }
-    .doc-preview-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--bm-border); }
-    .doc-preview-title { font-size: 12px; font-weight: 900; color: var(--bm-dark-teal); }
-    .doc-preview-badge { background: var(--bm-teal); color: var(--bm-dark-teal); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 4px; }
-    .doc-preview-content { font-size: 12px; color: var(--bm-black); font-family: monospace; line-height: 1.8; }
-    .doc-preview-content .field { color: var(--bm-gray); }
-    .doc-preview-content .value { color: var(--bm-dark-teal); font-weight: 600; }
+    .trend-box { background: var(--bm-teal-light); border-radius: 16px; padding: 24px; margin: 20px 0; border-left: 4px solid var(--bm-teal); }
+    .trend-box .trend-number { font-size: 12px; font-weight: 900; color: var(--bm-coral); margin-bottom: 8px; }
+    .trend-box .trend-title { font-size: 18px; font-weight: 900; color: var(--bm-dark-teal); margin-bottom: 8px; }
+    .trend-box .trend-desc { font-size: 12px; color: var(--bm-gray); }
     
     .article-cta { background: var(--bm-dark-teal); border-radius: 20px; padding: 40px; margin: 50px 0; text-align: center; }
     .article-cta h3 { font-size: 24px; font-weight: 900; color: white; margin-bottom: 10px; }
@@ -77,7 +62,7 @@
     .footer-copy { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: rgba(255,255,255,0.5); }
     
     @media (max-width: 768px) { .nav-links { display: none; }
-      .nav-hamburger { display: flex; } .compare-boxes { grid-template-columns: 1fr; } .footer-content { flex-direction: column; gap: 20px; text-align: center; } }
+      .nav-hamburger { display: flex; } .footer-content { flex-direction: column; gap: 20px; text-align: center; } }
 
     /* Footer */
     .footer {
@@ -280,15 +265,15 @@
     <div class="article-header-inner">
       <a href="blogs.html" class="back-link">← Back to all Blogs</a>
       <div class="article-meta">
-        <span class="article-tag">AI Documentation</span>
-        <span class="article-tag">Provider Wellness</span>
+        <span class="article-tag">AI in Obstetrics</span>
+        <span class="article-tag">Governance</span>
       </div>
-      <h1 class="article-title">AI-Powered Clinical Documentation: The End of Pajama Time</h1>
+      <h1 class="article-title">Questions to Ask Before You Deploy Predictive AI in L&D</h1>
       <div class="article-author">
         <div class="author-avatar">AS</div>
         <div class="author-info">
           <h4>Anish J. Shah, MD, FACOG</h4>
-          <p>September 15, 2024 • 7 min read</p>
+          <p>August 5, 2026 • 9 min read</p>
         </div>
       </div>
     </div>
@@ -297,106 +282,104 @@
   <article class="article-content">
     <div class="article-inner">
       <p>
-        Every OB-GYN knows the feeling: you've just delivered a baby at 2 AM, the patient is doing well, and all you want to do is go home. But first, there's the delivery note. The procedure summary. The billing codes. Documentation that will take another 30 minutes of clicking, typing, and template-filling.
-      </p>
-      
-      <p>
-        This is "pajama time," the hours physicians spend at home completing clinical documentation that couldn't be finished during patient care. It's a major contributor to burnout, and it represents billions of dollars of physician time across the healthcare system.
+        Every health system evaluating predictive AI for Labor &amp; Delivery eventually sits through the same demo. A dashboard lights up, a risk score appears next to a patient's name, and someone in the room asks the only question that matters: should we believe it?
       </p>
 
-      <h2>The Documentation Burden</h2>
-      
       <p>
-        Studies consistently show that physicians spend approximately <strong>two hours on EHR documentation for every one hour of direct patient care</strong>. For OB-GYNs, the burden is particularly acute:
-      </p>
-      
-      <ul>
-        <li>Delivery notes require extensive detail about labor progression, interventions, and outcomes</li>
-        <li>Operative reports for C-sections must document surgical technique precisely</li>
-        <li>Billing codes must accurately reflect the complexity of care provided</li>
-        <li>Handoff documentation ensures continuity when providers change shifts</li>
-      </ul>
-
-      <h2>How AI Diagnotes Works</h2>
-      
-      <p>
-        Birth Model's Diagnotes feature uses AI to generate clinical documentation automatically from EHR data. Here's how it works:
-      </p>
-      
-      <h3>1. Automatic Data Collection</h3>
-      <p>
-        As the patient progresses through labor and delivery, all relevant data (vital signs, cervical exams, medications, interventions) flows into Birth Model through our FHIR integration.
-      </p>
-      
-      <h3>2. AI-Generated Draft</h3>
-      <p>
-        When the delivery is complete, Diagnotes automatically generates a comprehensive delivery note that includes all required elements in the appropriate format.
-      </p>
-      
-      <h3>3. Intelligent Code Suggestions</h3>
-      <p>
-        The AI analyzes the clinical scenario and suggests appropriate ICD-10 and CPT codes, reducing coding errors and ensuring providers are reimbursed for the care they provide.
-      </p>
-      
-      <h3>4. Provider Review</h3>
-      <p>
-        The provider reviews the AI-generated draft, makes any necessary edits, and signs off. What once took 30+ minutes now takes under 5.
+        There is now a structured way to answer that. ONC's HTI-1 rule created a certification criterion for Decision Support Interventions that requires certified health IT developers to publish a defined set of source attributes for every predictive model they supply: how it was trained, on whom, how it was validated, and how it should be maintained. Certified developers have been subject to it since January 1, 2025.
       </p>
 
-      <div class="compare-boxes">
-        <div class="compare-box without">
-          <div class="title">Without AI Documentation</div>
-          <div class="time">30+ min</div>
-          <div class="desc">Manual note writing, template filling, code lookup for each delivery</div>
-        </div>
-        <div class="compare-box with">
-          <div class="title">With Birth Model Diagnotes</div>
-          <div class="time">5 min</div>
-          <div class="desc">Review AI-generated draft, edit if needed, sign off</div>
-        </div>
+      <p>
+        Most AI tools sold into L&amp;D are not themselves certified health IT. That does not make the attribute list irrelevant. It makes it the best available buyer's checklist: a set of questions a vendor with a defensible model can answer and a vendor without one cannot.
+      </p>
+
+      <h2>The Questions That Separate Real Models from Demos</h2>
+
+      <h3>What population was this trained on, and does it look like ours?</h3>
+
+      <p>
+        Ask for the training cohort in specifics: number of deliveries, date range, number and type of sites, payer mix, nulliparous share, induction rate, baseline cesarean rate, and racial and ethnic composition. A model trained entirely at academic quaternary centers will behave differently on a community unit with 900 deliveries a year and no in-house maternal-fetal medicine.
+      </p>
+
+      <p>
+        The follow-up matters more than the answer: <em>has it been validated on a population like ours, and can we see those results separately?</em> Training data and validation data are different claims, and vendors sometimes present one as the other.
+      </p>
+
+      
+      <div class="trend-box">
+        <div class="trend-number">RED FLAG</div>
+        <div class="trend-title">&ldquo;It learns your site automatically&rdquo;</div>
+        <div class="trend-desc">Local adaptation is a genuine feature. It is not a substitute for external validation. If a vendor cannot show performance at a site they did not train on, you are being asked to run the validation study yourself, on your patients, without a protocol.</div>
       </div>
 
-      <h2>Sample AI-Generated Note</h2>
+
+      <h3>What exactly does it predict, and at what moment?</h3>
+
+      <p>
+        "Predicts adverse outcomes" is not a specification. A usable answer names the outcome, the prediction horizon, and the decision it is meant to inform. For example: probability of cesarean delivery given the labor course as of this hour, or probability of postpartum hemorrhage exceeding a defined blood loss threshold at the time of delivery.
+      </p>
+
+      <p>
+        Vague outcome definitions are not just a documentation problem. They make it impossible to audit the model later, because you cannot count events you never defined.
+      </p>
+
+      <h3>How was performance measured, and was calibration measured at all?</h3>
+
+      <p>
+        Nearly every vendor will quote discrimination, usually an AUC. Far fewer will show calibration, which is the property that actually determines whether a number can be acted on. A model with an AUC of 0.82 that systematically overstates risk by a factor of two will generate a steady stream of interventions that were never warranted, and clinicians will learn to ignore it within a month.
+      </p>
+
+      <p>
+        Ask for a calibration plot. Ask for sensitivity and positive predictive value at the specific threshold the product ships with. Ask what fraction of patients cross that threshold. The alert rate is the number that determines whether your nurses will tolerate the tool.
+      </p>
+
+      <h3>Does performance hold across subgroups?</h3>
+
+      <p>
+        Maternal outcomes carry well-documented disparities, and a model trained on historical care patterns can learn them. Ask for performance stratified by race and ethnicity, payer, parity, and BMI. A vendor who has not run that analysis has not finished building the product.
+      </p>
+
+      <p>
+        Pay particular attention to any input that encodes access to care rather than physiology. Prior prenatal visit count, for instance, is predictive precisely because it reflects who was able to get care.
+      </p>
+
+      <h3>How will we know if it drifts?</h3>
+
+      <p>
+        A model deployed in 2026 sees a different population in 2028: different induction practices, different guidelines, a different documentation template upstream. Ask what is monitored, how often, who reviews it, and what triggers retraining or withdrawal. Then ask for the monitoring output to be contractually available to you, not just to the vendor.
+      </p>
+
       
-      <div class="doc-preview">
-        <div class="doc-preview-header">
-          <div class="doc-preview-title">Delivery Summary - AI Generated</div>
-          <div class="doc-preview-badge">Diagnotes</div>
-        </div>
-        <div class="doc-preview-content">
-          <span class="field">Patient:</span> <span class="value">Garcia, Maria</span><br>
-          <span class="field">DOB:</span> <span class="value">04/15/1992</span><br>
-          <span class="field">Delivery Date/Time:</span> <span class="value">01/12/2026 14:32</span><br>
-          <span class="field">Gestational Age:</span> <span class="value">39w2d</span><br>
-          <span class="field">Delivery Type:</span> <span class="value">NSVD</span><br>
-          <span class="field">Birth Weight:</span> <span class="value">3,420g</span><br>
-          <span class="field">APGARs:</span> <span class="value">8/9</span><br>
-          <span class="field">EBL:</span> <span class="value">350mL</span><br>
-          <span class="field">Laceration:</span> <span class="value">2nd degree, repaired</span><br><br>
-          <span class="field">Suggested ICD-10:</span> <span class="value">O80, Z37.0</span><br>
-          <span class="field">Suggested CPT:</span> <span class="value">59400</span>
-        </div>
+      <div class="trend-box">
+        <div class="trend-number">THE GOVERNANCE QUESTION</div>
+        <div class="trend-title">Who owns the decision to turn it off?</div>
+        <div class="trend-desc">Before go-live, name the committee that reviews performance, the interval at which they review it, and the threshold at which the tool gets disabled. Organizations that do not decide this in advance tend to leave underperforming models running, because by then the tool has users.</div>
       </div>
 
-      <h2>The Revenue Impact</h2>
-      
+
+      <h2>What Good Looks Like in Practice</h2>
+
       <p>
-        Beyond time savings, accurate documentation directly impacts hospital revenue. Studies show that <strong>5-15% of potential revenue is lost to documentation deficiencies</strong>, either through undercoding, missing charges, or claim denials.
-      </p>
-      
-      <p>
-        Diagnotes' intelligent coding suggestions help ensure that the complexity of care is accurately reflected in billing, reducing lost revenue while eliminating the friction of manual code lookup.
+        A vendor who has done the work will hand you a model card without being asked, will distinguish training from validation cohorts unprompted, will show calibration alongside discrimination, will name the failure modes, and will tell you which patients the model should not be used on.
       </p>
 
-      <h2>Handoff Automation</h2>
-      
       <p>
-        Documentation isn't just about billing. It's about communication. Birth Model also automates handoff documentation, generating comprehensive summaries for shift changes that include all relevant clinical information, pending tasks, and risk factors.
+        A vendor who has not will answer in AUCs and adjectives.
+      </p>
+
+      <h2>One More Thing to Evaluate</h2>
+
+      <p>
+        Accuracy is necessary and not sufficient. The model also has to arrive somewhere a clinician is already looking, at a time when the decision is still open, with enough context to act on. A perfectly calibrated prediction delivered in a separate portal that nobody logs into has an effective accuracy of zero.
+      </p>
+
+      <p>
+        Evaluate the integration with the same rigor as the algorithm. That is usually where these deployments succeed or quietly fail.
       </p>
 
       <div class="article-cta">
-        <h3>Eliminate Pajama Time</h3>
-        <p>See how AI-powered documentation can give you back hours of your life every week.</p>
+        <h3>Ask us these questions</h3>
+        <p>We will walk through our training cohorts, validation results, calibration, and subgroup performance in detail.</p>
         <a href="demo.html" class="btn">Schedule a Demo</a>
       </div>
     </div>

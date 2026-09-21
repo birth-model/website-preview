@@ -193,9 +193,10 @@
     
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-bottom: 60px;
+      max-width: 1000px;
+      margin: 0 auto 60px;
     }
     .team-card {
       background: white;
@@ -231,11 +232,13 @@
     .advisors-header { text-align: center; margin: 20px 0 30px; }
     .advisors-header h3 { font-size: 22px; font-weight: 900; color: var(--bm-dark-teal); }
     .advisors-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
     }
     .advisor-card {
+      flex: 0 0 calc(25% - 15px);
       background: white;
       border-radius: 14px;
       padding: 20px;
@@ -505,10 +508,10 @@
 
       /* Advisor cards - 4 columns on mobile */
       .advisors-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
         gap: 8px !important;
       }
       .advisor-card {
+        flex: 0 0 calc(25% - 6px) !important;
         padding: 10px 6px !important;
         min-height: auto !important;
         height: auto !important;
@@ -619,31 +622,49 @@
           <div class="team-avatar">AS</div>
           <h3 class="team-name">Anish J. Shah, MD, FACOG</h3>
           <div class="team-role">CEO, Founder</div>
-          <p class="team-bio">Board Certified OBGYN at Penn Medicine Princeton Medical Center. Cornell Neurobio + Math/CS. Harvard AI in Healthcare. <span style="white-space: nowrap;">4,000+ deliveries.</span></p>
+          <p class="team-bio">Board Certified OBGYN at Penn Medicine Princeton Medical Center. Cornell Neurobio + Math/CS. Harvard AI in Healthcare. <span style="white-space: nowrap;">4,000+ deliveries</span></p>
         </a>
 
         <a href="https://www.linkedin.com/in/maxguillet/" target="_blank" class="team-card reveal">
           <div class="team-avatar">MG</div>
           <h3 class="team-name">Max Guillet</h3>
           <div class="team-role">CTO</div>
-          <p class="team-bio">Vanderbilt University. Former Amazon and Microsoft. Full-stack engineering expertise.</p>
+          <p class="team-bio">Vanderbilt University. Former Amazon and Microsoft. Full-stack engineering expertise</p>
         </a>
         
-        <div class="team-card reveal">
-          <div class="team-avatar">NS</div>
-          <h3 class="team-name">Nishu Shah, MS</h3>
-          <div class="team-role">Dir. of Clinical Systems</div>
-          <p class="team-bio">Epic Certified. SAS Programming. EpicCare, Stork specialist.</p>
-        </div>
-        
-        <div class="team-card reveal">
-          <div class="team-avatar">TB</div>
-          <h3 class="team-name">Tony Brennan</h3>
-          <div class="team-role">Chief Commercial Officer</div>
-          <p class="team-bio">20+ years hospital and IDN sales experience in HealthTech and medical devices.</p>
-        </div>
+        <a href="https://www.linkedin.com/in/nishantvarma/" target="_blank" class="team-card reveal">
+          <div class="team-avatar">NV</div>
+          <h3 class="team-name">Nishant Verma</h3>
+          <div class="team-role">Head of Commercial Strategy</div>
+          <p class="team-bio">Director of Business Dev, CooperSurgical. Co-Founder of Fetal Pillow. Barclay's, Equity and Financial Analyst</p>
+        </a>
+
       </div>
       
+      <div class="advisors-header">
+        <h3>Senior Engineering</h3>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-avatar">LP</div>
+          <h3 class="team-name">Lion Petrenko</h3>
+          <div class="team-role">Founding Software Engineer</div>
+        </div>
+
+        <div class="team-card reveal">
+          <div class="team-avatar">JJ</div>
+          <h3 class="team-name">Jordan Janakievski</h3>
+          <div class="team-role">Founding Software Engineer</div>
+        </div>
+
+        <div class="team-card reveal">
+          <div class="team-avatar">GK</div>
+          <h3 class="team-name">George Karma</h3>
+          <div class="team-role">Lead Mobile Engineer</div>
+        </div>
+      </div>
+
       <div class="advisors-header">
         <h3>Our Advisory Board</h3>
       </div>
@@ -672,16 +693,12 @@
         <a href="https://www.linkedin.com/in/neeltshah/" target="_blank" class="advisor-card reveal">
           <h4 class="advisor-name">Neel Shah, MD, FACOG, MPP</h4>
           <div class="advisor-role">Clinical & Business Expansion Advisor</div>
-          <div class="advisor-background">CMO of Maven Clinic</div>
+          <div class="advisor-background">President, Healthy Moms, Healthy Babies America. Former CMO of Maven Clinic</div>
         </a>
         <div class="advisor-card reveal">
           <h4 class="advisor-name">Girish Navani</h4>
           <div class="advisor-role">Investor & Strategic Advisor</div>
           <div class="advisor-background">CEO, eClinicalWorks</div>
-        </div>
-        <div class="advisor-card reveal">
-          <h4 class="advisor-name">Yoav Cohen</h4>
-          <div class="advisor-role">Fractional CFO</div>
         </div>
         <div class="advisor-card reveal">
           <h4 class="advisor-name">Karam Shuaib, CPC</h4>
@@ -747,9 +764,9 @@
           <div class="patent-label">PCT No.</div>
           <div class="patent-number">US2022/074952</div>
         </div>
-        <a href="https://patents.google.com/patent/US20250372213A1/en" target="_blank" class="patent-item">
-          <div class="patent-label">Patent Pending No.</div>
-          <div class="patent-number">18,680,780</div>
+        <a href="https://thepatentplace.com/iplibrary/patent-pdf/12670974/" target="_blank" class="patent-item">
+          <div class="patent-label">Patent No.</div>
+          <div class="patent-number">12,670,974</div>
         </a>
       </div>
     </div>
@@ -799,6 +816,7 @@
           <a href="https://apps.apple.com/us/app/birth-model/id6473621253" target="_blank">Apple App Store</a>
           <a href="https://play.google.com/store/apps/details?id=com.birthmodel.provider" target="_blank">Google Play</a>
           <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
+          <a href="https://athenaconnect.athenahealth.com/marketplace/product/birth-model-inc" target="_blank">athenahealth Marketplace</a>
           <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
           <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
         </div>

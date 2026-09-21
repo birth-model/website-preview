@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="BM_App_Icon.png">
 
-  <title>AI-Powered Clinical Documentation: The End of Pajama Time — Birth Model Blog</title>
+  <title>Train Your L&D Team in Under an Hour with Birth Model's Knowledge Center — Birth Model Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="nav.css">
   <style>
@@ -23,8 +23,8 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Lato', sans-serif; background: var(--bm-cream); color: var(--bm-black); -webkit-font-smoothing: antialiased; line-height: 1.8; }
-    
-    .article-header { padding: 160px 40px 60px; background: linear-gradient(170deg, var(--bm-cream) 0%, var(--bm-teal-light) 100%); }
+
+    .article-header { padding: 160px 40px 60px; background: linear-gradient(170deg, var(--bm-cream) 0%, var(--bm-coral-light) 100%); }
     .article-header-inner { max-width: 800px; margin: 0 auto; }
     .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; color: var(--bm-coral); text-decoration: none; margin-bottom: 24px; }
     .article-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
@@ -34,50 +34,32 @@
     .author-avatar { width: 50px; height: 50px; background: var(--bm-teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: var(--bm-dark-teal); }
     .author-info h4 { font-size: 15px; font-weight: 900; color: var(--bm-dark-teal); }
     .author-info p { font-size: 12px; color: var(--bm-gray); }
-    
+
     .article-content { padding: 60px 40px; background: white; }
     .article-inner { max-width: 700px; margin: 0 auto; }
     .article-inner p { font-size: 17px; color: var(--bm-black); margin-bottom: 24px; }
     .article-inner h2 { font-size: 26px; font-weight: 900; color: var(--bm-dark-teal); margin: 40px 0 20px; }
-    .article-inner h3 { font-size: 20px; font-weight: 900; color: var(--bm-dark-teal); margin: 32px 0 16px; }
-    .article-inner ul, .article-inner ol { margin: 0 0 24px 24px; }
+    .article-inner ul { margin: 0 0 24px 24px; }
     .article-inner li { font-size: 16px; color: var(--bm-black); margin-bottom: 10px; }
     .article-inner strong { color: var(--bm-dark-teal); }
-    
-    .compare-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
-    .compare-box { border-radius: 16px; padding: 24px; }
-    .compare-box.without { background: var(--bm-coral-light); border: 2px solid rgba(255, 118, 96, 0.3); }
-    .compare-box.with { background: var(--bm-teal-light); border: 2px solid var(--bm-teal); }
-    .compare-box .title { font-size: 12px; font-weight: 900; margin-bottom: 10px; }
-    .compare-box.without .title { color: var(--bm-coral); }
-    .compare-box.with .title { color: var(--bm-dark-teal); }
-    .compare-box .time { font-size: 32px; font-weight: 900; line-height: 1; margin-bottom: 8px; }
-    .compare-box.without .time { color: var(--bm-coral); }
-    .compare-box.with .time { color: var(--bm-dark-teal); }
-    .compare-box .desc { font-size: 12px; color: var(--bm-gray); }
-    
-    .doc-preview { background: var(--bm-light-gray); border-radius: 16px; padding: 24px; margin: 30px 0; border: 1px solid var(--bm-border); }
-    .doc-preview-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--bm-border); }
-    .doc-preview-title { font-size: 12px; font-weight: 900; color: var(--bm-dark-teal); }
-    .doc-preview-badge { background: var(--bm-teal); color: var(--bm-dark-teal); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 4px; }
-    .doc-preview-content { font-size: 12px; color: var(--bm-black); font-family: monospace; line-height: 1.8; }
-    .doc-preview-content .field { color: var(--bm-gray); }
-    .doc-preview-content .value { color: var(--bm-dark-teal); font-weight: 600; }
-    
+    .article-inner blockquote { border-left: 4px solid var(--bm-coral); padding: 20px 30px; background: var(--bm-light-gray); border-radius: 0 12px 12px 0; margin: 30px 0; font-style: italic; color: var(--bm-dark-teal); }
+    .article-inner a { color: var(--bm-coral); text-decoration: none; font-weight: 700; }
+    .article-inner a:hover { text-decoration: underline; }
+
     .article-cta { background: var(--bm-dark-teal); border-radius: 20px; padding: 40px; margin: 50px 0; text-align: center; }
     .article-cta h3 { font-size: 24px; font-weight: 900; color: white; margin-bottom: 10px; }
     .article-cta p { font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
     .article-cta .btn { display: inline-flex; padding: 14px 28px; background: var(--bm-coral); color: white; text-decoration: none; border-radius: 12px; font-size: 12px; font-weight: 700; }
-    
+
     .footer { background: #0f2524; padding: 50px 40px 30px; color: white; }
     .footer-inner { max-width: 1100px; margin: 0 auto; }
     .footer-content { display: flex; justify-content: space-between; align-items: center; }
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; }
     .footer-copy { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: rgba(255,255,255,0.5); }
-    
+
     @media (max-width: 768px) { .nav-links { display: none; }
-      .nav-hamburger { display: flex; } .compare-boxes { grid-template-columns: 1fr; } .footer-content { flex-direction: column; gap: 20px; text-align: center; } }
+      .nav-hamburger { display: flex; } .footer-content { flex-direction: column; gap: 20px; text-align: center; } }
 
     /* Footer */
     .footer {
@@ -203,12 +185,12 @@
       color: #4ade80;
     }
     @media (max-width: 1024px) {
-      
+
     }
     @media (max-width: 768px) {
-      
-      
-      
+
+
+
       /* Mobile footer */
       .footer { padding: 40px 12px 20px; }
       .footer-inner { max-width: 100%; }
@@ -280,15 +262,15 @@
     <div class="article-header-inner">
       <a href="blogs.html" class="back-link">← Back to all Blogs</a>
       <div class="article-meta">
-        <span class="article-tag">AI Documentation</span>
-        <span class="article-tag">Provider Wellness</span>
+        <span class="article-tag">Platform Features</span>
+        <span class="article-tag">Training</span>
       </div>
-      <h1 class="article-title">AI-Powered Clinical Documentation: The End of Pajama Time</h1>
+      <h1 class="article-title">Train Your L&D Team in Under an Hour with Birth Model's Knowledge Center</h1>
       <div class="article-author">
         <div class="author-avatar">AS</div>
         <div class="author-info">
           <h4>Anish J. Shah, MD, FACOG</h4>
-          <p>September 15, 2024 • 7 min read</p>
+          <p>January 20, 2026 • 4 min read</p>
         </div>
       </div>
     </div>
@@ -297,106 +279,96 @@
   <article class="article-content">
     <div class="article-inner">
       <p>
-        Every OB-GYN knows the feeling: you've just delivered a baby at 2 AM, the patient is doing well, and all you want to do is go home. But first, there's the delivery note. The procedure summary. The billing codes. Documentation that will take another 30 minutes of clicking, typing, and template-filling.
-      </p>
-      
-      <p>
-        This is "pajama time," the hours physicians spend at home completing clinical documentation that couldn't be finished during patient care. It's a major contributor to burnout, and it represents billions of dollars of physician time across the healthcare system.
+        One of the most common concerns we hear from hospital administrators considering new technology is: <strong>"How long will it take to train our staff?"</strong> In busy L&D units where every minute counts, pulling clinicians away for lengthy training sessions isn't just inconvenient. It's often impossible.
       </p>
 
-      <h2>The Documentation Burden</h2>
-      
       <p>
-        Studies consistently show that physicians spend approximately <strong>two hours on EHR documentation for every one hour of direct patient care</strong>. For OB-GYNs, the burden is particularly acute:
+        That's why we built the <a href="https://birth-model.github.io/knowledgecenter/" target="_blank">Birth Model Knowledge Center</a>, an interactive learning platform that gets your team up and running in under an hour, with no scheduled training sessions required.
       </p>
-      
+
+      <h2>Self-Paced, On-Demand Learning</h2>
+
+      <p>
+        Traditional healthcare software training typically involves coordinating schedules, booking conference rooms, and sitting through hours of presentations. The Knowledge Center eliminates all of that. Our platform features <strong>14 interactive, animated demonstrations</strong> that clinicians can complete at their own pace, on their own schedule, whether that's during a slow night shift or a quick break between patients.
+      </p>
+
+      <p>
+        Each demonstration walks users through real workflows with:
+      </p>
+
       <ul>
-        <li>Delivery notes require extensive detail about labor progression, interventions, and outcomes</li>
-        <li>Operative reports for C-sections must document surgical technique precisely</li>
-        <li>Billing codes must accurately reflect the complexity of care provided</li>
-        <li>Handoff documentation ensures continuity when providers change shifts</li>
+        <li><strong>Animated walkthroughs</strong> showing exactly how features work in real-time</li>
+        <li><strong>Audio narration with subtitles</strong> so users can learn with or without sound</li>
+        <li><strong>Adjustable playback speeds</strong> (1x and 0.75x) to match each learner's pace</li>
+        <li><strong>Progress tracking</strong> so users can pick up right where they left off</li>
+        <li><strong>Clickable demo environments</strong> for hands-on exploration</li>
       </ul>
 
-      <h2>How AI Diagnotes Works</h2>
-      
+      <h2>Role-Based Training Paths</h2>
+
       <p>
-        Birth Model's Diagnotes feature uses AI to generate clinical documentation automatically from EHR data. Here's how it works:
-      </p>
-      
-      <h3>1. Automatic Data Collection</h3>
-      <p>
-        As the patient progresses through labor and delivery, all relevant data (vital signs, cervical exams, medications, interventions) flows into Birth Model through our FHIR integration.
-      </p>
-      
-      <h3>2. AI-Generated Draft</h3>
-      <p>
-        When the delivery is complete, Diagnotes automatically generates a comprehensive delivery note that includes all required elements in the appropriate format.
-      </p>
-      
-      <h3>3. Intelligent Code Suggestions</h3>
-      <p>
-        The AI analyzes the clinical scenario and suggests appropriate ICD-10 and CPT codes, reducing coding errors and ensuring providers are reimbursed for the care they provide.
-      </p>
-      
-      <h3>4. Provider Review</h3>
-      <p>
-        The provider reviews the AI-generated draft, makes any necessary edits, and signs off. What once took 30+ minutes now takes under 5.
+        Not everyone needs to learn the same features. A charge nurse has different responsibilities than a resident physician or an IT administrator. The Knowledge Center organizes content into <strong>role-based training tours</strong> tailored to each user type:
       </p>
 
-      <div class="compare-boxes">
-        <div class="compare-box without">
-          <div class="title">Without AI Documentation</div>
-          <div class="time">30+ min</div>
-          <div class="desc">Manual note writing, template filling, code lookup for each delivery</div>
-        </div>
-        <div class="compare-box with">
-          <div class="title">With Birth Model Diagnotes</div>
-          <div class="time">5 min</div>
-          <div class="desc">Review AI-generated draft, edit if needed, sign off</div>
-        </div>
-      </div>
+      <ul>
+        <li><strong>Nurses</strong>: Patient admission, labor tracking, handoff documentation, mobile notifications</li>
+        <li><strong>Physicians & Midwives</strong>: Delivery predictions, risk scoring, DiagNotes documentation</li>
+        <li><strong>Residents</strong>: Handoff formats, team coordination, overnight coverage workflows</li>
+        <li><strong>Administrators</strong>: Quality metrics dashboards, operational analytics</li>
+        <li><strong>IT Staff</strong>: Epic integration, system configuration, data flows</li>
+      </ul>
 
-      <h2>Sample AI-Generated Note</h2>
-      
-      <div class="doc-preview">
-        <div class="doc-preview-header">
-          <div class="doc-preview-title">Delivery Summary - AI Generated</div>
-          <div class="doc-preview-badge">Diagnotes</div>
-        </div>
-        <div class="doc-preview-content">
-          <span class="field">Patient:</span> <span class="value">Garcia, Maria</span><br>
-          <span class="field">DOB:</span> <span class="value">04/15/1992</span><br>
-          <span class="field">Delivery Date/Time:</span> <span class="value">01/12/2026 14:32</span><br>
-          <span class="field">Gestational Age:</span> <span class="value">39w2d</span><br>
-          <span class="field">Delivery Type:</span> <span class="value">NSVD</span><br>
-          <span class="field">Birth Weight:</span> <span class="value">3,420g</span><br>
-          <span class="field">APGARs:</span> <span class="value">8/9</span><br>
-          <span class="field">EBL:</span> <span class="value">350mL</span><br>
-          <span class="field">Laceration:</span> <span class="value">2nd degree, repaired</span><br><br>
-          <span class="field">Suggested ICD-10:</span> <span class="value">O80, Z37.0</span><br>
-          <span class="field">Suggested CPT:</span> <span class="value">59400</span>
-        </div>
-      </div>
-
-      <h2>The Revenue Impact</h2>
-      
       <p>
-        Beyond time savings, accurate documentation directly impacts hospital revenue. Studies show that <strong>5-15% of potential revenue is lost to documentation deficiencies</strong>, either through undercoding, missing charges, or claim denials.
-      </p>
-      
-      <p>
-        Diagnotes' intelligent coding suggestions help ensure that the complexity of care is accurately reflected in billing, reducing lost revenue while eliminating the friction of manual code lookup.
+        This means a nurse can complete their relevant training in about 30-45 minutes, focusing only on the workflows they'll actually use.
       </p>
 
-      <h2>Handoff Automation</h2>
-      
+      <h2>Built Right Into the Platform</h2>
+
       <p>
-        Documentation isn't just about billing. It's about communication. Birth Model also automates handoff documentation, generating comprehensive summaries for shift changes that include all relevant clinical information, pending tasks, and risk factors.
+        Here's what makes the Knowledge Center truly different: <strong>it's embedded directly within Birth Model itself</strong>. Users don't need to navigate to a separate training portal, remember another login, or switch between systems. Help is available right where they need it, accessible from patient charts, the Motherboard, and throughout the application.
+      </p>
+
+      <p>
+        When a nurse encounters a new feature or forgets how something works, the answer is one click away. This "just-in-time" learning approach means training happens in context, which dramatically improves retention compared to traditional upfront training sessions.
+      </p>
+
+      <h2>What Users Learn</h2>
+
+      <p>
+        The Knowledge Center covers every core workflow in Birth Model:
+      </p>
+
+      <ul>
+        <li><strong>Epic integration</strong>: How patient data flows seamlessly from your EHR</li>
+        <li><strong>Patient tracking</strong>: Monitoring labor progress, vitals, and labs in real-time</li>
+        <li><strong>Delivery predictions</strong>: Understanding and acting on AI-generated delivery windows</li>
+        <li><strong>Risk scoring</strong>: Interpreting PPH risk scores and responding to alerts</li>
+        <li><strong>Handoff documentation</strong>: Generating nursing and resident handoff reports</li>
+        <li><strong>DiagNotes</strong>: Using AI-assisted clinical documentation</li>
+        <li><strong>Mobile workflows</strong>: Managing notifications and completing documentation on mobile devices</li>
+        <li><strong>Quality dashboards</strong>: Tracking unit performance and outcomes metrics</li>
+      </ul>
+
+      <h2>The Result: Faster Go-Lives, Higher Adoption</h2>
+
+      <p>
+        Hospitals implementing Birth Model consistently report faster-than-expected go-lives and higher user adoption rates. When training is self-paced, role-specific, and embedded in the workflow, clinicians actually complete it, and retain what they learn.
+      </p>
+
+      <blockquote>
+        "We expected training to be a bottleneck. Instead, our nurses were comfortable with Birth Model within their first shift. The Knowledge Center made onboarding almost invisible."
+        <br><br>— L&D Nurse Manager
+      </blockquote>
+
+      <h2>Try It Yourself</h2>
+
+      <p>
+        Want to see how intuitive Birth Model really is? Explore the <a href="https://birth-model.github.io/knowledgecenter/" target="_blank">Knowledge Center</a> yourself. In just a few minutes, you'll understand why hospitals are able to deploy Birth Model with minimal disruption and maximum impact.
       </p>
 
       <div class="article-cta">
-        <h3>Eliminate Pajama Time</h3>
-        <p>See how AI-powered documentation can give you back hours of your life every week.</p>
+        <h3>Ready to Transform Your L&D?</h3>
+        <p>See how Birth Model can improve outcomes while making your team's lives easier.</p>
         <a href="demo.html" class="btn">Schedule a Demo</a>
       </div>
     </div>
@@ -422,7 +394,7 @@
             </a>
           </div>
         </div>
-        
+
         <div class="footer-col">
           <h4>Navigation</h4>
           <a href="index.html">Home</a>
@@ -430,7 +402,7 @@
           <a href="solutions-clinicians.html">For Clinicians</a>
           <a href="company.html">Company</a>
         </div>
-        
+
         <div class="footer-col">
           <h4>Platform</h4>
           <a href="https://apps.apple.com" target="_blank">Apple App Store</a>
@@ -440,7 +412,7 @@
           <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
           <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
         </div>
-        
+
         <div class="footer-col">
           <h4>Resources</h4>
           <a href="blogs.html">Blogs</a>
@@ -449,16 +421,15 @@
           <a href="implementation.html">Mobile Implementation</a>
           <a href="https://app.vanta.com/birthmodel/trust/pbt1stf4skwae09sr1wjf" target="_blank">Trust Center</a>
         </div>
-        
+
         <div class="footer-col">
           <h4>Contact</h4>
           <a href="demo.html">Request Demo</a>
           <a href="demo.html">Schedule Meeting</a>
-          <a href="
-    <a href="careers.html">Careers</a>
+          <a href="careers.html">Careers</a>
         </div>
       </div>
-      
+
             <div class="footer-bottom">
         <div class="footer-legal">
           <span>© 2026 Birth Model, Inc. All Rights Reserved.</span>
@@ -488,7 +459,7 @@
       mobileMenu.classList.toggle('active');
       document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     }
-    
+
     document.addEventListener('DOMContentLoaded', function() {
       // Responsive zoom adjustment based on device
       (function() {
