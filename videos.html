@@ -380,6 +380,18 @@
       .footer-brand-logo img { height: 24px; }
       .footer-brand p { font-size: 9px; max-width: 100%; margin-bottom: 10px; }
     }
+
+    /* Mobile layout fixes: collapse multi-column grids so nothing overflows
+       the viewport. Desktop layout is unchanged. */
+    @media (max-width: 768px) {
+      .videos-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* Mobile: never allow the page itself to scroll sideways */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden; max-width: 100%; }
+      img, svg, video, iframe { max-width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -392,6 +404,7 @@
       <div class="nav-links">
         <a href="solutions-hospitals.html" class="nav-link">For Hospitals</a>
         <a href="solutions-clinicians.html" class="nav-link">For Clinicians</a>
+        <a href="solutions-birth-centers.html" class="nav-link has-badge">For Birth Centers<span class="nav-badge">New!</span></a>
         <a href="company.html" class="nav-link">Company</a>
         <div class="nav-dropdown">
           <a href="#" class="nav-link">Resources ▾</a>
@@ -403,7 +416,7 @@
             <a href="careers.html" class="nav-dropdown-item">Careers</a>
           </div>
         </div>
-        <a href="https://provider.birthmodel.com" class="nav-login" target="_blank">Clinician Login</a>
+        <a href="https://app.birthmodel.com" class="nav-login" target="_blank">Clinician Login</a>
         <a href="demo.html" class="nav-cta">Schedule Demo</a>
       </div>
       <div class="nav-hamburger" onclick="toggleMobileMenu()">
@@ -419,13 +432,14 @@
     <a href="index.html">Home</a>
     <a href="solutions-hospitals.html">For Hospitals</a>
     <a href="solutions-clinicians.html">For Clinicians</a>
+    <a href="solutions-birth-centers.html">For Birth Centers<span class="nav-badge">New!</span></a>
     <a href="company.html">Company</a>
     <a href="blogs.html">Blogs</a>
     <a href="videos.html">Videos</a>
     <a href="roi-calculator.html">ROI Calculator</a>
     <a href="implementation.html">Mobile Implementation</a>
     <a href="careers.html">Careers</a>
-    <a href="https://provider.birthmodel.com" class="mobile-login" target="_blank">Clinician Login</a>
+    <a href="https://app.birthmodel.com" class="mobile-login" target="_blank">Clinician Login</a>
     <a href="demo.html" class="mobile-cta">Schedule Demo</a>
   </div>
 
@@ -525,6 +539,7 @@
           <a href="index.html">Home</a>
           <a href="solutions-hospitals.html">For Hospitals</a>
           <a href="solutions-clinicians.html">For Clinicians</a>
+          <a href="solutions-birth-centers.html">For Birth Centers</a>
           <a href="company.html">Company</a>
         </div>
         
@@ -534,7 +549,7 @@
           <a href="https://play.google.com/store/apps/details?id=com.birthmodel.provider" target="_blank">Google Play</a>
           <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
           <a href="https://athenaconnect.athenahealth.com/marketplace/product/birth-model-inc" target="_blank">athenahealth Marketplace</a>
-          <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
+          <a href="https://app.birthmodel.com/login" target="_blank">Cloud Platform</a>
           <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
         </div>
         

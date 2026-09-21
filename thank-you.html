@@ -356,6 +356,12 @@
     .thankyou-card[data-type="application"] .success-icon svg path {
       stroke: #22c55e;
     }
+
+    /* Mobile: never allow the page itself to scroll sideways */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden; max-width: 100%; }
+      img, svg, video, iframe { max-width: 100%; }
+    }
   </style>
 </head>
 <body>

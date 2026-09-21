@@ -85,6 +85,43 @@
   color: var(--bm-dark-teal);
 }
 
+/* "New!" badge, pinned to the top-right corner of a nav link */
+.nav-link.has-badge {
+  position: relative;
+}
+
+.nav-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  padding: 2px 7px;
+  background: var(--bm-coral);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  border-radius: 100px;
+  box-shadow: 0 2px 7px rgba(255, 118, 96, 0.45);
+  pointer-events: none;
+  white-space: nowrap;
+  animation: navBadgePulse 2.4s ease-in-out infinite;
+}
+
+@keyframes navBadgePulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.09); }
+}
+
+/* Mobile menu variant sits inline after the label instead of overlapping it */
+.mobile-menu a .nav-badge {
+  position: static;
+  margin-left: 8px;
+  animation: none;
+  vertical-align: middle;
+}
+
 /* Login Link - Button Styling */
 .nav-login,
 .nav-login:link,

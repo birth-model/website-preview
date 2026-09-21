@@ -1159,6 +1159,7 @@
     }
     .data-flow {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 0;
@@ -1167,6 +1168,52 @@
       border-radius: 24px;
       box-shadow: 0 10px 40px rgba(30, 61, 60, 0.08);
     }
+    .flow-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    /* athenahealth branch, hanging off the Birth Model hub */
+    .flow-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 4px;
+    }
+    .vpipe {
+      width: 4px;
+      height: 38px;
+      background: linear-gradient(180deg, var(--bm-teal), var(--bm-coral), var(--bm-teal));
+      border-radius: 2px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .vdata-dot {
+      position: absolute;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      margin-left: -4px;
+      border-radius: 50%;
+      background: var(--bm-coral);
+      animation: vFlowDot 3s ease-in-out infinite;
+    }
+    .vdot-1 { animation-delay: 0s; }
+    .vdot-2 { animation-delay: 1.5s; background: var(--bm-teal); }
+    @keyframes vFlowDot {
+      0%   { top: -4px; opacity: 0; }
+      20%  { opacity: 1; }
+      80%  { opacity: 1; }
+      100% { top: 34px; opacity: 0; }
+    }
+    .vpipe-arrows { margin-bottom: 12px; }
+    .athena-logo {
+      height: 22px;
+      width: auto;
+      max-width: 150px;
+    }
+    .athena-ehr { min-width: 170px; }
     .ehr-box {
       display: flex;
       flex-direction: column;
@@ -1669,6 +1716,12 @@
       .wayfarer-sidebar { display: none; }
                   .ehr-box { min-width: 90px; padding: 14px 16px; }
       .connection-pipe { min-width: 70px; }
+      .flow-row { flex-wrap: nowrap; }
+      .vpipe { height: 28px; }
+      .vpipe-arrows { margin-bottom: 8px; }
+      .athena-logo { height: 17px; max-width: 120px; }
+      .athena-ehr { min-width: 130px; }
+      .flow-branch { margin-top: 2px; }
       .integration-stats-row { grid-template-columns: 1fr 1fr; }
       .hero-title { font-size: 36px; }
       .hero-subtitle { font-size: 16px; }
@@ -1819,6 +1872,19 @@
       .demo-stats { padding: 12px 0; gap: 20px; }
       .demo-stat-value { font-size: 24px; }
     }
+
+    /* Mobile layout fixes: collapse multi-column grids so nothing overflows
+       the viewport. Desktop layout is unchanged. */
+    @media (max-width: 768px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr) !important; }
+      .unit-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .wayfarer-data-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* Mobile: never allow the page itself to scroll sideways */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden; max-width: 100%; }
+      img, svg, video, iframe { max-width: 100%; }
     }
   </style>
 </head>
@@ -1832,6 +1898,7 @@
       <div class="nav-links">
         <a href="solutions-hospitals.html" class="nav-link">For Hospitals</a>
         <a href="solutions-clinicians.html" class="nav-link">For Clinicians</a>
+        <a href="solutions-birth-centers.html" class="nav-link has-badge">For Birth Centers<span class="nav-badge">New!</span></a>
         <a href="company.html" class="nav-link">Company</a>
         <div class="nav-dropdown">
           <a href="#" class="nav-link">Resources ▾</a>
@@ -1843,7 +1910,7 @@
             <a href="careers.html" class="nav-dropdown-item">Careers</a>
           </div>
         </div>
-        <a href="https://provider.birthmodel.com" class="nav-login" target="_blank">Clinician Login</a>
+        <a href="https://app.birthmodel.com" class="nav-login" target="_blank">Clinician Login</a>
         <a href="demo.html" class="nav-cta">Schedule Demo</a>
       </div>
       <div class="nav-hamburger" onclick="toggleMobileMenu()">
@@ -1859,13 +1926,14 @@
     <a href="index.html">Home</a>
     <a href="solutions-hospitals.html">For Hospitals</a>
     <a href="solutions-clinicians.html">For Clinicians</a>
+    <a href="solutions-birth-centers.html">For Birth Centers<span class="nav-badge">New!</span></a>
     <a href="company.html">Company</a>
     <a href="blogs.html">Blogs</a>
     <a href="videos.html">Videos</a>
     <a href="roi-calculator.html">ROI Calculator</a>
     <a href="implementation.html">Mobile Implementation</a>
     <a href="careers.html">Careers</a>
-    <a href="https://provider.birthmodel.com" class="mobile-login" target="_blank">Clinician Login</a>
+    <a href="https://app.birthmodel.com" class="mobile-login" target="_blank">Clinician Login</a>
     <a href="demo.html" class="mobile-cta">Schedule Demo</a>
   </div>
 
@@ -2264,12 +2332,13 @@
     <div class="integration-inner">
       <div class="section-header reveal">
         <h2 class="section-title">Deep EHR Integration</h2>
-        <p class="section-subtitle">Birth Model connects bidirectionally with Epic and Oracle Health using HL7 FHIR and ADT protocols.</p>
+        <p class="section-subtitle">Birth Model connects bidirectionally with Epic, Oracle Health, and athenahealth using HL7 FHIR and ADT protocols. We also connect those systems to one another, assembling one continuous maternal health episode across every chart a patient touches.</p>
       </div>
-      
+
       <!-- Data Flow Diagram -->
       <div class="data-flow-container reveal">
         <div class="data-flow">
+        <div class="flow-row">
           <!-- Epic EHR -->
           <div class="ehr-box epic-ehr">
             <span style="position: relative; display: inline-block;"><img src="Epic_Logo.png" alt="Epic" class="ehr-logo"><span style="font-size: 6px; color: var(--bm-gray); position: absolute; top: 0; right: -12px;">TM</span></span>
@@ -2320,10 +2389,30 @@
             <span class="ehr-label">EHR System</span>
           </div>
         </div>
-        
+
+          <!-- Branch: athenahealth -->
+          <div class="flow-branch">
+            <div class="vpipe">
+              <div class="vdata-dot vdot-1"></div>
+              <div class="vdata-dot vdot-2"></div>
+            </div>
+            <div class="pipe-protocols">
+              <img src="HL7_FHIR_logo.webp" alt="HL7 FHIR" class="protocol-logo">
+            </div>
+            <div class="pipe-arrows vpipe-arrows">
+              <span class="arrow-left">&uarr;</span>
+              <span class="arrow-right">&darr;</span>
+            </div>
+            <div class="ehr-box athena-ehr">
+              <img src="athenahealth-logo.png" alt="athenahealth" class="ehr-logo athena-logo">
+              <span class="ehr-label">Practice EHR</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Flow Description -->
         <div class="flow-description">
-          <p>Patient data flows securely between your EHR and Birth Model in real-time</p>
+          <p>Patient data flows securely between every connected system and Birth Model in real time, linking the prenatal practice record to the delivery chart as one maternal health episode</p>
         </div>
       </div>
       
@@ -2446,6 +2535,7 @@
           <a href="index.html">Home</a>
           <a href="solutions-hospitals.html">For Hospitals</a>
           <a href="solutions-clinicians.html">For Clinicians</a>
+          <a href="solutions-birth-centers.html">For Birth Centers</a>
           <a href="company.html">Company</a>
         </div>
         
@@ -2455,7 +2545,7 @@
           <a href="https://play.google.com/store/apps/details?id=com.birthmodel.provider" target="_blank">Google Play</a>
           <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
           <a href="https://athenaconnect.athenahealth.com/marketplace/product/birth-model-inc" target="_blank">athenahealth Marketplace</a>
-          <a href="https://provider.birthmodel.com/login" target="_blank">Cloud Platform</a>
+          <a href="https://app.birthmodel.com/login" target="_blank">Cloud Platform</a>
           <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
         </div>
         
