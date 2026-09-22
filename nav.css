@@ -91,11 +91,15 @@
 }
 
 .nav-badge {
+  display: inline-block;
   position: absolute;
   top: -5px;
   right: -10px;
   padding: 2px 7px;
-  background: var(--bm-coral);
+  /* literal fallback first, so the pill still renders if the custom
+     property is unavailable for any reason */
+  background: #ff7660;
+  background: var(--bm-coral, #ff7660);
   color: #ffffff;
   font-size: 9px;
   font-weight: 900;
@@ -116,8 +120,16 @@
 
 /* Mobile menu variant sits inline after the label instead of overlapping it */
 .mobile-menu a .nav-badge {
+  display: inline-block;
   position: static;
-  margin-left: 8px;
+  top: auto;
+  right: auto;
+  margin-left: 10px;
+  padding: 3px 9px;
+  font-size: 10px;
+  color: #ffffff;
+  background: #ff7660;
+  background: var(--bm-coral, #ff7660);
   animation: none;
   vertical-align: middle;
 }

@@ -7,7 +7,7 @@
 
   <title>The 90-Day CPT 2027 Countdown: An OB Revenue Cycle Readiness Checklist — Birth Model Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="nav.css?v=2">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -425,7 +425,7 @@
           <a href="https://showroom.epic.com/Search?q=birth%20model" target="_blank">Epic Showroom</a>
           <a href="https://athenaconnect.athenahealth.com/marketplace/product/birth-model-inc" target="_blank">athenahealth Marketplace</a>
           <a href="https://app.birthmodel.com/login" target="_blank">Cloud Platform</a>
-          <a href="https://provider.birthmodel.com/motherboard" target="_blank">Motherboard</a>
+          <a href="https://board.birthmodel.com" target="_blank">Motherboard</a>
         </div>
         
         <div class="footer-col">
@@ -441,8 +441,8 @@
           <h4>Contact</h4>
           <a href="demo.html">Request Demo</a>
           <a href="demo.html">Schedule Meeting</a>
-          <a href="
-    <a href="careers.html">Careers</a>
+          <a href="mailto:support@birthmodel.com" class="footer-email-link">support@birthmodel.com</a>
+          <a href="careers.html">Careers</a>
         </div>
       </div>
       
@@ -487,8 +487,9 @@
         // Desktop (large screens > 1366px): Full zoom
         const isDesktop = screenWidth > 1366 && screenHeight > 900;
         // Tablet (medium screens 768-1366px)
-        const isTablet = (screenWidth >= 768 && screenWidth <= 1366) ||
-                         (screenHeight >= 768 && screenHeight <= 1366);
+        // Width only. The old version also matched on height, which made every
+        // phone (screen height 844+) look like a tablet and get scaled to 0.85.
+        const isTablet = screenWidth >= 768 && screenWidth <= 1366;
 
         if (isDesktop) {
           viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, minimum-scale=1.0');

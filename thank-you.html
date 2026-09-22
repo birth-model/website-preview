@@ -10,7 +10,7 @@
   <meta name="robots" content="noindex, nofollow">
 
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="nav.css?v=2">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -574,8 +574,9 @@
         // Desktop (large screens > 1366px): Full zoom
         const isDesktop = screenWidth > 1366 && screenHeight > 900;
         // Tablet (medium screens 768-1366px)
-        const isTablet = (screenWidth >= 768 && screenWidth <= 1366) ||
-                         (screenHeight >= 768 && screenHeight <= 1366);
+        // Width only. The old version also matched on height, which made every
+        // phone (screen height 844+) look like a tablet and get scaled to 0.85.
+        const isTablet = screenWidth >= 768 && screenWidth <= 1366;
 
         if (isDesktop) {
           viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, minimum-scale=1.0');
